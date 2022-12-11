@@ -11,7 +11,7 @@ defi-cli help | while read line ; do
 	if [[ "$firstword" == "==" ]]
 	then
 		topic=${arr[1]}
-		echo "[$topic](#$topic)"
+		echo "[$topic](#$topic)\\"
 	fi		
 done
 }
@@ -19,7 +19,9 @@ done
 help()
 {
 defi-cli --version
+echo
 toc
+echo
 
 defi-cli help| while read line ; do
 	[ -z "$line" ] && continue  # ignore empty line
