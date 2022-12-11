@@ -32,8 +32,9 @@ defi-cli help| while read line ; do
 		topic=${arr[1]}
 		echo "## $topic"
 	else
-		echo "<details><summary>$line</summary><p>"
-		defi-cli help $firstword | sed ':a;N;$!ba;s/\n/<br>\n/g'
+		style='"font-family: monospace;"'
+		echo "<details><summary>$line</summary><p style=$style>"
+		defi-cli help $firstword | sed ':a;N;$!ba;s/\n/  \n/g'
 		echo "</p></details>"
 		echo
 	fi		
