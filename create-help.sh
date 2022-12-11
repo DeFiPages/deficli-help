@@ -32,8 +32,8 @@ defi-cli help| while read line ; do
 		topic=${arr[1]}
 		echo "## $topic"
 	else
-		style='"font-family: monospace;"'
-		echo "<details><summary>$line</summary><p style=$style>"
+		echo "<details><summary>$line</summary><p>"
+		#append two spaces for markdown linebreak at end of every line.
 		defi-cli help $firstword | sed ':a;N;$!ba;s/\n/  \n/g'
 		echo "</p></details>"
 		echo

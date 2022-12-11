@@ -22,7 +22,7 @@ DeFi Blockchain RPC client version v3.1.1
 [Zmq](#Zmq)
 
 ## Accounts
-<details><summary>accounthistorycount ( "owner" {"no_rewards":bool,"token":"str","txtype":"str"} )</summary><p style="font-family: monospace;">
+<details><summary>accounthistorycount ( "owner" {"no_rewards":bool,"token":"str","txtype":"str"} )</summary><p>
 accounthistorycount ( "owner" {"no_rewards":bool,"token":"str","txtype":"str"} )  
   
 Returns count of account history.  
@@ -45,7 +45,7 @@ Examples:
 
 </p></details>
 
-<details><summary>accounttoaccount "from" {"address":"str"} ( [{"txid":"hex","vout":n},...] )</summary><p style="font-family: monospace;">
+<details><summary>accounttoaccount "from" {"address":"str"} ( [{"txid":"hex","vout":n},...] )</summary><p>
 accounttoaccount "from" {"address":"str"} ( [{"txid":"hex","vout":n},...] )  
   
 Creates (and submits to local node and network) a transfer transaction from the specified account to the specfied accounts.  
@@ -75,7 +75,7 @@ Examples:
 
 </p></details>
 
-<details><summary>accounttoutxos "from" {"address":"str"} ( [{"txid":"hex","vout":n},...] )</summary><p style="font-family: monospace;">
+<details><summary>accounttoutxos "from" {"address":"str"} ( [{"txid":"hex","vout":n},...] )</summary><p>
 accounttoutxos "from" {"address":"str"} ( [{"txid":"hex","vout":n},...] )  
   
 Creates (and submits to local node and network) a transfer transaction from the specified account to UTXOs.  
@@ -106,7 +106,7 @@ Examples:
 
 </p></details>
 
-<details><summary>executesmartcontract "name" "amount" ( "address" [{"txid":"hex","vout":n},...] )</summary><p style="font-family: monospace;">
+<details><summary>executesmartcontract "name" "amount" ( "address" [{"txid":"hex","vout":n},...] )</summary><p>
 executesmartcontract "name" "amount" ( "address" [{"txid":"hex","vout":n},...] )  
   
 Creates and sends a transaction to either fund or execute a smart contract. Available contracts: dbtcdfiswap  
@@ -134,7 +134,7 @@ Examples:
 
 </p></details>
 
-<details><summary>futureswap "address" "amount" ( "destination" [{"txid":"hex","vout":n},...] )</summary><p style="font-family: monospace;">
+<details><summary>futureswap "address" "amount" ( "destination" [{"txid":"hex","vout":n},...] )</summary><p>
 futureswap "address" "amount" ( "destination" [{"txid":"hex","vout":n},...] )  
   
 Creates and submits to the network a futures contract  
@@ -164,7 +164,7 @@ Examples:
 
 </p></details>
 
-<details><summary>getaccount "owner" ( {"start":"str","including_start":bool,"limit":n} indexed_amounts )</summary><p style="font-family: monospace;">
+<details><summary>getaccount "owner" ( {"start":"str","including_start":bool,"limit":n} indexed_amounts )</summary><p>
 getaccount "owner" ( {"start":"str","including_start":bool,"limit":n} indexed_amounts )  
   
 Returns information about account.  
@@ -187,7 +187,7 @@ Examples:
 
 </p></details>
 
-<details><summary>getaccounthistory "owner" blockHeight txn</summary><p style="font-family: monospace;">
+<details><summary>getaccounthistory "owner" blockHeight txn</summary><p>
 getaccounthistory "owner" blockHeight txn  
   
 Returns information about account history.  
@@ -206,7 +206,7 @@ Examples:
 
 </p></details>
 
-<details><summary>getburninfo</summary><p style="font-family: monospace;">
+<details><summary>getburninfo</summary><p>
 getburninfo  
   
 Returns burn address and burnt coin and token information.  
@@ -230,7 +230,7 @@ Examples:
 
 </p></details>
 
-<details><summary>getpendingdusdswaps "address"</summary><p style="font-family: monospace;">
+<details><summary>getpendingdusdswaps "address"</summary><p>
 getpendingdusdswaps "address"  
 Get specific pending DFI-to-DUSD swap.  
   
@@ -248,7 +248,7 @@ Examples:
 
 </p></details>
 
-<details><summary>getpendingfutureswaps "address"</summary><p style="font-family: monospace;">
+<details><summary>getpendingfutureswaps "address"</summary><p>
 getpendingfutureswaps "address"  
 Get specific pending futures.  
   
@@ -270,7 +270,7 @@ Examples:
 
 </p></details>
 
-<details><summary>gettokenbalances ( {"start":"str","including_start":bool,"limit":n} indexed_amounts symbol_lookup )</summary><p style="font-family: monospace;">
+<details><summary>gettokenbalances ( {"start":"str","including_start":bool,"limit":n} indexed_amounts symbol_lookup )</summary><p>
 gettokenbalances ( {"start":"str","including_start":bool,"limit":n} indexed_amounts symbol_lookup )  
   
 Returns the balances of all accounts that belong to the wallet.  
@@ -293,7 +293,7 @@ Examples:
 
 </p></details>
 
-<details><summary>listaccounthistory ( "owner" {"maxBlockHeight":n,"depth":n,"no_rewards":bool,"token":"str","txtype":"str","limit":n,"txn":n,"format":"str"} )</summary><p style="font-family: monospace;">
+<details><summary>listaccounthistory ( "owner" {"maxBlockHeight":n,"depth":n,"no_rewards":bool,"token":"str","txtype":"str","limit":n,"txn":n,"format":"str"} )</summary><p>
 listaccounthistory ( "owner" {"maxBlockHeight":n,"depth":n,"no_rewards":bool,"token":"str","txtype":"str","limit":n,"txn":n,"format":"str"} )  
   
 Returns information about account history.  
@@ -321,7 +321,7 @@ Examples:
 
 </p></details>
 
-<details><summary>listaccounts ( {"start":"str","including_start":bool,"limit":n} verbose indexed_amounts is_mine_only )</summary><p style="font-family: monospace;">
+<details><summary>listaccounts ( {"start":"str","including_start":bool,"limit":n} verbose indexed_amounts is_mine_only )</summary><p>
 listaccounts ( {"start":"str","including_start":bool,"limit":n} verbose indexed_amounts is_mine_only )  
   
 Returns information about all accounts on chain.  
@@ -347,7 +347,7 @@ Examples:
 
 </p></details>
 
-<details><summary>listburnhistory ( {"maxBlockHeight":n,"depth":n,"token":"str","txtype":"str","limit":n} )</summary><p style="font-family: monospace;">
+<details><summary>listburnhistory ( {"maxBlockHeight":n,"depth":n,"token":"str","txtype":"str","limit":n} )</summary><p>
 listburnhistory ( {"maxBlockHeight":n,"depth":n,"token":"str","txtype":"str","limit":n} )  
   
 Returns information about burn history.  
@@ -371,7 +371,7 @@ Examples:
 
 </p></details>
 
-<details><summary>listcommunitybalances</summary><p style="font-family: monospace;">
+<details><summary>listcommunitybalances</summary><p>
 listcommunitybalances  
   
 Returns information about all community balances.  
@@ -385,7 +385,7 @@ Examples:
 
 </p></details>
 
-<details><summary>listpendingdusdswaps</summary><p style="font-family: monospace;">
+<details><summary>listpendingdusdswaps</summary><p>
 listpendingdusdswaps  
 Get all pending DFI-to_DUSD swaps.  
   
@@ -401,7 +401,7 @@ Examples:
 
 </p></details>
 
-<details><summary>listpendingfutureswaps</summary><p style="font-family: monospace;">
+<details><summary>listpendingfutureswaps</summary><p>
 listpendingfutureswaps  
 Get all pending futures.  
   
@@ -419,7 +419,7 @@ Examples:
 
 </p></details>
 
-<details><summary>sendtokenstoaddress {"address":"str"} {"address":"str"} ( "selectionMode" )</summary><p style="font-family: monospace;">
+<details><summary>sendtokenstoaddress {"address":"str"} {"address":"str"} ( "selectionMode" )</summary><p>
 sendtokenstoaddress {"address":"str"} {"address":"str"} ( "selectionMode" )  
   
 Creates (and submits to local node and network) a transfer transaction from your accounts balances (may be picked manualy or autoselected) to the specfied accounts.  
@@ -451,7 +451,7 @@ Examples:
 
 </p></details>
 
-<details><summary>sendutxosfrom "from" "to" amount ( "change" )</summary><p style="font-family: monospace;">
+<details><summary>sendutxosfrom "from" "to" amount ( "change" )</summary><p>
 sendutxosfrom "from" "to" amount ( "change" )  
   
 Send a transaction using UTXOs from the specfied address.  
@@ -473,7 +473,7 @@ Examples:
 
 </p></details>
 
-<details><summary>utxostoaccount {"address":"str"} ( [{"txid":"hex","vout":n},...] )</summary><p style="font-family: monospace;">
+<details><summary>utxostoaccount {"address":"str"} ( [{"txid":"hex","vout":n},...] )</summary><p>
 utxostoaccount {"address":"str"} ( [{"txid":"hex","vout":n},...] )  
   
 Creates (and submits to local node and network) a transfer transaction from the wallet UTXOs to specfied account.  
@@ -502,7 +502,7 @@ Examples:
 
 </p></details>
 
-<details><summary>withdrawfutureswap "address" "amount" ( "destination" [{"txid":"hex","vout":n},...] )</summary><p style="font-family: monospace;">
+<details><summary>withdrawfutureswap "address" "amount" ( "destination" [{"txid":"hex","vout":n},...] )</summary><p>
 withdrawfutureswap "address" "amount" ( "destination" [{"txid":"hex","vout":n},...] )  
   
 Creates and submits to the network a withdrawal from futures contract transaction.  
@@ -532,7 +532,7 @@ Examples:
 </p></details>
 
 ## Blockchain
-<details><summary>clearmempool</summary><p style="font-family: monospace;">
+<details><summary>clearmempool</summary><p>
 clearmempool  
   
 Clears the memory pool and returns a list of the removed transactions.  
@@ -549,7 +549,7 @@ Examples:
 
 </p></details>
 
-<details><summary>getbestblockhash</summary><p style="font-family: monospace;">
+<details><summary>getbestblockhash</summary><p>
 getbestblockhash  
   
 Returns the hash of the best (tip) block in the most-work fully-validated chain.  
@@ -563,7 +563,7 @@ Examples:
 
 </p></details>
 
-<details><summary>getblock "blockhash" ( verbosity )</summary><p style="font-family: monospace;">
+<details><summary>getblock "blockhash" ( verbosity )</summary><p>
 getblock "blockhash" ( verbosity )  
   
 If verbosity is 0, returns a string that is serialized, hex-encoded data for block 'hash'.  
@@ -621,7 +621,7 @@ Examples:
 
 </p></details>
 
-<details><summary>getblockchaininfo</summary><p style="font-family: monospace;">
+<details><summary>getblockchaininfo</summary><p>
 getblockchaininfo  
 Returns an object containing various state info regarding blockchain processing.  
   
@@ -671,7 +671,7 @@ Examples:
 
 </p></details>
 
-<details><summary>getblockcount</summary><p style="font-family: monospace;">
+<details><summary>getblockcount</summary><p>
 getblockcount  
   
 Returns the height of the most-work fully-validated chain.  
@@ -686,7 +686,7 @@ Examples:
 
 </p></details>
 
-<details><summary>getblockfilter "blockhash" ( "filtertype" )</summary><p style="font-family: monospace;">
+<details><summary>getblockfilter "blockhash" ( "filtertype" )</summary><p>
 getblockfilter "blockhash" ( "filtertype" )  
   
 Retrieve a BIP 157 content filter for a particular block.  
@@ -706,7 +706,7 @@ Examples:
 
 </p></details>
 
-<details><summary>getblockhash height</summary><p style="font-family: monospace;">
+<details><summary>getblockhash height</summary><p>
 getblockhash height  
   
 Returns hash of block in best-block-chain at height provided.  
@@ -723,7 +723,7 @@ Examples:
 
 </p></details>
 
-<details><summary>getblockheader "blockhash" ( verbose )</summary><p style="font-family: monospace;">
+<details><summary>getblockheader "blockhash" ( verbose )</summary><p>
 getblockheader "blockhash" ( verbose )  
   
 If verbose is false, returns a string that is serialized, hex-encoded data for blockheader 'hash'.  
@@ -761,7 +761,7 @@ Examples:
 
 </p></details>
 
-<details><summary>getblockstats hash_or_height ( stats )</summary><p style="font-family: monospace;">
+<details><summary>getblockstats hash_or_height ( stats )</summary><p>
 getblockstats hash_or_height ( stats )  
   
 Compute per block statistics for a given window. All amounts are in satoshis.  
@@ -821,7 +821,7 @@ Examples:
 
 </p></details>
 
-<details><summary>getchaintips</summary><p style="font-family: monospace;">
+<details><summary>getchaintips</summary><p>
 getchaintips  
 Return information about all known tips in the block tree, including the main chain as well as orphaned branches.  
   
@@ -853,7 +853,7 @@ Examples:
 
 </p></details>
 
-<details><summary>getchaintxstats ( nblocks "blockhash" )</summary><p style="font-family: monospace;">
+<details><summary>getchaintxstats ( nblocks "blockhash" )</summary><p>
 getchaintxstats ( nblocks "blockhash" )  
   
 Compute statistics about the total number and rate of transactions in the chain.  
@@ -880,7 +880,7 @@ Examples:
 
 </p></details>
 
-<details><summary>getdifficulty</summary><p style="font-family: monospace;">
+<details><summary>getdifficulty</summary><p>
 getdifficulty  
   
 Returns the proof-of-work difficulty as a multiple of the minimum difficulty.  
@@ -894,7 +894,7 @@ Examples:
 
 </p></details>
 
-<details><summary>getgov "name"</summary><p style="font-family: monospace;">
+<details><summary>getgov "name"</summary><p>
 getgov "name"  
   
 Returns information about governance variable:  
@@ -913,7 +913,7 @@ Examples:
 
 </p></details>
 
-<details><summary>getmempoolancestors "txid" ( verbose )</summary><p style="font-family: monospace;">
+<details><summary>getmempoolancestors "txid" ( verbose )</summary><p>
 getmempoolancestors "txid" ( verbose )  
   
 If txid is in the mempool, returns all in-mempool ancestors.  
@@ -968,7 +968,7 @@ Examples:
 
 </p></details>
 
-<details><summary>getmempooldescendants "txid" ( verbose )</summary><p style="font-family: monospace;">
+<details><summary>getmempooldescendants "txid" ( verbose )</summary><p>
 getmempooldescendants "txid" ( verbose )  
   
 If txid is in the mempool, returns all in-mempool descendants.  
@@ -1023,7 +1023,7 @@ Examples:
 
 </p></details>
 
-<details><summary>getmempoolentry "txid"</summary><p style="font-family: monospace;">
+<details><summary>getmempoolentry "txid"</summary><p>
 getmempoolentry "txid"  
   
 Returns mempool data for given transaction  
@@ -1069,7 +1069,7 @@ Examples:
 
 </p></details>
 
-<details><summary>getmempoolinfo</summary><p style="font-family: monospace;">
+<details><summary>getmempoolinfo</summary><p>
 getmempoolinfo  
   
 Returns details on the active state of the TX memory pool.  
@@ -1091,7 +1091,7 @@ Examples:
 
 </p></details>
 
-<details><summary>getrawmempool ( verbose )</summary><p style="font-family: monospace;">
+<details><summary>getrawmempool ( verbose )</summary><p>
 getrawmempool ( verbose )  
   
 Returns all transaction ids in memory pool as a json array of string transaction ids.  
@@ -1147,7 +1147,7 @@ Examples:
 
 </p></details>
 
-<details><summary>gettxout "txid" n ( include_mempool )</summary><p style="font-family: monospace;">
+<details><summary>gettxout "txid" n ( include_mempool )</summary><p>
 gettxout "txid" n ( include_mempool )  
   
 Returns details about an unspent transaction output.  
@@ -1188,7 +1188,7 @@ As a JSON-RPC call
 
 </p></details>
 
-<details><summary>gettxoutproof ["txid",...] ( "blockhash" )</summary><p style="font-family: monospace;">
+<details><summary>gettxoutproof ["txid",...] ( "blockhash" )</summary><p>
 gettxoutproof ["txid",...] ( "blockhash" )  
   
 Returns a hex-encoded proof that "txid" was included in a block.  
@@ -1211,7 +1211,7 @@ Result:
 
 </p></details>
 
-<details><summary>gettxoutsetinfo</summary><p style="font-family: monospace;">
+<details><summary>gettxoutsetinfo</summary><p>
 gettxoutsetinfo  
   
 Returns statistics about the unspent transaction output set.  
@@ -1235,7 +1235,7 @@ Examples:
 
 </p></details>
 
-<details><summary>isappliedcustomtx "txid" blockHeight</summary><p style="font-family: monospace;">
+<details><summary>isappliedcustomtx "txid" blockHeight</summary><p>
 isappliedcustomtx "txid" blockHeight  
   
 Checks that custom transaction was affected on chain  
@@ -1253,7 +1253,7 @@ Examples:
 
 </p></details>
 
-<details><summary>listgovs ( "prefix" )</summary><p style="font-family: monospace;">
+<details><summary>listgovs ( "prefix" )</summary><p>
 listgovs ( "prefix" )  
   
 Returns information about all governance variables including pending changes  
@@ -1278,7 +1278,7 @@ Examples:
 
 </p></details>
 
-<details><summary>listsmartcontracts</summary><p style="font-family: monospace;">
+<details><summary>listsmartcontracts</summary><p>
 listsmartcontracts  
   
 Returns information on smart contracts  
@@ -1295,7 +1295,7 @@ Examples:
 
 </p></details>
 
-<details><summary>preciousblock "blockhash"</summary><p style="font-family: monospace;">
+<details><summary>preciousblock "blockhash"</summary><p>
 preciousblock "blockhash"  
   
 Treats a block as if it were received before others with the same work.  
@@ -1313,7 +1313,7 @@ Examples:
 
 </p></details>
 
-<details><summary>pruneblockchain height</summary><p style="font-family: monospace;">
+<details><summary>pruneblockchain height</summary><p>
 pruneblockchain height  
   
 Arguments:  
@@ -1329,7 +1329,7 @@ Examples:
 
 </p></details>
 
-<details><summary>savemempool</summary><p style="font-family: monospace;">
+<details><summary>savemempool</summary><p>
 savemempool  
   
 Dumps the mempool to disk. It will fail until the previous dump is fully loaded.  
@@ -1340,7 +1340,7 @@ Examples:
 
 </p></details>
 
-<details><summary>scantxoutset "action" [scanobjects,...]</summary><p style="font-family: monospace;">
+<details><summary>scantxoutset "action" [scanobjects,...]</summary><p>
 scantxoutset "action" [scanobjects,...]  
   
 EXPERIMENTAL warning: this call may be removed or changed in future releases.  
@@ -1392,7 +1392,7 @@ Result:
 
 </p></details>
 
-<details><summary>setgov {"name":"str"} ( [{"txid":"hex","vout":n},...] )</summary><p style="font-family: monospace;">
+<details><summary>setgov {"name":"str"} ( [{"txid":"hex","vout":n},...] )</summary><p>
 setgov {"name":"str"} ( [{"txid":"hex","vout":n},...] )  
   
 Set special 'governance' variables:: ATTRIBUTES, ICX_TAKERFEE_PER_BTC, LP_LOAN_TOKEN_SPLITS, LP_SPLITS, ORACLE_BLOCK_INTERVAL, ORACLE_DEVIATION  
@@ -1420,7 +1420,7 @@ Examples:
 
 </p></details>
 
-<details><summary>setgovheight {"name":"str"} height ( [{"txid":"hex","vout":n},...] )</summary><p style="font-family: monospace;">
+<details><summary>setgovheight {"name":"str"} height ( [{"txid":"hex","vout":n},...] )</summary><p>
 setgovheight {"name":"str"} height ( [{"txid":"hex","vout":n},...] )  
   
 Change governance variable at height: ATTRIBUTES, ICX_TAKERFEE_PER_BTC, LP_LOAN_TOKEN_SPLITS, LP_SPLITS, ORACLE_DEVIATION  
@@ -1449,7 +1449,7 @@ Examples:
 
 </p></details>
 
-<details><summary>unsetgov {"name":"str"} ( [{"txid":"hex","vout":n},...] )</summary><p style="font-family: monospace;">
+<details><summary>unsetgov {"name":"str"} ( [{"txid":"hex","vout":n},...] )</summary><p>
 unsetgov {"name":"str"} ( [{"txid":"hex","vout":n},...] )  
   
 Unset special 'governance' variables:: ATTRIBUTES, ICX_TAKERFEE_PER_BTC, LP_LOAN_TOKEN_SPLITS, LP_SPLITS, ORACLE_BLOCK_INTERVAL, ORACLE_DEVIATION  
@@ -1477,7 +1477,7 @@ Examples:
 
 </p></details>
 
-<details><summary>verifychain ( checklevel nblocks )</summary><p style="font-family: monospace;">
+<details><summary>verifychain ( checklevel nblocks )</summary><p>
 verifychain ( checklevel nblocks )  
   
 Verifies blockchain database.  
@@ -1495,7 +1495,7 @@ Examples:
 
 </p></details>
 
-<details><summary>verifytxoutproof "proof"</summary><p style="font-family: monospace;">
+<details><summary>verifytxoutproof "proof"</summary><p>
 verifytxoutproof "proof"  
   
 Verifies that a proof points to a transaction in a block, returning the transaction it commits to  
@@ -1510,7 +1510,7 @@ Result:
 </p></details>
 
 ## Control
-<details><summary>getmemoryinfo ( "mode" )</summary><p style="font-family: monospace;">
+<details><summary>getmemoryinfo ( "mode" )</summary><p>
 getmemoryinfo ( "mode" )  
 Returns an object containing information about memory usage.  
   
@@ -1540,7 +1540,7 @@ Examples:
 
 </p></details>
 
-<details><summary>getrpcinfo</summary><p style="font-family: monospace;">
+<details><summary>getrpcinfo</summary><p>
 getrpcinfo  
   
 Returns details of the RPC server.  
@@ -1563,7 +1563,7 @@ Examples:
 
 </p></details>
 
-<details><summary>help ( "command" )</summary><p style="font-family: monospace;">
+<details><summary>help ( "command" )</summary><p>
 help ( "command" )  
   
 List all commands, or get help for a specified command.  
@@ -1576,7 +1576,7 @@ Result:
 
 </p></details>
 
-<details><summary>logging ( ["include_category",...] ["exclude_category",...] )</summary><p style="font-family: monospace;">
+<details><summary>logging ( ["include_category",...] ["exclude_category",...] )</summary><p>
 logging ( ["include_category",...] ["exclude_category",...] )  
 Gets and sets the logging configuration.  
 When called without an argument, returns the list of categories with status that are currently being debug logged or not.  
@@ -1612,13 +1612,13 @@ Examples:
 
 </p></details>
 
-<details><summary>stop</summary><p style="font-family: monospace;">
+<details><summary>stop</summary><p>
 stop  
   
 Stop Defi server.
 </p></details>
 
-<details><summary>uptime</summary><p style="font-family: monospace;">
+<details><summary>uptime</summary><p>
 uptime  
   
 Returns the total uptime of the server.  
@@ -1633,7 +1633,7 @@ Examples:
 </p></details>
 
 ## Generating
-<details><summary>generatetoaddress nblocks "address" ( maxtries )</summary><p style="font-family: monospace;">
+<details><summary>generatetoaddress nblocks "address" ( maxtries )</summary><p>
 generatetoaddress nblocks "address" ( maxtries )  
   
 Mine blocks immediately to a specified address (before the RPC call returns)  
@@ -1656,7 +1656,7 @@ If you are running the DeFi Blockchain wallet, you can get a new address to send
 </p></details>
 
 ## Icxorderbook
-<details><summary>icx_claimdfchtlc ( {"dfchtlcTx":"str","seed":"str"} [{"txid":"hex","vout":n},...] )</summary><p style="font-family: monospace;">
+<details><summary>icx_claimdfchtlc ( {"dfchtlcTx":"str","seed":"str"} [{"txid":"hex","vout":n},...] )</summary><p>
 icx_claimdfchtlc ( {"dfchtlcTx":"str","seed":"str"} [{"txid":"hex","vout":n},...] )  
   
 EXPERIMENTAL warning: ICX and Atomic Swap are experimental features. You might end up losing your funds. USE IT AT YOUR OWN RISK.  
@@ -1690,7 +1690,7 @@ EXPERIMENTAL warning: ICX and Atomic Swap are experimental features. You might e
 
 </p></details>
 
-<details><summary>icx_closeoffer "offerTx" ( [{"txid":"hex","vout":n},...] )</summary><p style="font-family: monospace;">
+<details><summary>icx_closeoffer "offerTx" ( [{"txid":"hex","vout":n},...] )</summary><p>
 icx_closeoffer "offerTx" ( [{"txid":"hex","vout":n},...] )  
   
 EXPERIMENTAL warning: ICX and Atomic Swap are experimental features. You might end up losing your funds. USE IT AT YOUR OWN RISK.  
@@ -1720,7 +1720,7 @@ EXPERIMENTAL warning: ICX and Atomic Swap are experimental features. You might e
 
 </p></details>
 
-<details><summary>icx_closeorder "orderTx" ( [{"txid":"hex","vout":n},...] )</summary><p style="font-family: monospace;">
+<details><summary>icx_closeorder "orderTx" ( [{"txid":"hex","vout":n},...] )</summary><p>
 icx_closeorder "orderTx" ( [{"txid":"hex","vout":n},...] )  
   
 EXPERIMENTAL warning: ICX and Atomic Swap are experimental features. You might end up losing your funds. USE IT AT YOUR OWN RISK.  
@@ -1750,7 +1750,7 @@ EXPERIMENTAL warning: ICX and Atomic Swap are experimental features. You might e
 
 </p></details>
 
-<details><summary>icx_createorder {"tokenFrom|chainFrom":"str","chainTo|tokenTo":"str","ownerAddress":"str","receivePubkey":"str","amountFrom":n,"orderPrice":n,"expiry":n} ( [{"txid":"hex","vout":n},...] )</summary><p style="font-family: monospace;">
+<details><summary>icx_createorder {"tokenFrom|chainFrom":"str","chainTo|tokenTo":"str","ownerAddress":"str","receivePubkey":"str","amountFrom":n,"orderPrice":n,"expiry":n} ( [{"txid":"hex","vout":n},...] )</summary><p>
 icx_createorder {"tokenFrom|chainFrom":"str","chainTo|tokenTo":"str","ownerAddress":"str","receivePubkey":"str","amountFrom":n,"orderPrice":n,"expiry":n} ( [{"txid":"hex","vout":n},...] )  
   
 EXPERIMENTAL warning: ICX and Atomic Swap are experimental features. You might end up losing your funds. USE IT AT YOUR OWN RISK.  
@@ -1790,7 +1790,7 @@ EXPERIMENTAL warning: ICX and Atomic Swap are experimental features. You might e
 
 </p></details>
 
-<details><summary>icx_getorder "orderTx"</summary><p style="font-family: monospace;">
+<details><summary>icx_getorder "orderTx"</summary><p>
 icx_getorder "orderTx"  
   
 EXPERIMENTAL warning: ICX and Atomic Swap are experimental features. You might end up losing your funds. USE IT AT YOUR OWN RISK.  
@@ -1809,7 +1809,7 @@ Examples:
 
 </p></details>
 
-<details><summary>icx_listhtlcs {"offerTx":"str","limit":n,"closed":bool}</summary><p style="font-family: monospace;">
+<details><summary>icx_listhtlcs {"offerTx":"str","limit":n,"closed":bool}</summary><p>
 icx_listhtlcs {"offerTx":"str","limit":n,"closed":bool}  
   
 EXPERIMENTAL warning: ICX and Atomic Swap are experimental features. You might end up losing your funds. USE IT AT YOUR OWN RISK.  
@@ -1834,7 +1834,7 @@ EXPERIMENTAL warning: ICX and Atomic Swap are experimental features. You might e
 
 </p></details>
 
-<details><summary>icx_listorders ( {"token":n,"chain":n,"orderTx":"str","limit":n,"closed":bool} )</summary><p style="font-family: monospace;">
+<details><summary>icx_listorders ( {"token":n,"chain":n,"orderTx":"str","limit":n,"closed":bool} )</summary><p>
 icx_listorders ( {"token":n,"chain":n,"orderTx":"str","limit":n,"closed":bool} )  
   
 EXPERIMENTAL warning: ICX and Atomic Swap are experimental features. You might end up losing your funds. USE IT AT YOUR OWN RISK.  
@@ -1864,7 +1864,7 @@ EXPERIMENTAL warning: ICX and Atomic Swap are experimental features. You might e
 
 </p></details>
 
-<details><summary>icx_makeoffer ( {"orderTx":"str","amount":n,"ownerAddress":"str","receivePubkey":"str","expiry":n} [{"txid":"hex","vout":n},...] )</summary><p style="font-family: monospace;">
+<details><summary>icx_makeoffer ( {"orderTx":"str","amount":n,"ownerAddress":"str","receivePubkey":"str","expiry":n} [{"txid":"hex","vout":n},...] )</summary><p>
 icx_makeoffer ( {"orderTx":"str","amount":n,"ownerAddress":"str","receivePubkey":"str","expiry":n} [{"txid":"hex","vout":n},...] )  
   
 EXPERIMENTAL warning: ICX and Atomic Swap are experimental features. You might end up losing your funds. USE IT AT YOUR OWN RISK.  
@@ -1902,7 +1902,7 @@ EXPERIMENTAL warning: ICX and Atomic Swap are experimental features. You might e
 
 </p></details>
 
-<details><summary>icx_submitdfchtlc ( {"offerTx":"str","amount":n,"hash":"str","timeout":n} [{"txid":"hex","vout":n},...] )</summary><p style="font-family: monospace;">
+<details><summary>icx_submitdfchtlc ( {"offerTx":"str","amount":n,"hash":"str","timeout":n} [{"txid":"hex","vout":n},...] )</summary><p>
 icx_submitdfchtlc ( {"offerTx":"str","amount":n,"hash":"str","timeout":n} [{"txid":"hex","vout":n},...] )  
   
 EXPERIMENTAL warning: ICX and Atomic Swap are experimental features. You might end up losing your funds. USE IT AT YOUR OWN RISK.  
@@ -1938,7 +1938,7 @@ EXPERIMENTAL warning: ICX and Atomic Swap are experimental features. You might e
 
 </p></details>
 
-<details><summary>icx_submitexthtlc ( {"offerTx":"str","amount":n,"htlcScriptAddress":"str","hash":"str","ownerPubkey":"str","timeout":n} [{"txid":"hex","vout":n},...] )</summary><p style="font-family: monospace;">
+<details><summary>icx_submitexthtlc ( {"offerTx":"str","amount":n,"htlcScriptAddress":"str","hash":"str","ownerPubkey":"str","timeout":n} [{"txid":"hex","vout":n},...] )</summary><p>
 icx_submitexthtlc ( {"offerTx":"str","amount":n,"htlcScriptAddress":"str","hash":"str","ownerPubkey":"str","timeout":n} [{"txid":"hex","vout":n},...] )  
   
 EXPERIMENTAL warning: ICX and Atomic Swap are experimental features. You might end up losing your funds. USE IT AT YOUR OWN RISK.  
@@ -1977,7 +1977,7 @@ EXPERIMENTAL warning: ICX and Atomic Swap are experimental features. You might e
 </p></details>
 
 ## Loan
-<details><summary>createloanscheme mincolratio interestrate "id" ( [{"txid":"hex","vout":n},...] )</summary><p style="font-family: monospace;">
+<details><summary>createloanscheme mincolratio interestrate "id" ( [{"txid":"hex","vout":n},...] )</summary><p>
 createloanscheme mincolratio interestrate "id" ( [{"txid":"hex","vout":n},...] )  
 Creates a loan scheme transaction.  
   
@@ -2005,7 +2005,7 @@ Examples:
 
 </p></details>
 
-<details><summary>destroyloanscheme "id" ( ACTIVATE_AFTER_BLOCK [{"txid":"hex","vout":n},...] )</summary><p style="font-family: monospace;">
+<details><summary>destroyloanscheme "id" ( ACTIVATE_AFTER_BLOCK [{"txid":"hex","vout":n},...] )</summary><p>
 destroyloanscheme "id" ( ACTIVATE_AFTER_BLOCK [{"txid":"hex","vout":n},...] )  
 Destroys a loan scheme.  
   
@@ -2032,7 +2032,7 @@ Examples:
 
 </p></details>
 
-<details><summary>getcollateraltoken "token"</summary><p style="font-family: monospace;">
+<details><summary>getcollateraltoken "token"</summary><p>
 getcollateraltoken "token"  
 Return collateral token information.  
   
@@ -2047,7 +2047,7 @@ Examples:
 
 </p></details>
 
-<details><summary>getinterest "id" ( "token" )</summary><p style="font-family: monospace;">
+<details><summary>getinterest "id" ( "token" )</summary><p>
 getinterest "id" ( "token" )  
 Returns the global and per block interest by loan scheme.  
   
@@ -2069,7 +2069,7 @@ Examples:
 
 </p></details>
 
-<details><summary>getloaninfo</summary><p style="font-family: monospace;">
+<details><summary>getloaninfo</summary><p>
 getloaninfo  
 Returns the loan stats.  
   
@@ -2081,7 +2081,7 @@ Examples:
 
 </p></details>
 
-<details><summary>getloanscheme "id"</summary><p style="font-family: monospace;">
+<details><summary>getloanscheme "id"</summary><p>
 getloanscheme "id"  
 Returns information about loan scheme.  
   
@@ -2101,7 +2101,7 @@ Examples:
 
 </p></details>
 
-<details><summary>getloantoken "token"</summary><p style="font-family: monospace;">
+<details><summary>getloantoken "token"</summary><p>
 getloantoken "token"  
 Return loan token information.  
   
@@ -2116,7 +2116,7 @@ Examples:
 
 </p></details>
 
-<details><summary>listcollateraltokens</summary><p style="font-family: monospace;">
+<details><summary>listcollateraltokens</summary><p>
 listcollateraltokens  
 Return list of all created collateral tokens. If no parameters passed it will return all current valid setcollateraltoken transactions.  
   
@@ -2128,7 +2128,7 @@ Examples:
 
 </p></details>
 
-<details><summary>listloanschemes</summary><p style="font-family: monospace;">
+<details><summary>listloanschemes</summary><p>
 listloanschemes  
 List all available loan schemes.  
   
@@ -2148,7 +2148,7 @@ Examples:
 
 </p></details>
 
-<details><summary>listloantokens</summary><p style="font-family: monospace;">
+<details><summary>listloantokens</summary><p>
 listloantokens  
 Return list of all created loan tokens.  
   
@@ -2160,7 +2160,7 @@ Examples:
 
 </p></details>
 
-<details><summary>paybackloan {"vaultId":"hex","from":"str","amounts":"str","loans":[{"dToken":"str","amounts":"str"},...]} ( [{"txid":"hex","vout":n},...] )</summary><p style="font-family: monospace;">
+<details><summary>paybackloan {"vaultId":"hex","from":"str","amounts":"str","loans":[{"dToken":"str","amounts":"str"},...]} ( [{"txid":"hex","vout":n},...] )</summary><p>
 paybackloan {"vaultId":"hex","from":"str","amounts":"str","loans":[{"dToken":"str","amounts":"str"},...]} ( [{"txid":"hex","vout":n},...] )  
 Creates (and submits to local node and network) a tx to return the loan in desired amount.  
   
@@ -2197,7 +2197,7 @@ Examples:
 
 </p></details>
 
-<details><summary>setcollateraltoken {"token":"str","factor":n,"fixedIntervalPriceId":"hex","activateAfterBlock":n} ( [{"txid":"hex","vout":n},...] )</summary><p style="font-family: monospace;">
+<details><summary>setcollateraltoken {"token":"str","factor":n,"fixedIntervalPriceId":"hex","activateAfterBlock":n} ( [{"txid":"hex","vout":n},...] )</summary><p>
 setcollateraltoken {"token":"str","factor":n,"fixedIntervalPriceId":"hex","activateAfterBlock":n} ( [{"txid":"hex","vout":n},...] )  
 Creates (and submits to local node and network) a set colleteral token transaction.  
   
@@ -2228,7 +2228,7 @@ Examples:
 
 </p></details>
 
-<details><summary>setdefaultloanscheme "id" ( [{"txid":"hex","vout":n},...] )</summary><p style="font-family: monospace;">
+<details><summary>setdefaultloanscheme "id" ( [{"txid":"hex","vout":n},...] )</summary><p>
 setdefaultloanscheme "id" ( [{"txid":"hex","vout":n},...] )  
 Sets the default loan scheme.  
   
@@ -2254,7 +2254,7 @@ Examples:
 
 </p></details>
 
-<details><summary>setloantoken {"symbol":"str","name":"str","fixedIntervalPriceId":"hex","mintable":bool,"interest":n} ( [{"txid":"hex","vout":n},...] )</summary><p style="font-family: monospace;">
+<details><summary>setloantoken {"symbol":"str","name":"str","fixedIntervalPriceId":"hex","mintable":bool,"interest":n} ( [{"txid":"hex","vout":n},...] )</summary><p>
 setloantoken {"symbol":"str","name":"str","fixedIntervalPriceId":"hex","mintable":bool,"interest":n} ( [{"txid":"hex","vout":n},...] )  
 Creates (and submits to local node and network) a token for a price feed set in collateral token.  
   
@@ -2286,7 +2286,7 @@ Examples:
 
 </p></details>
 
-<details><summary>takeloan {"vaultId":"hex","to":"str","amounts":"str"} ( [{"txid":"hex","vout":n},...] )</summary><p style="font-family: monospace;">
+<details><summary>takeloan {"vaultId":"hex","to":"str","amounts":"str"} ( [{"txid":"hex","vout":n},...] )</summary><p>
 takeloan {"vaultId":"hex","to":"str","amounts":"str"} ( [{"txid":"hex","vout":n},...] )  
 Creates (and submits to local node and network) a tx to mint loan token in desired amount based on defined loan.  
   
@@ -2316,7 +2316,7 @@ Examples:
 
 </p></details>
 
-<details><summary>updateloanscheme mincolratio interestrate "id" ( ACTIVATE_AFTER_BLOCK [{"txid":"hex","vout":n},...] )</summary><p style="font-family: monospace;">
+<details><summary>updateloanscheme mincolratio interestrate "id" ( ACTIVATE_AFTER_BLOCK [{"txid":"hex","vout":n},...] )</summary><p>
 updateloanscheme mincolratio interestrate "id" ( ACTIVATE_AFTER_BLOCK [{"txid":"hex","vout":n},...] )  
 Updates an existing loan scheme.  
   
@@ -2345,7 +2345,7 @@ Examples:
 
 </p></details>
 
-<details><summary>updateloantoken "token" {"symbol":"str","name":"str","fixedIntervalPriceId":"hex","mintable":bool,"interest":n} ( [{"txid":"hex","vout":n},...] )</summary><p style="font-family: monospace;">
+<details><summary>updateloantoken "token" {"symbol":"str","name":"str","fixedIntervalPriceId":"hex","mintable":bool,"interest":n} ( [{"txid":"hex","vout":n},...] )</summary><p>
 updateloantoken "token" {"symbol":"str","name":"str","fixedIntervalPriceId":"hex","mintable":bool,"interest":n} ( [{"txid":"hex","vout":n},...] )  
 Creates (and submits to local node and network) a transaction to update loan token metadata.  
   
@@ -2380,7 +2380,7 @@ Examples:
 </p></details>
 
 ## Masternodes
-<details><summary>createmasternode "ownerAddress" ( "operatorAddress" [{"txid":"hex","vout":n},...] "timelock" )</summary><p style="font-family: monospace;">
+<details><summary>createmasternode "ownerAddress" ( "operatorAddress" [{"txid":"hex","vout":n},...] "timelock" )</summary><p>
 createmasternode "ownerAddress" ( "operatorAddress" [{"txid":"hex","vout":n},...] "timelock" )  
   
 Creates (and submits to local node and network) a masternode creation transaction with given owner and operator addresses, spending the given inputs..  
@@ -2412,7 +2412,7 @@ Examples:
 
 </p></details>
 
-<details><summary>getactivemasternodecount ( blockCount )</summary><p style="font-family: monospace;">
+<details><summary>getactivemasternodecount ( blockCount )</summary><p>
 getactivemasternodecount ( blockCount )  
   
 Return number of unique masternodes in the last specified number of blocks  
@@ -2429,7 +2429,7 @@ Examples:
 
 </p></details>
 
-<details><summary>getanchorteams ( blockHeight )</summary><p style="font-family: monospace;">
+<details><summary>getanchorteams ( blockHeight )</summary><p>
 getanchorteams ( blockHeight )  
   
 Returns the auth and confirm anchor masternode teams at current or specified height  
@@ -2446,7 +2446,7 @@ Examples:
 
 </p></details>
 
-<details><summary>getmasternode "mn_id"</summary><p style="font-family: monospace;">
+<details><summary>getmasternode "mn_id"</summary><p>
 getmasternode "mn_id"  
   
 Returns information about specified masternode.  
@@ -2463,7 +2463,7 @@ Examples:
 
 </p></details>
 
-<details><summary>getmasternodeblocks ( {"id":"hex","ownerAddress":"str","operatorAddress":"str"} depth )</summary><p style="font-family: monospace;">
+<details><summary>getmasternodeblocks ( {"id":"hex","ownerAddress":"str","operatorAddress":"str"} depth )</summary><p>
 getmasternodeblocks ( {"id":"hex","ownerAddress":"str","operatorAddress":"str"} depth )  
   
 Returns blocks generated by the specified masternode.  
@@ -2486,7 +2486,7 @@ Examples:
 
 </p></details>
 
-<details><summary>listanchors</summary><p style="font-family: monospace;">
+<details><summary>listanchors</summary><p>
 listanchors  
   
 List anchors (if any)  
@@ -2500,7 +2500,7 @@ Examples:
 
 </p></details>
 
-<details><summary>listmasternodes ( {"start":"hex","including_start":bool,"limit":n} verbose )</summary><p style="font-family: monospace;">
+<details><summary>listmasternodes ( {"start":"hex","including_start":bool,"limit":n} verbose )</summary><p>
 listmasternodes ( {"start":"hex","including_start":bool,"limit":n} verbose )  
   
 Returns information about specified masternodes (or all, if list of ids is empty).  
@@ -2523,7 +2523,7 @@ Examples:
 
 </p></details>
 
-<details><summary>resignmasternode "mn_id" ( [{"txid":"hex","vout":n},...] )</summary><p style="font-family: monospace;">
+<details><summary>resignmasternode "mn_id" ( [{"txid":"hex","vout":n},...] )</summary><p>
 resignmasternode "mn_id" ( [{"txid":"hex","vout":n},...] )  
   
 Creates (and submits to local node and network) a transaction resigning your masternode. Collateral will be unlocked after 2016 blocks.  
@@ -2550,7 +2550,7 @@ Examples:
 
 </p></details>
 
-<details><summary>updatemasternode "mn_id" {"ownerAddress":"str","operatorAddress":"str","rewardAddress":"str"} ( [{"txid":"hex","vout":n},...] )</summary><p style="font-family: monospace;">
+<details><summary>updatemasternode "mn_id" {"ownerAddress":"str","operatorAddress":"str","rewardAddress":"str"} ( [{"txid":"hex","vout":n},...] )</summary><p>
 updatemasternode "mn_id" {"ownerAddress":"str","operatorAddress":"str","rewardAddress":"str"} ( [{"txid":"hex","vout":n},...] )  
   
 Creates (and submits to local node and network) a masternode update transaction which update the masternode operator addresses, spending the given inputs..  
@@ -2584,7 +2584,7 @@ Examples:
 </p></details>
 
 ## Mining
-<details><summary>getblocktemplate ( "template_request" )</summary><p style="font-family: monospace;">
+<details><summary>getblocktemplate ( "template_request" )</summary><p>
 getblocktemplate ( "template_request" )  
   
 If the request parameters include a 'mode' key, that is used to explicitly select between the default 'template' request or a 'proposal'.  
@@ -2660,7 +2660,7 @@ Examples:
 
 </p></details>
 
-<details><summary>getmininginfo</summary><p style="font-family: monospace;">
+<details><summary>getmininginfo</summary><p>
 getmininginfo  
   
 Returns a json object containing mining-related information for all local masternodes  
@@ -2684,7 +2684,7 @@ Examples:
 
 </p></details>
 
-<details><summary>getmintinginfo</summary><p style="font-family: monospace;">
+<details><summary>getmintinginfo</summary><p>
 getmintinginfo  
   
 DEPRECATED. Prefer using getmininginfo.  
@@ -2709,7 +2709,7 @@ Examples:
 
 </p></details>
 
-<details><summary>getnetworkhashps ( nblocks height )</summary><p style="font-family: monospace;">
+<details><summary>getnetworkhashps ( nblocks height )</summary><p>
 getnetworkhashps ( nblocks height )  
   
 Returns the estimated network hashes per second based on the last n blocks.  
@@ -2729,7 +2729,7 @@ Examples:
 
 </p></details>
 
-<details><summary>prioritisetransaction "txid" ( dummy ) fee_delta</summary><p style="font-family: monospace;">
+<details><summary>prioritisetransaction "txid" ( dummy ) fee_delta</summary><p>
 prioritisetransaction "txid" ( dummy ) fee_delta  
 Accepts the transaction into mined blocks at a higher (or lower) priority  
   
@@ -2751,7 +2751,7 @@ Examples:
 
 </p></details>
 
-<details><summary>submitblock "hexdata" ( "dummy" )</summary><p style="font-family: monospace;">
+<details><summary>submitblock "hexdata" ( "dummy" )</summary><p>
 submitblock "hexdata" ( "dummy" )  
   
 Attempts to submit new block to network.  
@@ -2767,7 +2767,7 @@ Examples:
 
 </p></details>
 
-<details><summary>submitheader "hexdata"</summary><p style="font-family: monospace;">
+<details><summary>submitheader "hexdata"</summary><p>
 submitheader "hexdata"  
   
 Decode the given hexdata as a header and submit it as a candidate chain tip if valid.  
@@ -2785,7 +2785,7 @@ Examples:
 </p></details>
 
 ## Network
-<details><summary>addnode "node" "command"</summary><p style="font-family: monospace;">
+<details><summary>addnode "node" "command"</summary><p>
 addnode "node" "command"  
   
 Attempts to add or remove a node from the addnode list.  
@@ -2803,7 +2803,7 @@ Examples:
 
 </p></details>
 
-<details><summary>clearbanned</summary><p style="font-family: monospace;">
+<details><summary>clearbanned</summary><p>
 clearbanned  
   
 Clear all banned IPs.  
@@ -2814,7 +2814,7 @@ Examples:
 
 </p></details>
 
-<details><summary>disconnectnode ( "address" nodeid )</summary><p style="font-family: monospace;">
+<details><summary>disconnectnode ( "address" nodeid )</summary><p>
 disconnectnode ( "address" nodeid )  
   
 Immediately disconnects from the specified peer node.  
@@ -2835,7 +2835,7 @@ Examples:
 
 </p></details>
 
-<details><summary>getaddednodeinfo ( "node" )</summary><p style="font-family: monospace;">
+<details><summary>getaddednodeinfo ( "node" )</summary><p>
 getaddednodeinfo ( "node" )  
   
 Returns information about the given added node, or all added nodes  
@@ -2865,7 +2865,7 @@ Examples:
 
 </p></details>
 
-<details><summary>getconnectioncount</summary><p style="font-family: monospace;">
+<details><summary>getconnectioncount</summary><p>
 getconnectioncount  
   
 Returns the number of connections to other nodes.  
@@ -2879,7 +2879,7 @@ Examples:
 
 </p></details>
 
-<details><summary>getnettotals</summary><p style="font-family: monospace;">
+<details><summary>getnettotals</summary><p>
 getnettotals  
   
 Returns information about network traffic, including bytes in, bytes out,  
@@ -2907,7 +2907,7 @@ Examples:
 
 </p></details>
 
-<details><summary>getnetworkinfo</summary><p style="font-family: monospace;">
+<details><summary>getnetworkinfo</summary><p>
 getnetworkinfo  
 Returns an object containing various state info regarding P2P networking.  
   
@@ -2950,7 +2950,7 @@ Examples:
 
 </p></details>
 
-<details><summary>getnodeaddresses ( count )</summary><p style="font-family: monospace;">
+<details><summary>getnodeaddresses ( count )</summary><p>
 getnodeaddresses ( count )  
   
 Return known addresses which can potentially be used to find new nodes in the network  
@@ -2975,7 +2975,7 @@ Examples:
 
 </p></details>
 
-<details><summary>getpeerinfo</summary><p style="font-family: monospace;">
+<details><summary>getpeerinfo</summary><p>
 getpeerinfo  
   
 Returns data about each connected network node as a json array of objects.  
@@ -3034,7 +3034,7 @@ Examples:
 
 </p></details>
 
-<details><summary>getversioninfo</summary><p style="font-family: monospace;">
+<details><summary>getversioninfo</summary><p>
 getversioninfo  
 Returns an object containing various version info about the node.  
   
@@ -3065,7 +3065,7 @@ Examples:
 
 </p></details>
 
-<details><summary>listbanned</summary><p style="font-family: monospace;">
+<details><summary>listbanned</summary><p>
 listbanned  
   
 List all banned IPs/Subnets.  
@@ -3076,7 +3076,7 @@ Examples:
 
 </p></details>
 
-<details><summary>ping</summary><p style="font-family: monospace;">
+<details><summary>ping</summary><p>
 ping  
   
 Requests that a ping be sent to all other nodes, to measure ping time.  
@@ -3089,7 +3089,7 @@ Examples:
 
 </p></details>
 
-<details><summary>setban "subnet" "command" ( bantime absolute )</summary><p style="font-family: monospace;">
+<details><summary>setban "subnet" "command" ( bantime absolute )</summary><p>
 setban "subnet" "command" ( bantime absolute )  
   
 Attempts to add or remove an IP/Subnet from the banned list.  
@@ -3107,7 +3107,7 @@ Examples:
 
 </p></details>
 
-<details><summary>setnetworkactive state</summary><p style="font-family: monospace;">
+<details><summary>setnetworkactive state</summary><p>
 setnetworkactive state  
   
 Disable/enable all p2p network activity.  
@@ -3118,7 +3118,7 @@ Arguments:
 </p></details>
 
 ## Oracles
-<details><summary>appointoracle "address" [{"currency":"str","token":"str"},...] weightage ( [{"txid":"hex","vout":n},...] )</summary><p style="font-family: monospace;">
+<details><summary>appointoracle "address" [{"currency":"str","token":"str"},...] weightage ( [{"txid":"hex","vout":n},...] )</summary><p>
 appointoracle "address" [{"currency":"str","token":"str"},...] weightage ( [{"txid":"hex","vout":n},...] )  
   
 Creates (and submits to local node and network) a `appoint oracle transaction`,   
@@ -3155,7 +3155,7 @@ Examples:
 
 </p></details>
 
-<details><summary>getdusdswapblock</summary><p style="font-family: monospace;">
+<details><summary>getdusdswapblock</summary><p>
 getdusdswapblock  
 Get the next block that DFI to DUSD swap will execute on.  
   
@@ -3167,7 +3167,7 @@ Examples:
 
 </p></details>
 
-<details><summary>getfixedintervalprice "fixedIntervalPriceId"</summary><p style="font-family: monospace;">
+<details><summary>getfixedintervalprice "fixedIntervalPriceId"</summary><p>
 getfixedintervalprice "fixedIntervalPriceId"  
 Get fixed interval price for a given pair.  
   
@@ -3189,7 +3189,7 @@ Examples:
 
 </p></details>
 
-<details><summary>getfutureswapblock</summary><p style="font-family: monospace;">
+<details><summary>getfutureswapblock</summary><p>
 getfutureswapblock  
 Get the next block that futures will execute and update on.  
   
@@ -3201,7 +3201,7 @@ Examples:
 
 </p></details>
 
-<details><summary>getoracledata "oracleid"</summary><p style="font-family: monospace;">
+<details><summary>getoracledata "oracleid"</summary><p>
 getoracledata "oracleid"  
   
 Returns oracle data in json form.  
@@ -3218,7 +3218,7 @@ Examples:
 
 </p></details>
 
-<details><summary>getprice {"currency":"str","token":"str"}</summary><p style="font-family: monospace;">
+<details><summary>getprice {"currency":"str","token":"str"}</summary><p>
 getprice {"currency":"str","token":"str"}  
   
 Calculates aggregated price,   
@@ -3241,7 +3241,7 @@ Examples:
 
 </p></details>
 
-<details><summary>listfixedintervalprices ( {"start":n,"limit":n} )</summary><p style="font-family: monospace;">
+<details><summary>listfixedintervalprices ( {"start":n,"limit":n} )</summary><p>
 listfixedintervalprices ( {"start":n,"limit":n} )  
 Get all fixed interval prices.  
   
@@ -3265,7 +3265,7 @@ Examples:
 
 </p></details>
 
-<details><summary>listlatestrawprices ( {"currency":"str","token":"str"} {"start":"hex","including_start":bool,"limit":n} )</summary><p style="font-family: monospace;">
+<details><summary>listlatestrawprices ( {"currency":"str","token":"str"} {"start":"hex","including_start":bool,"limit":n} )</summary><p>
 listlatestrawprices ( {"currency":"str","token":"str"} {"start":"hex","including_start":bool,"limit":n} )  
   
 Returns latest raw price updates through all the oracles for specified token and currency ,   
@@ -3294,7 +3294,7 @@ Examples:
 
 </p></details>
 
-<details><summary>listoracles ( {"start":"hex","including_start":bool,"limit":n} )</summary><p style="font-family: monospace;">
+<details><summary>listoracles ( {"start":"hex","including_start":bool,"limit":n} )</summary><p>
 listoracles ( {"start":"hex","including_start":bool,"limit":n} )  
   
 Returns list of oracle ids.  
@@ -3318,7 +3318,7 @@ Examples:
 
 </p></details>
 
-<details><summary>listprices ( {"start":n,"including_start":bool,"limit":n} )</summary><p style="font-family: monospace;">
+<details><summary>listprices ( {"start":n,"including_start":bool,"limit":n} )</summary><p>
 listprices ( {"start":n,"including_start":bool,"limit":n} )  
   
 Calculates aggregated prices for all supported pairs (token, currency),   
@@ -3348,7 +3348,7 @@ Examples:
 
 </p></details>
 
-<details><summary>removeoracle "oracleid" ( [{"txid":"hex","vout":n},...] )</summary><p style="font-family: monospace;">
+<details><summary>removeoracle "oracleid" ( [{"txid":"hex","vout":n},...] )</summary><p>
 removeoracle "oracleid" ( [{"txid":"hex","vout":n},...] )  
   
 Removes oracle,   
@@ -3375,7 +3375,7 @@ Examples:
 
 </p></details>
 
-<details><summary>setoracledata "oracleid" timestamp [{"currency":"str","tokenAmount":"str"},...] ( [{"txid":"hex","vout":n},...] )</summary><p style="font-family: monospace;">
+<details><summary>setoracledata "oracleid" timestamp [{"currency":"str","tokenAmount":"str"},...] ( [{"txid":"hex","vout":n},...] )</summary><p>
 setoracledata "oracleid" timestamp [{"currency":"str","tokenAmount":"str"},...] ( [{"txid":"hex","vout":n},...] )  
   
 Creates (and submits to local node and network) a `set oracle data transaction`.  
@@ -3413,7 +3413,7 @@ Examples:
 
 </p></details>
 
-<details><summary>updateoracle "oracleid" "address" [{"currency":"str","token":"str"},...] weightage ( [{"txid":"hex","vout":n},...] )</summary><p style="font-family: monospace;">
+<details><summary>updateoracle "oracleid" "address" [{"currency":"str","token":"str"},...] weightage ( [{"txid":"hex","vout":n},...] )</summary><p>
 updateoracle "oracleid" "address" [{"currency":"str","token":"str"},...] weightage ( [{"txid":"hex","vout":n},...] )  
   
 Creates (and submits to local node and network) a `update oracle transaction`,   
@@ -3452,7 +3452,7 @@ Examples:
 </p></details>
 
 ## Poolpair
-<details><summary>addpoolliquidity {"address":"str"} "shareAddress" ( [{"txid":"hex","vout":n},...] )</summary><p style="font-family: monospace;">
+<details><summary>addpoolliquidity {"address":"str"} "shareAddress" ( [{"txid":"hex","vout":n},...] )</summary><p>
 addpoolliquidity {"address":"str"} "shareAddress" ( [{"txid":"hex","vout":n},...] )  
   
 Creates (and submits to local node and network) a add pool liquidity transaction.  
@@ -3484,7 +3484,7 @@ Examples:
 
 </p></details>
 
-<details><summary>compositeswap {"from":"str","tokenFrom":"str","amountFrom":n,"to":"str","tokenTo":"str","maxPrice":n} ( [{"txid":"hex","vout":n},...] )</summary><p style="font-family: monospace;">
+<details><summary>compositeswap {"from":"str","tokenFrom":"str","amountFrom":n,"to":"str","tokenTo":"str","maxPrice":n} ( [{"txid":"hex","vout":n},...] )</summary><p>
 compositeswap {"from":"str","tokenFrom":"str","amountFrom":n,"to":"str","tokenTo":"str","maxPrice":n} ( [{"txid":"hex","vout":n},...] )  
   
 Creates (and submits to local node and network) a composite swap (swap between multiple poolpairs) transaction with given metadata.  
@@ -3519,7 +3519,7 @@ Examples:
 
 </p></details>
 
-<details><summary>createpoolpair ( {"tokenA":"str","tokenB":"str","commission":n,"status":bool,"ownerAddress":"str","customRewards":"str","pairSymbol":"str"} [{"txid":"hex","vout":n},...] )</summary><p style="font-family: monospace;">
+<details><summary>createpoolpair ( {"tokenA":"str","tokenB":"str","commission":n,"status":bool,"ownerAddress":"str","customRewards":"str","pairSymbol":"str"} [{"txid":"hex","vout":n},...] )</summary><p>
 createpoolpair ( {"tokenA":"str","tokenB":"str","commission":n,"status":bool,"ownerAddress":"str","customRewards":"str","pairSymbol":"str"} [{"txid":"hex","vout":n},...] )  
   
 Creates (and submits to local node and network) a poolpair transaction with given metadata.  
@@ -3555,7 +3555,7 @@ Examples:
 
 </p></details>
 
-<details><summary>getpoolpair "key" ( verbose )</summary><p style="font-family: monospace;">
+<details><summary>getpoolpair "key" ( verbose )</summary><p>
 getpoolpair "key" ( verbose )  
   
 Returns information about pool.  
@@ -3573,7 +3573,7 @@ Examples:
 
 </p></details>
 
-<details><summary>listpoolpairs ( {"start":n,"including_start":bool,"limit":n} verbose )</summary><p style="font-family: monospace;">
+<details><summary>listpoolpairs ( {"start":n,"including_start":bool,"limit":n} verbose )</summary><p>
 listpoolpairs ( {"start":n,"including_start":bool,"limit":n} verbose )  
   
 Returns information about pools.  
@@ -3596,7 +3596,7 @@ Examples:
 
 </p></details>
 
-<details><summary>listpoolshares ( {"start":n,"including_start":bool,"limit":n} verbose is_mine_only )</summary><p style="font-family: monospace;">
+<details><summary>listpoolshares ( {"start":n,"including_start":bool,"limit":n} verbose is_mine_only )</summary><p>
 listpoolshares ( {"start":n,"including_start":bool,"limit":n} verbose is_mine_only )  
   
 Returns information about pool shares.  
@@ -3620,7 +3620,7 @@ Examples:
 
 </p></details>
 
-<details><summary>poolswap {"from":"str","tokenFrom":"str","amountFrom":n,"to":"str","tokenTo":"str","maxPrice":n} ( [{"txid":"hex","vout":n},...] )</summary><p style="font-family: monospace;">
+<details><summary>poolswap {"from":"str","tokenFrom":"str","amountFrom":n,"to":"str","tokenTo":"str","maxPrice":n} ( [{"txid":"hex","vout":n},...] )</summary><p>
 poolswap {"from":"str","tokenFrom":"str","amountFrom":n,"to":"str","tokenTo":"str","maxPrice":n} ( [{"txid":"hex","vout":n},...] )  
   
 Creates (and submits to local node and network) a poolswap transaction with given metadata.  
@@ -3655,7 +3655,7 @@ Examples:
 
 </p></details>
 
-<details><summary>removepoolliquidity "from" "amount" ( [{"txid":"hex","vout":n},...] )</summary><p style="font-family: monospace;">
+<details><summary>removepoolliquidity "from" "amount" ( [{"txid":"hex","vout":n},...] )</summary><p>
 removepoolliquidity "from" "amount" ( [{"txid":"hex","vout":n},...] )  
   
 Creates (and submits to local node and network) a remove pool liquidity transaction.  
@@ -3683,7 +3683,7 @@ Examples:
 
 </p></details>
 
-<details><summary>testpoolswap ( {"from":"str","tokenFrom":"str","amountFrom":n,"to":"str","tokenTo":"str","maxPrice":n} "path" verbose )</summary><p style="font-family: monospace;">
+<details><summary>testpoolswap ( {"from":"str","tokenFrom":"str","amountFrom":n,"to":"str","tokenTo":"str","maxPrice":n} "path" verbose )</summary><p>
 testpoolswap ( {"from":"str","tokenFrom":"str","amountFrom":n,"to":"str","tokenTo":"str","maxPrice":n} "path" verbose )  
   
 Tests a poolswap transaction with given metadata and returns poolswap result.  
@@ -3714,7 +3714,7 @@ Examples:
 
 </p></details>
 
-<details><summary>updatepoolpair ( {"pool":"str","status":bool,"commission":n,"ownerAddress":"str","customRewards":"str"} [{"txid":"hex","vout":n},...] )</summary><p style="font-family: monospace;">
+<details><summary>updatepoolpair ( {"pool":"str","status":bool,"commission":n,"ownerAddress":"str","customRewards":"str"} [{"txid":"hex","vout":n},...] )</summary><p>
 updatepoolpair ( {"pool":"str","status":bool,"commission":n,"ownerAddress":"str","customRewards":"str"} [{"txid":"hex","vout":n},...] )  
   
 Creates (and submits to local node and network) a pool status update transaction.  
@@ -3749,7 +3749,7 @@ Examples:
 </p></details>
 
 ## Proposals
-<details><summary>creategovcfp ( {"title":"str","context":"str","contextHash":"str","cycles":n,"amount":amount,"payoutAddress":"str"} [{"txid":"hex","vout":n},...] )</summary><p style="font-family: monospace;">
+<details><summary>creategovcfp ( {"title":"str","context":"str","contextHash":"str","cycles":n,"amount":amount,"payoutAddress":"str"} [{"txid":"hex","vout":n},...] )</summary><p>
 creategovcfp ( {"title":"str","context":"str","contextHash":"str","cycles":n,"amount":amount,"payoutAddress":"str"} [{"txid":"hex","vout":n},...] )  
   
 Creates a Community Fund Proposal  
@@ -3783,7 +3783,7 @@ Examples:
 
 </p></details>
 
-<details><summary>creategovvoc ( {"title":"str","context":"str","contextHash":"str","emergency":bool} [{"txid":"hex","vout":n},...] )</summary><p style="font-family: monospace;">
+<details><summary>creategovvoc ( {"title":"str","context":"str","contextHash":"str","emergency":bool} [{"txid":"hex","vout":n},...] )</summary><p>
 creategovvoc ( {"title":"str","context":"str","contextHash":"str","emergency":bool} [{"txid":"hex","vout":n},...] )  
   
 Creates a Vote of Confidence  
@@ -3815,7 +3815,7 @@ Examples:
 
 </p></details>
 
-<details><summary>getgovproposal "proposalId"</summary><p style="font-family: monospace;">
+<details><summary>getgovproposal "proposalId"</summary><p>
 getgovproposal "proposalId"  
   
 Returns real time information about proposal state.  
@@ -3832,7 +3832,7 @@ Examples:
 
 </p></details>
 
-<details><summary>listgovproposals ( "type" "status" )</summary><p style="font-family: monospace;">
+<details><summary>listgovproposals ( "type" "status" )</summary><p>
 listgovproposals ( "type" "status" )  
   
 Returns information about proposals.  
@@ -3850,7 +3850,7 @@ Examples:
 
 </p></details>
 
-<details><summary>listgovproposalvotes "proposalId" ( "masternode" cycle )</summary><p style="font-family: monospace;">
+<details><summary>listgovproposalvotes "proposalId" ( "masternode" cycle )</summary><p>
 listgovproposalvotes "proposalId" ( "masternode" cycle )  
   
 Returns information about proposal votes.  
@@ -3869,7 +3869,7 @@ Examples:
 
 </p></details>
 
-<details><summary>votegov "proposalId" "masternodeId" "decision" ( [{"txid":"hex","vout":n},...] )</summary><p style="font-family: monospace;">
+<details><summary>votegov "proposalId" "masternodeId" "decision" ( [{"txid":"hex","vout":n},...] )</summary><p>
 votegov "proposalId" "masternodeId" "decision" ( [{"txid":"hex","vout":n},...] )  
   
 Vote for community proposal  
@@ -3898,7 +3898,7 @@ Examples:
 </p></details>
 
 ## Rawtransactions
-<details><summary>analyzepsbt "psbt"</summary><p style="font-family: monospace;">
+<details><summary>analyzepsbt "psbt"</summary><p>
 analyzepsbt "psbt"  
   
 Analyzes and provides information about the current status of a PSBT and its inputs  
@@ -3937,7 +3937,7 @@ Examples:
 
 </p></details>
 
-<details><summary>combinepsbt ["psbt",...]</summary><p style="font-family: monospace;">
+<details><summary>combinepsbt ["psbt",...]</summary><p>
 combinepsbt ["psbt",...]  
   
 Combine multiple partially signed Defi transactions into one transaction.  
@@ -3958,7 +3958,7 @@ Examples:
 
 </p></details>
 
-<details><summary>combinerawtransaction ["hexstring",...]</summary><p style="font-family: monospace;">
+<details><summary>combinerawtransaction ["hexstring",...]</summary><p>
 combinerawtransaction ["hexstring",...]  
   
 Combine multiple partially signed transactions into one transaction.  
@@ -3979,7 +3979,7 @@ Examples:
 
 </p></details>
 
-<details><summary>converttopsbt "hexstring" ( permitsigdata iswitness )</summary><p style="font-family: monospace;">
+<details><summary>converttopsbt "hexstring" ( permitsigdata iswitness )</summary><p>
 converttopsbt "hexstring" ( permitsigdata iswitness )  
   
 Converts a network serialized transaction to a PSBT. This should be used only with createrawtransaction and fundrawtransaction  
@@ -4009,7 +4009,7 @@ Convert the transaction to a PSBT
 
 </p></details>
 
-<details><summary>createpsbt [{"txid":"hex","vout":n,"sequence":n},...] [{"address":amount},{"data":"hex"},...] ( locktime replaceable )</summary><p style="font-family: monospace;">
+<details><summary>createpsbt [{"txid":"hex","vout":n,"sequence":n},...] [{"address":amount},{"data":"hex"},...] ( locktime replaceable )</summary><p>
 createpsbt [{"txid":"hex","vout":n,"sequence":n},...] [{"address":amount},{"data":"hex"},...] ( locktime replaceable )  
   
 Creates a transaction in the Partially Signed Transaction format.  
@@ -4050,7 +4050,7 @@ Examples:
 
 </p></details>
 
-<details><summary>createrawtransaction [{"txid":"hex","vout":n,"sequence":n},...] [{"address":amount},{"data":"hex"},...] ( locktime replaceable )</summary><p style="font-family: monospace;">
+<details><summary>createrawtransaction [{"txid":"hex","vout":n,"sequence":n},...] [{"address":amount},{"data":"hex"},...] ( locktime replaceable )</summary><p>
 createrawtransaction [{"txid":"hex","vout":n,"sequence":n},...] [{"address":amount},{"data":"hex"},...] ( locktime replaceable )  
   
 Create a transaction spending the given inputs and creating new outputs.  
@@ -4097,7 +4097,7 @@ Examples:
 
 </p></details>
 
-<details><summary>decodepsbt "psbt"</summary><p style="font-family: monospace;">
+<details><summary>decodepsbt "psbt"</summary><p>
 decodepsbt "psbt"  
   
 Return a JSON object representing the serialized, base64-encoded partially signed Defi transaction.  
@@ -4198,7 +4198,7 @@ Examples:
 
 </p></details>
 
-<details><summary>decoderawtransaction "hexstring" ( iswitness )</summary><p style="font-family: monospace;">
+<details><summary>decoderawtransaction "hexstring" ( iswitness )</summary><p>
 decoderawtransaction "hexstring" ( iswitness )  
   
 Return a JSON object representing the serialized, hex-encoded transaction.  
@@ -4259,7 +4259,7 @@ Examples:
 
 </p></details>
 
-<details><summary>decodescript "hexstring"</summary><p style="font-family: monospace;">
+<details><summary>decodescript "hexstring"</summary><p>
 decodescript "hexstring"  
   
 Decode a hex-encoded script.  
@@ -4295,7 +4295,7 @@ Examples:
 
 </p></details>
 
-<details><summary>finalizepsbt "psbt" ( extract )</summary><p style="font-family: monospace;">
+<details><summary>finalizepsbt "psbt" ( extract )</summary><p>
 finalizepsbt "psbt" ( extract )  
 Finalize the inputs of a PSBT. If the transaction is fully signed, it will produce a  
 network serialized transaction which can be broadcast with sendrawtransaction. Otherwise a PSBT will be  
@@ -4320,7 +4320,7 @@ Examples:
 
 </p></details>
 
-<details><summary>fundrawtransaction "hexstring" ( options iswitness )</summary><p style="font-family: monospace;">
+<details><summary>fundrawtransaction "hexstring" ( options iswitness )</summary><p>
 fundrawtransaction "hexstring" ( options iswitness )  
   
 Add inputs to a transaction until it has enough in value to meet its out value.  
@@ -4390,7 +4390,7 @@ Send the transaction
 
 </p></details>
 
-<details><summary>getrawtransaction "txid" ( verbose "blockhash" )</summary><p style="font-family: monospace;">
+<details><summary>getrawtransaction "txid" ( verbose "blockhash" )</summary><p>
 getrawtransaction "txid" ( verbose "blockhash" )  
   
 Return the raw transaction data.  
@@ -4470,7 +4470,7 @@ Examples:
 
 </p></details>
 
-<details><summary>joinpsbts ["psbt",...]</summary><p style="font-family: monospace;">
+<details><summary>joinpsbts ["psbt",...]</summary><p>
 joinpsbts ["psbt",...]  
   
 Joins multiple distinct PSBTs with different inputs and outputs into one PSBT with inputs and outputs from all of the PSBTs  
@@ -4491,7 +4491,7 @@ Examples:
 
 </p></details>
 
-<details><summary>sendrawtransaction "hexstring" ( maxfeerate )</summary><p style="font-family: monospace;">
+<details><summary>sendrawtransaction "hexstring" ( maxfeerate )</summary><p>
 sendrawtransaction "hexstring" ( maxfeerate )  
   
 Submit a raw transaction (serialized, hex-encoded) to local node and network.  
@@ -4526,7 +4526,7 @@ As a JSON-RPC call
 
 </p></details>
 
-<details><summary>signrawtransactionwithkey "hexstring" ["privatekey",...] ( [{"txid":"hex","vout":n,"scriptPubKey":"hex","redeemScript":"hex","witnessScript":"hex","amount":amount},...] "sighashtype" )</summary><p style="font-family: monospace;">
+<details><summary>signrawtransactionwithkey "hexstring" ["privatekey",...] ( [{"txid":"hex","vout":n,"scriptPubKey":"hex","redeemScript":"hex","witnessScript":"hex","amount":amount},...] "sighashtype" )</summary><p>
 signrawtransactionwithkey "hexstring" ["privatekey",...] ( [{"txid":"hex","vout":n,"scriptPubKey":"hex","redeemScript":"hex","witnessScript":"hex","amount":amount},...] "sighashtype" )  
   
 Sign inputs for raw transaction (serialized, hex-encoded).  
@@ -4585,7 +4585,7 @@ Examples:
 
 </p></details>
 
-<details><summary>testmempoolaccept ["rawtx",...] ( maxfeerate )</summary><p style="font-family: monospace;">
+<details><summary>testmempoolaccept ["rawtx",...] ( maxfeerate )</summary><p>
 testmempoolaccept ["rawtx",...] ( maxfeerate )  
   
 Returns result of mempool acceptance tests indicating if raw transaction (serialized, hex-encoded) would be accepted by mempool.  
@@ -4629,7 +4629,7 @@ As a JSON-RPC call
 
 </p></details>
 
-<details><summary>utxoupdatepsbt "psbt" ( ["",{"desc":"str","range":n or [n,n]},...] )</summary><p style="font-family: monospace;">
+<details><summary>utxoupdatepsbt "psbt" ( ["",{"desc":"str","range":n or [n,n]},...] )</summary><p>
 utxoupdatepsbt "psbt" ( ["",{"desc":"str","range":n or [n,n]},...] )  
   
 Updates all segwit inputs and outputs in a PSBT with data from output descriptors, the UTXO set or the mempool.  
@@ -4655,7 +4655,7 @@ Examples:
 </p></details>
 
 ## Spv
-<details><summary>spv_claimhtlc "scriptaddress" "destinationaddress" "seed" ( feerate )</summary><p style="font-family: monospace;">
+<details><summary>spv_claimhtlc "scriptaddress" "destinationaddress" "seed" ( feerate )</summary><p>
 spv_claimhtlc "scriptaddress" "destinationaddress" "seed" ( feerate )  
   
 Claims all coins in HTLC address  
@@ -4678,7 +4678,7 @@ Examples:
 
 </p></details>
 
-<details><summary>spv_createanchor ( [{"txid":"hex","vout":n,"amount":n,"privkey":"str"},...] ) "rewardAddress" ( send feerate )</summary><p style="font-family: monospace;">
+<details><summary>spv_createanchor ( [{"txid":"hex","vout":n,"amount":n,"privkey":"str"},...] ) "rewardAddress" ( send feerate )</summary><p>
 spv_createanchor ( [{"txid":"hex","vout":n,"amount":n,"privkey":"str"},...] ) "rewardAddress" ( send feerate )  
   
 Creates (and optional submits to bitcoin blockchain) an anchor tx with latest possible (every 15th) authorized blockhash.  
@@ -4710,7 +4710,7 @@ Examples:
 
 </p></details>
 
-<details><summary>spv_createanchortemplate "rewardAddress"</summary><p style="font-family: monospace;">
+<details><summary>spv_createanchortemplate "rewardAddress"</summary><p>
 spv_createanchortemplate "rewardAddress"  
   
 Creates an anchor tx template with latest possible (every 15th) authorized blockhash.  
@@ -4728,7 +4728,7 @@ Examples:
 
 </p></details>
 
-<details><summary>spv_createhtlc "receiverPubkey" "ownerPubkey" "timeout" ( "seed" )</summary><p style="font-family: monospace;">
+<details><summary>spv_createhtlc "receiverPubkey" "ownerPubkey" "timeout" ( "seed" )</summary><p>
 spv_createhtlc "receiverPubkey" "ownerPubkey" "timeout" ( "seed" )  
   
 Creates a Bitcoin address whose funds can be unlocked with a seed or as a refund.  
@@ -4754,7 +4754,7 @@ Examples:
 
 </p></details>
 
-<details><summary>spv_decodehtlcscript "redeemscript"</summary><p style="font-family: monospace;">
+<details><summary>spv_decodehtlcscript "redeemscript"</summary><p>
 spv_decodehtlcscript "redeemscript"  
   
 Decode and return value in a HTLC redeemscript  
@@ -4776,7 +4776,7 @@ Examples:
 
 </p></details>
 
-<details><summary>spv_dumpprivkey "address"</summary><p style="font-family: monospace;">
+<details><summary>spv_dumpprivkey "address"</summary><p>
 spv_dumpprivkey "address"  
   
 Reveals the private key corresponding to 'address'  
@@ -4793,7 +4793,7 @@ Examples:
 
 </p></details>
 
-<details><summary>spv_estimateanchorcost ( feerate )</summary><p style="font-family: monospace;">
+<details><summary>spv_estimateanchorcost ( feerate )</summary><p>
 spv_estimateanchorcost ( feerate )  
   
 Estimates current anchor cost with default fee, one input and one change output.  
@@ -4810,7 +4810,7 @@ Examples:
 
 </p></details>
 
-<details><summary>spv_getaddresspubkey "address"</summary><p style="font-family: monospace;">
+<details><summary>spv_getaddresspubkey "address"</summary><p>
 spv_getaddresspubkey "address"  
   
 Return raw pubkey for Bitcoin address if in SPV wallet  
@@ -4827,7 +4827,7 @@ Examples:
 
 </p></details>
 
-<details><summary>spv_getalladdresses</summary><p style="font-family: monospace;">
+<details><summary>spv_getalladdresses</summary><p>
 spv_getalladdresses  
   
 Returns all user Bitcoin addresses.  
@@ -4841,7 +4841,7 @@ Examples:
 
 </p></details>
 
-<details><summary>spv_getbalance</summary><p style="font-family: monospace;">
+<details><summary>spv_getbalance</summary><p>
 spv_getbalance  
   
 Returns the Bitcoin balance of the SPV wallet  
@@ -4855,7 +4855,7 @@ Examples:
 
 </p></details>
 
-<details><summary>spv_getfeerate</summary><p style="font-family: monospace;">
+<details><summary>spv_getfeerate</summary><p>
 spv_getfeerate  
   
 Returns current fee rate in Sats per KB.  
@@ -4869,7 +4869,7 @@ Examples:
 
 </p></details>
 
-<details><summary>spv_gethtlcseed "address"</summary><p style="font-family: monospace;">
+<details><summary>spv_gethtlcseed "address"</summary><p>
 spv_gethtlcseed "address"  
   
 Returns the HTLC secret if available  
@@ -4886,7 +4886,7 @@ Examples:
 
 </p></details>
 
-<details><summary>spv_getnewaddress</summary><p style="font-family: monospace;">
+<details><summary>spv_getnewaddress</summary><p>
 spv_getnewaddress  
   
 Creates and adds a Bitcoin address to the SPV wallet  
@@ -4900,7 +4900,7 @@ Examples:
 
 </p></details>
 
-<details><summary>spv_getpeers</summary><p style="font-family: monospace;">
+<details><summary>spv_getpeers</summary><p>
 spv_getpeers  
   
 Returns info on connected peers.  
@@ -4919,7 +4919,7 @@ Examples:
 
 </p></details>
 
-<details><summary>spv_getrawtransaction "txid"</summary><p style="font-family: monospace;">
+<details><summary>spv_getrawtransaction "txid"</summary><p>
 spv_getrawtransaction "txid"  
   
 Return the raw transaction data.  
@@ -4936,7 +4936,7 @@ Examples:
 
 </p></details>
 
-<details><summary>spv_gettxconfirmations "txhash"</summary><p style="font-family: monospace;">
+<details><summary>spv_gettxconfirmations "txhash"</summary><p>
 spv_gettxconfirmations "txhash"  
   
 Reports tx confirmations (if any)...  
@@ -4953,7 +4953,7 @@ Examples:
 
 </p></details>
 
-<details><summary>spv_listanchorauths</summary><p style="font-family: monospace;">
+<details><summary>spv_listanchorauths</summary><p>
 spv_listanchorauths  
   
 List anchor auths (if any)  
@@ -4967,7 +4967,7 @@ Examples:
 
 </p></details>
 
-<details><summary>spv_listanchorrewardconfirms</summary><p style="font-family: monospace;">
+<details><summary>spv_listanchorrewardconfirms</summary><p>
 spv_listanchorrewardconfirms  
   
 List anchor reward confirms (if any)  
@@ -4981,7 +4981,7 @@ Examples:
 
 </p></details>
 
-<details><summary>spv_listanchorrewards</summary><p style="font-family: monospace;">
+<details><summary>spv_listanchorrewards</summary><p>
 spv_listanchorrewards  
   
 List anchor rewards (if any)  
@@ -4995,7 +4995,7 @@ Examples:
 
 </p></details>
 
-<details><summary>spv_listanchors ( minBtcHeight maxBtcHeight minConfs maxConfs startBtcHeight limit )</summary><p style="font-family: monospace;">
+<details><summary>spv_listanchors ( minBtcHeight maxBtcHeight minConfs maxConfs startBtcHeight limit )</summary><p>
 spv_listanchors ( minBtcHeight maxBtcHeight minConfs maxConfs startBtcHeight limit )  
   
 List anchors (if any)  
@@ -5017,7 +5017,7 @@ Examples:
 
 </p></details>
 
-<details><summary>spv_listanchorspending</summary><p style="font-family: monospace;">
+<details><summary>spv_listanchorspending</summary><p>
 spv_listanchorspending  
   
 List pending anchors (if any). Pending anchors are waiting on  
@@ -5032,7 +5032,7 @@ Examples:
 
 </p></details>
 
-<details><summary>spv_listanchorsunrewarded</summary><p style="font-family: monospace;">
+<details><summary>spv_listanchorsunrewarded</summary><p>
 spv_listanchorsunrewarded  
   
 List anchors that have yet to be paid  
@@ -5046,7 +5046,7 @@ Examples:
 
 </p></details>
 
-<details><summary>spv_listhtlcoutputs ( "address" )</summary><p style="font-family: monospace;">
+<details><summary>spv_listhtlcoutputs ( "address" )</summary><p>
 spv_listhtlcoutputs ( "address" )  
   
 List all outputs related to HTLC addresses in the wallet  
@@ -5073,7 +5073,7 @@ Examples:
 
 </p></details>
 
-<details><summary>spv_listreceivedbyaddress ( minconf "address_filter" )</summary><p style="font-family: monospace;">
+<details><summary>spv_listreceivedbyaddress ( minconf "address_filter" )</summary><p>
 spv_listreceivedbyaddress ( minconf "address_filter" )  
   
 List balances by receiving address.  
@@ -5105,7 +5105,7 @@ Examples:
 
 </p></details>
 
-<details><summary>spv_listtransactions</summary><p style="font-family: monospace;">
+<details><summary>spv_listtransactions</summary><p>
 spv_listtransactions  
   
 Returns an array of all Bitcoin transaction hashes.  
@@ -5121,7 +5121,7 @@ Examples:
 
 </p></details>
 
-<details><summary>spv_refundhtlc "scriptaddress" "destinationaddress" ( feerate )</summary><p style="font-family: monospace;">
+<details><summary>spv_refundhtlc "scriptaddress" "destinationaddress" ( feerate )</summary><p>
 spv_refundhtlc "scriptaddress" "destinationaddress" ( feerate )  
   
 Refunds all coins in HTLC address  
@@ -5143,7 +5143,7 @@ Examples:
 
 </p></details>
 
-<details><summary>spv_refundhtlcall "destinationaddress" ( feerate )</summary><p style="font-family: monospace;">
+<details><summary>spv_refundhtlcall "destinationaddress" ( feerate )</summary><p>
 spv_refundhtlcall "destinationaddress" ( feerate )  
   
 Gets all HTLC contracts stored in wallet and creates refunds transactions for all that have expired  
@@ -5163,7 +5163,7 @@ Examples:
 
 </p></details>
 
-<details><summary>spv_rescan ( height )</summary><p style="font-family: monospace;">
+<details><summary>spv_rescan ( height )</summary><p>
 spv_rescan ( height )  
   
 Rescan from block height...  
@@ -5180,7 +5180,7 @@ Examples:
 
 </p></details>
 
-<details><summary>spv_sendrawtx "rawtx"</summary><p style="font-family: monospace;">
+<details><summary>spv_sendrawtx "rawtx"</summary><p>
 spv_sendrawtx "rawtx"  
   
 Sending raw tx to Bitcoin blockchain  
@@ -5197,7 +5197,7 @@ Examples:
 
 </p></details>
 
-<details><summary>spv_sendtoaddress "address" amount ( feerate )</summary><p style="font-family: monospace;">
+<details><summary>spv_sendtoaddress "address" amount ( feerate )</summary><p>
 spv_sendtoaddress "address" amount ( feerate )  
   
 Send a Bitcoin amount to a given address.  
@@ -5220,7 +5220,7 @@ Examples:
 
 </p></details>
 
-<details><summary>spv_syncstatus</summary><p style="font-family: monospace;">
+<details><summary>spv_syncstatus</summary><p>
 spv_syncstatus  
   
 Returns spv sync status  
@@ -5238,7 +5238,7 @@ Examples:
 
 </p></details>
 
-<details><summary>spv_validateaddress "address"</summary><p style="font-family: monospace;">
+<details><summary>spv_validateaddress "address"</summary><p>
 spv_validateaddress "address"  
   
 Check whether the given Bitcoin address is valid.  
@@ -5259,7 +5259,7 @@ Examples:
 </p></details>
 
 ## Stats
-<details><summary>getrpcstats "command"</summary><p style="font-family: monospace;">
+<details><summary>getrpcstats "command"</summary><p>
 getrpcstats "command"  
   
 Get RPC stats for selected command.  
@@ -5289,7 +5289,7 @@ Examples:
 
 </p></details>
 
-<details><summary>listrpcstats</summary><p style="font-family: monospace;">
+<details><summary>listrpcstats</summary><p>
 listrpcstats  
   
 List used RPC commands.  
@@ -5319,7 +5319,7 @@ Examples:
 </p></details>
 
 ## Tokens
-<details><summary>burntokens {"amounts":"str","from":"str","context":"str"} ( [{"txid":"hex","vout":n},...] )</summary><p style="font-family: monospace;">
+<details><summary>burntokens {"amounts":"str","from":"str","context":"str"} ( [{"txid":"hex","vout":n},...] )</summary><p>
 burntokens {"amounts":"str","from":"str","context":"str"} ( [{"txid":"hex","vout":n},...] )  
   
 Creates (and submits to local node and network) a transaction burning your token (for accounts and/or UTXOs).   
@@ -5353,7 +5353,7 @@ Examples:
 
 </p></details>
 
-<details><summary>createtoken ( {"symbol":"str","name":"str","isDAT":bool,"decimal":n,"limit":n,"mintable":bool,"tradeable":bool,"collateralAddress":"str"} [{"txid":"hex","vout":n},...] )</summary><p style="font-family: monospace;">
+<details><summary>createtoken ( {"symbol":"str","name":"str","isDAT":bool,"decimal":n,"limit":n,"mintable":bool,"tradeable":bool,"collateralAddress":"str"} [{"txid":"hex","vout":n},...] )</summary><p>
 createtoken ( {"symbol":"str","name":"str","isDAT":bool,"decimal":n,"limit":n,"mintable":bool,"tradeable":bool,"collateralAddress":"str"} [{"txid":"hex","vout":n},...] )  
   
 Creates (and submits to local node and network) a token creation transaction with given metadata.  
@@ -5391,7 +5391,7 @@ Examples:
 
 </p></details>
 
-<details><summary>decodecustomtx "hexstring" ( iswitness )</summary><p style="font-family: monospace;">
+<details><summary>decodecustomtx "hexstring" ( iswitness )</summary><p>
 decodecustomtx "hexstring" ( iswitness )  
   
 Get detailed information about a DeFiChain custom transaction.  
@@ -5419,7 +5419,7 @@ Examples:
 
 </p></details>
 
-<details><summary>getcustomtx "txid" ( "blockhash" )</summary><p style="font-family: monospace;">
+<details><summary>getcustomtx "txid" ( "blockhash" )</summary><p>
 getcustomtx "txid" ( "blockhash" )  
   
 Get detailed information about a DeFiChain custom transaction. Will search wallet transactions and mempool transaction,  
@@ -5444,7 +5444,7 @@ Examples:
 
 </p></details>
 
-<details><summary>gettoken "key"</summary><p style="font-family: monospace;">
+<details><summary>gettoken "key"</summary><p>
 gettoken "key"  
   
 Returns information about token.  
@@ -5461,7 +5461,7 @@ Examples:
 
 </p></details>
 
-<details><summary>listtokens ( {"start":n,"including_start":bool,"limit":n} verbose )</summary><p style="font-family: monospace;">
+<details><summary>listtokens ( {"start":n,"including_start":bool,"limit":n} verbose )</summary><p>
 listtokens ( {"start":n,"including_start":bool,"limit":n} verbose )  
   
 Returns information about tokens.  
@@ -5484,7 +5484,7 @@ Examples:
 
 </p></details>
 
-<details><summary>minttokens "amounts" ( [{"txid":"hex","vout":n},...] )</summary><p style="font-family: monospace;">
+<details><summary>minttokens "amounts" ( [{"txid":"hex","vout":n},...] )</summary><p>
 minttokens "amounts" ( [{"txid":"hex","vout":n},...] )  
   
 Creates (and submits to local node and network) a transaction minting your token (for accounts and/or UTXOs).   
@@ -5512,7 +5512,7 @@ Examples:
 
 </p></details>
 
-<details><summary>updatetoken "token" ( {"symbol":"str","name":"str","isDAT":bool,"mintable":bool,"tradeable":bool,"finalize":bool} [{"txid":"hex","vout":n},...] )</summary><p style="font-family: monospace;">
+<details><summary>updatetoken "token" ( {"symbol":"str","name":"str","isDAT":bool,"mintable":bool,"tradeable":bool,"finalize":bool} [{"txid":"hex","vout":n},...] )</summary><p>
 updatetoken "token" ( {"symbol":"str","name":"str","isDAT":bool,"mintable":bool,"tradeable":bool,"finalize":bool} [{"txid":"hex","vout":n},...] )  
   
 Creates (and submits to local node and network) a transaction of token promotion to isDAT or demotion from isDAT. Collateral will be unlocked.  
@@ -5549,7 +5549,7 @@ Examples:
 </p></details>
 
 ## Util
-<details><summary>createmultisig nrequired ["key",...] ( "address_type" )</summary><p style="font-family: monospace;">
+<details><summary>createmultisig nrequired ["key",...] ( "address_type" )</summary><p>
 createmultisig nrequired ["key",...] ( "address_type" )  
   
 Creates a multi-signature address with n signature of m keys required.  
@@ -5580,7 +5580,7 @@ As a JSON-RPC call
 
 </p></details>
 
-<details><summary>deriveaddresses "descriptor" ( range )</summary><p style="font-family: monospace;">
+<details><summary>deriveaddresses "descriptor" ( range )</summary><p>
 deriveaddresses "descriptor" ( range )  
   
 Derives one or more addresses corresponding to an output descriptor.  
@@ -5607,7 +5607,7 @@ First three native segwit receive addresses
 
 </p></details>
 
-<details><summary>estimatesmartfee conf_target ( "estimate_mode" )</summary><p style="font-family: monospace;">
+<details><summary>estimatesmartfee conf_target ( "estimate_mode" )</summary><p>
 estimatesmartfee conf_target ( "estimate_mode" )  
   
 Estimates the approximate fee per kilobyte needed for a transaction to begin  
@@ -5644,7 +5644,7 @@ Examples:
 
 </p></details>
 
-<details><summary>getdescriptorinfo "descriptor"</summary><p style="font-family: monospace;">
+<details><summary>getdescriptorinfo "descriptor"</summary><p>
 getdescriptorinfo "descriptor"  
   
 Analyses a descriptor.  
@@ -5667,7 +5667,7 @@ Analyse a descriptor
 
 </p></details>
 
-<details><summary>signmessagewithprivkey "privkey" "message"</summary><p style="font-family: monospace;">
+<details><summary>signmessagewithprivkey "privkey" "message"</summary><p>
 signmessagewithprivkey "privkey" "message"  
   
 Sign a message with the private key of an address  
@@ -5692,7 +5692,7 @@ As a JSON-RPC call
 
 </p></details>
 
-<details><summary>validateaddress "address"</summary><p style="font-family: monospace;">
+<details><summary>validateaddress "address"</summary><p>
 validateaddress "address"  
   
 Return information about the given defi address.  
@@ -5717,7 +5717,7 @@ Examples:
 
 </p></details>
 
-<details><summary>verifymessage "address" "signature" "message"</summary><p style="font-family: monospace;">
+<details><summary>verifymessage "address" "signature" "message"</summary><p>
 verifymessage "address" "signature" "message"  
   
 Verify a signed message  
@@ -5747,7 +5747,7 @@ As a JSON-RPC call
 </p></details>
 
 ## Vault
-<details><summary>closevault "vaultId" "to" ( [{"txid":"hex","vout":n},...] )</summary><p style="font-family: monospace;">
+<details><summary>closevault "vaultId" "to" ( [{"txid":"hex","vout":n},...] )</summary><p>
 closevault "vaultId" "to" ( [{"txid":"hex","vout":n},...] )  
 Close vault transaction.  
   
@@ -5774,7 +5774,7 @@ Examples:
 
 </p></details>
 
-<details><summary>createvault "ownerAddress" ( "loanSchemeId" [{"txid":"hex","vout":n},...] )</summary><p style="font-family: monospace;">
+<details><summary>createvault "ownerAddress" ( "loanSchemeId" [{"txid":"hex","vout":n},...] )</summary><p>
 createvault "ownerAddress" ( "loanSchemeId" [{"txid":"hex","vout":n},...] )  
 Creates a vault transaction.  
   
@@ -5805,7 +5805,7 @@ Examples:
 
 </p></details>
 
-<details><summary>deposittovault "vaultId" "from" "amount" ( [{"txid":"hex","vout":n},...] )</summary><p style="font-family: monospace;">
+<details><summary>deposittovault "vaultId" "from" "amount" ( [{"txid":"hex","vout":n},...] )</summary><p>
 deposittovault "vaultId" "from" "amount" ( [{"txid":"hex","vout":n},...] )  
 Deposit collateral token amount to vault.  
   
@@ -5833,7 +5833,7 @@ Examples:
 
 </p></details>
 
-<details><summary>estimatecollateral "loanAmounts" targetRatio ( {"split":n} )</summary><p style="font-family: monospace;">
+<details><summary>estimatecollateral "loanAmounts" targetRatio ( {"split":n} )</summary><p>
 estimatecollateral "loanAmounts" targetRatio ( {"split":n} )  
 Returns amount of collateral tokens needed to take an amount of loan tokens for a target collateral ratio.  
   
@@ -5854,7 +5854,7 @@ Examples:
 
 </p></details>
 
-<details><summary>estimateloan "vaultId" {"split":n} ( targetRatio )</summary><p style="font-family: monospace;">
+<details><summary>estimateloan "vaultId" {"split":n} ( targetRatio )</summary><p>
 estimateloan "vaultId" {"split":n} ( targetRatio )  
 Returns amount of loan tokens a vault can take depending on a target collateral ratio.  
   
@@ -5875,7 +5875,7 @@ Examples:
 
 </p></details>
 
-<details><summary>estimatevault "collateralAmounts" "loanAmounts"</summary><p style="font-family: monospace;">
+<details><summary>estimatevault "collateralAmounts" "loanAmounts"</summary><p>
 estimatevault "collateralAmounts" "loanAmounts"  
 Returns estimated vault for given collateral and loan amounts.  
   
@@ -5897,7 +5897,7 @@ Examples:
 
 </p></details>
 
-<details><summary>getvault "vaultId" ( verbose )</summary><p style="font-family: monospace;">
+<details><summary>getvault "vaultId" ( verbose )</summary><p>
 getvault "vaultId" ( verbose )  
 Returns information about vault.  
   
@@ -5914,7 +5914,7 @@ Examples:
 
 </p></details>
 
-<details><summary>listauctionhistory ( "owner|vaultId" {"maxBlockHeight":n,"vaultId":"hex","index":n,"limit":n} )</summary><p style="font-family: monospace;">
+<details><summary>listauctionhistory ( "owner|vaultId" {"maxBlockHeight":n,"vaultId":"hex","index":n,"limit":n} )</summary><p>
 listauctionhistory ( "owner|vaultId" {"maxBlockHeight":n,"vaultId":"hex","index":n,"limit":n} )  
   
 Returns information about auction history.  
@@ -5938,7 +5938,7 @@ Examples:
 
 </p></details>
 
-<details><summary>listauctions ( {"start":obj,"including_start":bool,"limit":n} )</summary><p style="font-family: monospace;">
+<details><summary>listauctions ( {"start":obj,"including_start":bool,"limit":n} )</summary><p>
 listauctions ( {"start":obj,"including_start":bool,"limit":n} )  
 List all available auctions.  
   
@@ -5966,7 +5966,7 @@ Examples:
 
 </p></details>
 
-<details><summary>listvaulthistory "vaultId" ( {"maxBlockHeight":n,"depth":n,"token":"str","txtype":"str","limit":n} )</summary><p style="font-family: monospace;">
+<details><summary>listvaulthistory "vaultId" ( {"maxBlockHeight":n,"depth":n,"token":"str","txtype":"str","limit":n} )</summary><p>
 listvaulthistory "vaultId" ( {"maxBlockHeight":n,"depth":n,"token":"str","txtype":"str","limit":n} )  
   
 Returns the history of the specified vault.  
@@ -5991,7 +5991,7 @@ Examples:
 
 </p></details>
 
-<details><summary>listvaults ( {"ownerAddress":"str","loanSchemeId":"str","state":"str","verbose":bool} {"start":"hex","including_start":bool,"limit":n} )</summary><p style="font-family: monospace;">
+<details><summary>listvaults ( {"ownerAddress":"str","loanSchemeId":"str","state":"str","verbose":bool} {"start":"hex","including_start":bool,"limit":n} )</summary><p>
 listvaults ( {"ownerAddress":"str","loanSchemeId":"str","state":"str","verbose":bool} {"start":"hex","including_start":bool,"limit":n} )  
 List all available vaults.  
   
@@ -6027,7 +6027,7 @@ Examples:
 
 </p></details>
 
-<details><summary>paybackwithcollateral "vaultId"</summary><p style="font-family: monospace;">
+<details><summary>paybackwithcollateral "vaultId"</summary><p>
 paybackwithcollateral "vaultId"  
 Payback vault's loans with vault's collaterals.  
   
@@ -6043,7 +6043,7 @@ Examples:
 
 </p></details>
 
-<details><summary>placeauctionbid "vaultId" index "from" "amount" ( [{"txid":"hex","vout":n},...] )</summary><p style="font-family: monospace;">
+<details><summary>placeauctionbid "vaultId" index "from" "amount" ( [{"txid":"hex","vout":n},...] )</summary><p>
 placeauctionbid "vaultId" index "from" "amount" ( [{"txid":"hex","vout":n},...] )  
 Bid to vault in auction.  
   
@@ -6072,7 +6072,7 @@ Examples:
 
 </p></details>
 
-<details><summary>updatevault "vaultId" {"ownerAddress":"hex","loanSchemeId":"str"} ( [{"txid":"hex","vout":n},...] )</summary><p style="font-family: monospace;">
+<details><summary>updatevault "vaultId" {"ownerAddress":"hex","loanSchemeId":"str"} ( [{"txid":"hex","vout":n},...] )</summary><p>
 updatevault "vaultId" {"ownerAddress":"hex","loanSchemeId":"str"} ( [{"txid":"hex","vout":n},...] )  
   
 Creates (and submits to local node and network) an `update vault transaction`,   
@@ -6105,7 +6105,7 @@ Examples:
 
 </p></details>
 
-<details><summary>withdrawfromvault "vaultId" "to" "amount" ( [{"txid":"hex","vout":n},...] )</summary><p style="font-family: monospace;">
+<details><summary>withdrawfromvault "vaultId" "to" "amount" ( [{"txid":"hex","vout":n},...] )</summary><p>
 withdrawfromvault "vaultId" "to" "amount" ( [{"txid":"hex","vout":n},...] )  
 Withdraw collateral token amount from vault.  
   
@@ -6134,7 +6134,7 @@ Examples:
 </p></details>
 
 ## Wallet
-<details><summary>abandontransaction "txid"</summary><p style="font-family: monospace;">
+<details><summary>abandontransaction "txid"</summary><p>
 abandontransaction "txid"  
   
 Mark in-wallet transaction <txid> as abandoned  
@@ -6152,7 +6152,7 @@ Examples:
 
 </p></details>
 
-<details><summary>abortrescan</summary><p style="font-family: monospace;">
+<details><summary>abortrescan</summary><p>
 abortrescan  
   
 Stops current wallet rescan triggered by an RPC call, e.g. by an importprivkey call.  
@@ -6171,7 +6171,7 @@ As a JSON-RPC call
 
 </p></details>
 
-<details><summary>addmultisigaddress nrequired ["key",...] ( "label" "address_type" )</summary><p style="font-family: monospace;">
+<details><summary>addmultisigaddress nrequired ["key",...] ( "label" "address_type" )</summary><p>
 addmultisigaddress nrequired ["key",...] ( "label" "address_type" )  
   
 Add a nrequired-to-sign multisignature address to the wallet. Requires a new wallet backup.  
@@ -6206,7 +6206,7 @@ As a JSON-RPC call
 
 </p></details>
 
-<details><summary>backupwallet "destination"</summary><p style="font-family: monospace;">
+<details><summary>backupwallet "destination"</summary><p>
 backupwallet "destination"  
   
 Safely copies current wallet file to destination, which can be a directory or a path with filename.  
@@ -6220,7 +6220,7 @@ Examples:
 
 </p></details>
 
-<details><summary>bumpfee "txid" ( options )</summary><p style="font-family: monospace;">
+<details><summary>bumpfee "txid" ( options )</summary><p>
 bumpfee "txid" ( options )  
   
 Bumps the fee of an opt-in-RBF transaction T, replacing it with a new transaction B.  
@@ -6272,7 +6272,7 @@ Bump the fee, get the new transaction's txid
 
 </p></details>
 
-<details><summary>createwallet "wallet_name" ( disable_private_keys blank "passphrase" avoid_reuse )</summary><p style="font-family: monospace;">
+<details><summary>createwallet "wallet_name" ( disable_private_keys blank "passphrase" avoid_reuse )</summary><p>
 createwallet "wallet_name" ( disable_private_keys blank "passphrase" avoid_reuse )  
   
 Creates and loads a new wallet.  
@@ -6296,7 +6296,7 @@ Examples:
 
 </p></details>
 
-<details><summary>dumpprivkey "address"</summary><p style="font-family: monospace;">
+<details><summary>dumpprivkey "address"</summary><p>
 dumpprivkey "address"  
   
 Reveals the private key corresponding to 'address'.  
@@ -6315,7 +6315,7 @@ Examples:
 
 </p></details>
 
-<details><summary>dumpwallet "filename"</summary><p style="font-family: monospace;">
+<details><summary>dumpwallet "filename"</summary><p>
 dumpwallet "filename"  
   
 Dumps all wallet keys in a human-readable format to a server-side file. This does not allow overwriting existing files.  
@@ -6337,7 +6337,7 @@ Examples:
 
 </p></details>
 
-<details><summary>encryptwallet "passphrase"</summary><p style="font-family: monospace;">
+<details><summary>encryptwallet "passphrase"</summary><p>
 encryptwallet "passphrase"  
   
 Encrypts the wallet with 'passphrase'. This is for first time encryption.  
@@ -6368,7 +6368,7 @@ As a JSON-RPC call
 
 </p></details>
 
-<details><summary>getaddressesbylabel "label"</summary><p style="font-family: monospace;">
+<details><summary>getaddressesbylabel "label"</summary><p>
 getaddressesbylabel "label"  
   
 Returns the list of addresses assigned the specified label.  
@@ -6389,7 +6389,7 @@ Examples:
 
 </p></details>
 
-<details><summary>getaddressinfo "address"</summary><p style="font-family: monospace;">
+<details><summary>getaddressinfo "address"</summary><p>
 getaddressinfo "address"  
   
 Return information about the given defi address. Some information requires the address  
@@ -6442,7 +6442,7 @@ Examples:
 
 </p></details>
 
-<details><summary>getbalance ( "dummy" minconf include_watchonly avoid_reuse with_tokens )</summary><p style="font-family: monospace;">
+<details><summary>getbalance ( "dummy" minconf include_watchonly avoid_reuse with_tokens )</summary><p>
 getbalance ( "dummy" minconf include_watchonly avoid_reuse with_tokens )  
   
 Returns the total available balance.  
@@ -6474,7 +6474,7 @@ As a JSON-RPC call
 
 </p></details>
 
-<details><summary>getbalances ( with_tokens )</summary><p style="font-family: monospace;">
+<details><summary>getbalances ( with_tokens )</summary><p>
 getbalances ( with_tokens )  
 Returns an object with all balances in DFI.  
   
@@ -6502,7 +6502,7 @@ Examples:
 
 </p></details>
 
-<details><summary>getnewaddress ( "label" "address_type" )</summary><p style="font-family: monospace;">
+<details><summary>getnewaddress ( "label" "address_type" )</summary><p>
 getnewaddress ( "label" "address_type" )  
   
 Returns a new Defi address for receiving payments.  
@@ -6522,7 +6522,7 @@ Examples:
 
 </p></details>
 
-<details><summary>getrawchangeaddress ( "address_type" )</summary><p style="font-family: monospace;">
+<details><summary>getrawchangeaddress ( "address_type" )</summary><p>
 getrawchangeaddress ( "address_type" )  
   
 Returns a new Defi address, for receiving change.  
@@ -6540,7 +6540,7 @@ Examples:
 
 </p></details>
 
-<details><summary>getreceivedbyaddress "address" ( minconf )</summary><p style="font-family: monospace;">
+<details><summary>getreceivedbyaddress "address" ( minconf )</summary><p>
 getreceivedbyaddress "address" ( minconf )  
   
 Returns the total amount received by the given address in transactions with at least minconf confirmations.  
@@ -6568,7 +6568,7 @@ As a JSON-RPC call
 
 </p></details>
 
-<details><summary>getreceivedbylabel "label" ( minconf )</summary><p style="font-family: monospace;">
+<details><summary>getreceivedbylabel "label" ( minconf )</summary><p>
 getreceivedbylabel "label" ( minconf )  
   
 Returns the total amount received by addresses with <label> in transactions with at least [minconf] confirmations.  
@@ -6596,7 +6596,7 @@ As a JSON-RPC call
 
 </p></details>
 
-<details><summary>gettransaction "txid" ( include_watchonly )</summary><p style="font-family: monospace;">
+<details><summary>gettransaction "txid" ( include_watchonly )</summary><p>
 gettransaction "txid" ( include_watchonly )  
   
 Get detailed information about in-wallet transaction <txid>  
@@ -6648,7 +6648,7 @@ Examples:
 
 </p></details>
 
-<details><summary>getunconfirmedbalance ( with_tokens )</summary><p style="font-family: monospace;">
+<details><summary>getunconfirmedbalance ( with_tokens )</summary><p>
 getunconfirmedbalance ( with_tokens )  
 DEPRECATED  
 Identical to getbalances().mine.untrusted_pending  
@@ -6658,7 +6658,7 @@ Arguments:
 
 </p></details>
 
-<details><summary>getwalletinfo ( with_tokens )</summary><p style="font-family: monospace;">
+<details><summary>getwalletinfo ( with_tokens )</summary><p>
 getwalletinfo ( with_tokens )  
 Returns an object containing various wallet state info.  
   
@@ -6694,7 +6694,7 @@ Examples:
 
 </p></details>
 
-<details><summary>importaddress "address" ( "label" rescan p2sh )</summary><p style="font-family: monospace;">
+<details><summary>importaddress "address" ( "label" rescan p2sh )</summary><p>
 importaddress "address" ( "label" rescan p2sh )  
   
 Adds an address or script (in hex) that can be watched as if it were in your wallet but cannot be used to spend. Requires a new wallet backup.  
@@ -6727,7 +6727,7 @@ As a JSON-RPC call
 
 </p></details>
 
-<details><summary>importmulti "requests" ( "options" )</summary><p style="font-family: monospace;">
+<details><summary>importmulti "requests" ( "options" )</summary><p>
 importmulti "requests" ( "options" )  
   
 Import addresses/scripts (with private or public keys, redeem script (P2SH)), optionally rescanning the blockchain from the earliest creation time of the imported scripts. Requires a new wallet backup.  
@@ -6784,7 +6784,7 @@ Examples:
 
 </p></details>
 
-<details><summary>importprivkey "privkey" ( "label" rescan )</summary><p style="font-family: monospace;">
+<details><summary>importprivkey "privkey" ( "label" rescan )</summary><p>
 importprivkey "privkey" ( "label" rescan )  
   
 Adds a private key (as returned by dumpprivkey) to your wallet. Requires a new wallet backup.  
@@ -6818,7 +6818,7 @@ As a JSON-RPC call
 
 </p></details>
 
-<details><summary>importprunedfunds "rawtransaction" "txoutproof"</summary><p style="font-family: monospace;">
+<details><summary>importprunedfunds "rawtransaction" "txoutproof"</summary><p>
 importprunedfunds "rawtransaction" "txoutproof"  
   
 Imports funds without rescan. Corresponding address or script must previously be included in wallet. Aimed towards pruned wallets. The end-user is responsible to import additional transactions that subsequently spend the imported outputs or rescan after the point in the blockchain the transaction is included.  
@@ -6829,7 +6829,7 @@ Arguments:
 
 </p></details>
 
-<details><summary>importpubkey "pubkey" ( "label" rescan )</summary><p style="font-family: monospace;">
+<details><summary>importpubkey "pubkey" ( "label" rescan )</summary><p>
 importpubkey "pubkey" ( "label" rescan )  
   
 Adds a public key (in hex) that can be watched as if it were in your wallet but cannot be used to spend. Requires a new wallet backup.  
@@ -6857,7 +6857,7 @@ As a JSON-RPC call
 
 </p></details>
 
-<details><summary>importwallet "filename"</summary><p style="font-family: monospace;">
+<details><summary>importwallet "filename"</summary><p>
 importwallet "filename"  
   
 Imports keys from a wallet dump file (see dumpwallet). Requires a new wallet backup to include imported keys.  
@@ -6879,7 +6879,7 @@ Import using the json rpc call
 
 </p></details>
 
-<details><summary>keypoolrefill ( newsize )</summary><p style="font-family: monospace;">
+<details><summary>keypoolrefill ( newsize )</summary><p>
 keypoolrefill ( newsize )  
   
 Fills the keypool.  
@@ -6894,7 +6894,7 @@ Examples:
 
 </p></details>
 
-<details><summary>listaddressgroupings</summary><p style="font-family: monospace;">
+<details><summary>listaddressgroupings</summary><p>
 listaddressgroupings  
   
 Lists groups of addresses which have had their common ownership  
@@ -6920,7 +6920,7 @@ Examples:
 
 </p></details>
 
-<details><summary>listlabels ( "purpose" )</summary><p style="font-family: monospace;">
+<details><summary>listlabels ( "purpose" )</summary><p>
 listlabels ( "purpose" )  
   
 Returns the list of all labels, or labels that are assigned to addresses with a specific purpose.  
@@ -6950,7 +6950,7 @@ As a JSON-RPC call
 
 </p></details>
 
-<details><summary>listlockunspent</summary><p style="font-family: monospace;">
+<details><summary>listlockunspent</summary><p>
 listlockunspent  
   
 Returns list of temporarily unspendable outputs.  
@@ -6984,7 +6984,7 @@ As a JSON-RPC call
 
 </p></details>
 
-<details><summary>listreceivedbyaddress ( minconf include_empty include_watchonly "address_filter" )</summary><p style="font-family: monospace;">
+<details><summary>listreceivedbyaddress ( minconf include_empty include_watchonly "address_filter" )</summary><p>
 listreceivedbyaddress ( minconf include_empty include_watchonly "address_filter" )  
   
 List balances by receiving address.  
@@ -7019,7 +7019,7 @@ Examples:
 
 </p></details>
 
-<details><summary>listreceivedbylabel ( minconf include_empty include_watchonly )</summary><p style="font-family: monospace;">
+<details><summary>listreceivedbylabel ( minconf include_empty include_watchonly )</summary><p>
 listreceivedbylabel ( minconf include_empty include_watchonly )  
   
 List received transactions by label.  
@@ -7047,7 +7047,7 @@ Examples:
 
 </p></details>
 
-<details><summary>listsinceblock ( "blockhash" target_confirmations include_watchonly include_removed )</summary><p style="font-family: monospace;">
+<details><summary>listsinceblock ( "blockhash" target_confirmations include_watchonly include_removed )</summary><p>
 listsinceblock ( "blockhash" target_confirmations include_watchonly include_removed )  
   
 Get all transactions in blocks since block [blockhash], or all transactions if omitted.  
@@ -7104,7 +7104,7 @@ Examples:
 
 </p></details>
 
-<details><summary>listtransactions ( "label" count skip include_watchonly exclude_custom_tx )</summary><p style="font-family: monospace;">
+<details><summary>listtransactions ( "label" count skip include_watchonly exclude_custom_tx )</summary><p>
 listtransactions ( "label" count skip include_watchonly exclude_custom_tx )  
   
 If a label name is provided, this will return only incoming transactions paying to addresses with the specified label.  
@@ -7165,7 +7165,7 @@ As a JSON-RPC call
 
 </p></details>
 
-<details><summary>listunspent ( minconf maxconf ["address",...] include_unsafe query_options )</summary><p style="font-family: monospace;">
+<details><summary>listunspent ( minconf maxconf ["address",...] include_unsafe query_options )</summary><p>
 listunspent ( minconf maxconf ["address",...] include_unsafe query_options )  
   
 Returns array of unspent transaction outputs  
@@ -7224,7 +7224,7 @@ Examples:
 
 </p></details>
 
-<details><summary>listwalletdir</summary><p style="font-family: monospace;">
+<details><summary>listwalletdir</summary><p>
 listwalletdir  
 Returns a list of wallets in the wallet directory.  
   
@@ -7244,7 +7244,7 @@ Examples:
 
 </p></details>
 
-<details><summary>listwallets</summary><p style="font-family: monospace;">
+<details><summary>listwallets</summary><p>
 listwallets  
 Returns a list of currently loaded wallets.  
 For full information on the wallet, use "getwalletinfo"  
@@ -7261,7 +7261,7 @@ Examples:
 
 </p></details>
 
-<details><summary>loadwallet "filename"</summary><p style="font-family: monospace;">
+<details><summary>loadwallet "filename"</summary><p>
 loadwallet "filename"  
   
 Loads a wallet from a wallet file or directory.  
@@ -7283,7 +7283,7 @@ Examples:
 
 </p></details>
 
-<details><summary>lockunspent unlock ( [{"txid":"hex","vout":n},...] )</summary><p style="font-family: monospace;">
+<details><summary>lockunspent unlock ( [{"txid":"hex","vout":n},...] )</summary><p>
 lockunspent unlock ( [{"txid":"hex","vout":n},...] )  
   
 Updates list of temporarily unspendable outputs.  
@@ -7327,7 +7327,7 @@ As a JSON-RPC call
 
 </p></details>
 
-<details><summary>removeprunedfunds "txid"</summary><p style="font-family: monospace;">
+<details><summary>removeprunedfunds "txid"</summary><p>
 removeprunedfunds "txid"  
   
 Deletes the specified transaction from the wallet. Meant for use with pruned wallets and as a companion to importprunedfunds. This will affect wallet balances.  
@@ -7343,7 +7343,7 @@ As a JSON-RPC call
 
 </p></details>
 
-<details><summary>rescanblockchain ( start_height stop_height )</summary><p style="font-family: monospace;">
+<details><summary>rescanblockchain ( start_height stop_height )</summary><p>
 rescanblockchain ( start_height stop_height )  
   
 Rescan the local blockchain for wallet related transactions.  
@@ -7365,7 +7365,7 @@ Examples:
 
 </p></details>
 
-<details><summary>sendmany "" {"address":amount} ( minconf "comment" ["address",...] replaceable conf_target "estimate_mode" )</summary><p style="font-family: monospace;">
+<details><summary>sendmany "" {"address":amount} ( minconf "comment" ["address",...] replaceable conf_target "estimate_mode" )</summary><p>
 sendmany "" {"address":amount} ( minconf "comment" ["address",...] replaceable conf_target "estimate_mode" )  
   
 Send multiple times. Amounts are double-precision floating point numbers.  
@@ -7414,7 +7414,7 @@ As a JSON-RPC call
 
 </p></details>
 
-<details><summary>sendtoaddress "address" amount ( "comment" "comment_to" subtractfeefromamount replaceable conf_target "estimate_mode" avoid_reuse )</summary><p style="font-family: monospace;">
+<details><summary>sendtoaddress "address" amount ( "comment" "comment_to" subtractfeefromamount replaceable conf_target "estimate_mode" avoid_reuse )</summary><p>
 sendtoaddress "address" amount ( "comment" "comment_to" subtractfeefromamount replaceable conf_target "estimate_mode" avoid_reuse )  
   
 Send an amount to a given address.  
@@ -7450,7 +7450,7 @@ Examples:
 
 </p></details>
 
-<details><summary>sethdseed ( newkeypool "seed" )</summary><p style="font-family: monospace;">
+<details><summary>sethdseed ( newkeypool "seed" )</summary><p>
 sethdseed ( newkeypool "seed" )  
   
 Set or generate a new HD wallet seed. Non-HD wallets will not be upgraded to being a HD wallet. Wallets that are already  
@@ -7475,7 +7475,7 @@ Examples:
 
 </p></details>
 
-<details><summary>setlabel "address" "label"</summary><p style="font-family: monospace;">
+<details><summary>setlabel "address" "label"</summary><p>
 setlabel "address" "label"  
   
 Sets the label associated with the given address.  
@@ -7490,7 +7490,7 @@ Examples:
 
 </p></details>
 
-<details><summary>settxfee amount</summary><p style="font-family: monospace;">
+<details><summary>settxfee amount</summary><p>
 settxfee amount  
   
 Set the transaction fee per kB for this wallet. Overrides the global -paytxfee command line parameter.  
@@ -7507,7 +7507,7 @@ Examples:
 
 </p></details>
 
-<details><summary>setwalletflag "flag" ( value )</summary><p style="font-family: monospace;">
+<details><summary>setwalletflag "flag" ( value )</summary><p>
 setwalletflag "flag" ( value )  
   
 Change the state of the given wallet flag for a wallet.  
@@ -7529,7 +7529,7 @@ Examples:
 
 </p></details>
 
-<details><summary>signmessage "address" "message"</summary><p style="font-family: monospace;">
+<details><summary>signmessage "address" "message"</summary><p>
 signmessage "address" "message"  
   
 Sign a message with the private key of an address  
@@ -7558,7 +7558,7 @@ As a JSON-RPC call
 
 </p></details>
 
-<details><summary>signrawtransactionwithwallet "hexstring" ( [{"txid":"hex","vout":n,"scriptPubKey":"hex","redeemScript":"hex","witnessScript":"hex","amount":amount},...] "sighashtype" )</summary><p style="font-family: monospace;">
+<details><summary>signrawtransactionwithwallet "hexstring" ( [{"txid":"hex","vout":n,"scriptPubKey":"hex","redeemScript":"hex","witnessScript":"hex","amount":amount},...] "sighashtype" )</summary><p>
 signrawtransactionwithwallet "hexstring" ( [{"txid":"hex","vout":n,"scriptPubKey":"hex","redeemScript":"hex","witnessScript":"hex","amount":amount},...] "sighashtype" )  
   
 Sign inputs for raw transaction (serialized, hex-encoded).  
@@ -7610,7 +7610,7 @@ Examples:
 
 </p></details>
 
-<details><summary>unloadwallet ( "wallet_name" )</summary><p style="font-family: monospace;">
+<details><summary>unloadwallet ( "wallet_name" )</summary><p>
 unloadwallet ( "wallet_name" )  
 Unloads the wallet referenced by the request endpoint otherwise unloads the wallet specified in the argument.  
 Specifying the wallet name on a wallet endpoint is invalid.  
@@ -7623,7 +7623,7 @@ Examples:
 
 </p></details>
 
-<details><summary>walletcreatefundedpsbt [{"txid":"hex","vout":n,"sequence":n},...] [{"address":amount},{"data":"hex"},...] ( locktime options bip32derivs )</summary><p style="font-family: monospace;">
+<details><summary>walletcreatefundedpsbt [{"txid":"hex","vout":n,"sequence":n},...] [{"address":amount},{"data":"hex"},...] ( locktime options bip32derivs )</summary><p>
 walletcreatefundedpsbt [{"txid":"hex","vout":n,"sequence":n},...] [{"address":amount},{"data":"hex"},...] ( locktime options bip32derivs )  
   
 Creates and funds a transaction in the Partially Signed Transaction format. Inputs will be added if supplied inputs are not enough  
@@ -7692,7 +7692,7 @@ Create a transaction with no inputs
 
 </p></details>
 
-<details><summary>walletlock</summary><p style="font-family: monospace;">
+<details><summary>walletlock</summary><p>
 walletlock  
   
 Removes the wallet encryption key from memory, locking the wallet.  
@@ -7715,7 +7715,7 @@ As a JSON-RPC call
 
 </p></details>
 
-<details><summary>walletpassphrase "passphrase" timeout</summary><p style="font-family: monospace;">
+<details><summary>walletpassphrase "passphrase" timeout</summary><p>
 walletpassphrase "passphrase" timeout  
   
 Stores the wallet decryption key in memory for 'timeout' seconds.  
@@ -7742,7 +7742,7 @@ As a JSON-RPC call
 
 </p></details>
 
-<details><summary>walletpassphrasechange "oldpassphrase" "newpassphrase"</summary><p style="font-family: monospace;">
+<details><summary>walletpassphrasechange "oldpassphrase" "newpassphrase"</summary><p>
 walletpassphrasechange "oldpassphrase" "newpassphrase"  
   
 Changes the wallet passphrase from 'oldpassphrase' to 'newpassphrase'.  
@@ -7757,7 +7757,7 @@ Examples:
 
 </p></details>
 
-<details><summary>walletprocesspsbt "psbt" ( sign "sighashtype" bip32derivs )</summary><p style="font-family: monospace;">
+<details><summary>walletprocesspsbt "psbt" ( sign "sighashtype" bip32derivs )</summary><p>
 walletprocesspsbt "psbt" ( sign "sighashtype" bip32derivs )  
   
 Update a PSBT with input information from our wallet and then sign inputs  
@@ -7789,7 +7789,7 @@ Examples:
 </p></details>
 
 ## Zmq
-<details><summary>getzmqnotifications</summary><p style="font-family: monospace;">
+<details><summary>getzmqnotifications</summary><p>
 getzmqnotifications  
   
 Returns information about the active ZeroMQ notifications.  
