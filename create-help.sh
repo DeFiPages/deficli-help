@@ -33,7 +33,7 @@ defi-cli help| while read line ; do
 		echo "## $topic"
 	else
 		echo "<details><summary>$line</summary><p>"
-		defi-cli help $firstword | tr '\n' '  \n'
+		defi-cli help $firstword | tr '\n' '<br>\n'
 		echo "</p></details>"
 		echo
 	fi		
