@@ -11,7 +11,7 @@ defi-cli help | while read line ; do
 	if [[ "$firstword" == "==" ]]
 	then
 		topic=${arr[1]}
-		echo "[$topic](#$topic)\\"
+		echo "[$topic](#$topic)"
 	fi		
 done
 }

@@ -1,25 +1,25 @@
 DeFi Blockchain RPC client version v3.1.1
 
-[Accounts](#Accounts)\
-[Blockchain](#Blockchain)\
-[Control](#Control)\
-[Generating](#Generating)\
-[Icxorderbook](#Icxorderbook)\
-[Loan](#Loan)\
-[Masternodes](#Masternodes)\
-[Mining](#Mining)\
-[Network](#Network)\
-[Oracles](#Oracles)\
-[Poolpair](#Poolpair)\
-[Proposals](#Proposals)\
-[Rawtransactions](#Rawtransactions)\
-[Spv](#Spv)\
-[Stats](#Stats)\
-[Tokens](#Tokens)\
-[Util](#Util)\
-[Vault](#Vault)\
-[Wallet](#Wallet)\
-[Zmq](#Zmq)\
+[Accounts](#Accounts)
+[Blockchain](#Blockchain)
+[Control](#Control)
+[Generating](#Generating)
+[Icxorderbook](#Icxorderbook)
+[Loan](#Loan)
+[Masternodes](#Masternodes)
+[Mining](#Mining)
+[Network](#Network)
+[Oracles](#Oracles)
+[Poolpair](#Poolpair)
+[Proposals](#Proposals)
+[Rawtransactions](#Rawtransactions)
+[Spv](#Spv)
+[Stats](#Stats)
+[Tokens](#Tokens)
+[Util](#Util)
+[Vault](#Vault)
+[Wallet](#Wallet)
+[Zmq](#Zmq)
 
 ## Accounts
 <details><summary>accounthistorycount ( "owner" {"no_rewards":bool,"token":"str","txtype":"str"} )</summary><p>
