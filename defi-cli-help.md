@@ -1,7 +1,25 @@
 DeFi Blockchain RPC client version v3.1.1
-
-
-<details><summary><b>== Accounts ==</b></summary><p>
+[Accounts](#Accounts)
+[Blockchain](#Blockchain)
+[Control](#Control)
+[Generating](#Generating)
+[Icxorderbook](#Icxorderbook)
+[Loan](#Loan)
+[Masternodes](#Masternodes)
+[Mining](#Mining)
+[Network](#Network)
+[Oracles](#Oracles)
+[Poolpair](#Poolpair)
+[Proposals](#Proposals)
+[Rawtransactions](#Rawtransactions)
+[Spv](#Spv)
+[Stats](#Stats)
+[Tokens](#Tokens)
+[Util](#Util)
+[Vault](#Vault)
+[Wallet](#Wallet)
+[Zmq](#Zmq)
+## Accounts
 <details><summary>accounthistorycount ( "owner" {"no_rewards":bool,"token":"str","txtype":"str"} )</summary><p>
 accounthistorycount ( "owner" {"no_rewards":bool,"token":"str","txtype":"str"} )
 
@@ -511,9 +529,7 @@ Examples:
 
 </p></details>
 
-</p></details>
-
-<details><summary><b>== Blockchain ==</b></summary><p>
+## Blockchain
 <details><summary>clearmempool</summary><p>
 clearmempool
 
@@ -1491,9 +1507,7 @@ Result:
 
 </p></details>
 
-</p></details>
-
-<details><summary><b>== Control ==</b></summary><p>
+## Control
 <details><summary>getmemoryinfo ( "mode" )</summary><p>
 getmemoryinfo ( "mode" )
 Returns an object containing information about memory usage.
@@ -1616,9 +1630,7 @@ Examples:
 
 </p></details>
 
-</p></details>
-
-<details><summary><b>== Generating ==</b></summary><p>
+## Generating
 <details><summary>generatetoaddress nblocks "address" ( maxtries )</summary><p>
 generatetoaddress nblocks "address" ( maxtries )
 
@@ -1641,9 +1653,7 @@ If you are running the DeFi Blockchain wallet, you can get a new address to send
 
 </p></details>
 
-</p></details>
-
-<details><summary><b>== Icxorderbook ==</b></summary><p>
+## Icxorderbook
 <details><summary>icx_claimdfchtlc ( {"dfchtlcTx":"str","seed":"str"} [{"txid":"hex","vout":n},...] )</summary><p>
 icx_claimdfchtlc ( {"dfchtlcTx":"str","seed":"str"} [{"txid":"hex","vout":n},...] )
 
@@ -1964,9 +1974,7 @@ EXPERIMENTAL warning: ICX and Atomic Swap are experimental features. You might e
 
 </p></details>
 
-</p></details>
-
-<details><summary><b>== Loan ==</b></summary><p>
+## Loan
 <details><summary>createloanscheme mincolratio interestrate "id" ( [{"txid":"hex","vout":n},...] )</summary><p>
 createloanscheme mincolratio interestrate "id" ( [{"txid":"hex","vout":n},...] )
 Creates a loan scheme transaction.
@@ -2369,9 +2377,7 @@ Examples:
 
 </p></details>
 
-</p></details>
-
-<details><summary><b>== Masternodes ==</b></summary><p>
+## Masternodes
 <details><summary>createmasternode "ownerAddress" ( "operatorAddress" [{"txid":"hex","vout":n},...] "timelock" )</summary><p>
 createmasternode "ownerAddress" ( "operatorAddress" [{"txid":"hex","vout":n},...] "timelock" )
 
@@ -2575,9 +2581,7 @@ Examples:
 
 </p></details>
 
-</p></details>
-
-<details><summary><b>== Mining ==</b></summary><p>
+## Mining
 <details><summary>getblocktemplate ( "template_request" )</summary><p>
 getblocktemplate ( "template_request" )
 
@@ -2778,9 +2782,7 @@ Examples:
 
 </p></details>
 
-</p></details>
-
-<details><summary><b>== Network ==</b></summary><p>
+## Network
 <details><summary>addnode "node" "command"</summary><p>
 addnode "node" "command"
 
@@ -3113,9 +3115,7 @@ Arguments:
 
 </p></details>
 
-</p></details>
-
-<details><summary><b>== Oracles ==</b></summary><p>
+## Oracles
 <details><summary>appointoracle "address" [{"currency":"str","token":"str"},...] weightage ( [{"txid":"hex","vout":n},...] )</summary><p>
 appointoracle "address" [{"currency":"str","token":"str"},...] weightage ( [{"txid":"hex","vout":n},...] )
 
@@ -3449,9 +3449,7 @@ Examples:
 
 </p></details>
 
-</p></details>
-
-<details><summary><b>== Poolpair ==</b></summary><p>
+## Poolpair
 <details><summary>addpoolliquidity {"address":"str"} "shareAddress" ( [{"txid":"hex","vout":n},...] )</summary><p>
 addpoolliquidity {"address":"str"} "shareAddress" ( [{"txid":"hex","vout":n},...] )
 
@@ -3748,9 +3746,7 @@ Examples:
 
 </p></details>
 
-</p></details>
-
-<details><summary><b>== Proposals ==</b></summary><p>
+## Proposals
 <details><summary>creategovcfp ( {"title":"str","context":"str","contextHash":"str","cycles":n,"amount":amount,"payoutAddress":"str"} [{"txid":"hex","vout":n},...] )</summary><p>
 creategovcfp ( {"title":"str","context":"str","contextHash":"str","cycles":n,"amount":amount,"payoutAddress":"str"} [{"txid":"hex","vout":n},...] )
 
@@ -3899,9 +3895,7 @@ Examples:
 
 </p></details>
 
-</p></details>
-
-<details><summary><b>== Rawtransactions ==</b></summary><p>
+## Rawtransactions
 <details><summary>analyzepsbt "psbt"</summary><p>
 analyzepsbt "psbt"
 
@@ -4658,9 +4652,7 @@ Examples:
 
 </p></details>
 
-</p></details>
-
-<details><summary><b>== Spv ==</b></summary><p>
+## Spv
 <details><summary>spv_claimhtlc "scriptaddress" "destinationaddress" "seed" ( feerate )</summary><p>
 spv_claimhtlc "scriptaddress" "destinationaddress" "seed" ( feerate )
 
@@ -5264,9 +5256,7 @@ Examples:
 
 </p></details>
 
-</p></details>
-
-<details><summary><b>== Stats ==</b></summary><p>
+## Stats
 <details><summary>getrpcstats "command"</summary><p>
 getrpcstats "command"
 
@@ -5326,9 +5316,7 @@ Examples:
 
 </p></details>
 
-</p></details>
-
-<details><summary><b>== Tokens ==</b></summary><p>
+## Tokens
 <details><summary>burntokens {"amounts":"str","from":"str","context":"str"} ( [{"txid":"hex","vout":n},...] )</summary><p>
 burntokens {"amounts":"str","from":"str","context":"str"} ( [{"txid":"hex","vout":n},...] )
 
@@ -5558,9 +5546,7 @@ Examples:
 
 </p></details>
 
-</p></details>
-
-<details><summary><b>== Util ==</b></summary><p>
+## Util
 <details><summary>createmultisig nrequired ["key",...] ( "address_type" )</summary><p>
 createmultisig nrequired ["key",...] ( "address_type" )
 
@@ -5758,9 +5744,7 @@ As a JSON-RPC call
 
 </p></details>
 
-</p></details>
-
-<details><summary><b>== Vault ==</b></summary><p>
+## Vault
 <details><summary>closevault "vaultId" "to" ( [{"txid":"hex","vout":n},...] )</summary><p>
 closevault "vaultId" "to" ( [{"txid":"hex","vout":n},...] )
 Close vault transaction.
@@ -6147,9 +6131,7 @@ Examples:
 
 </p></details>
 
-</p></details>
-
-<details><summary><b>== Wallet ==</b></summary><p>
+## Wallet
 <details><summary>abandontransaction "txid"</summary><p>
 abandontransaction "txid"
 
@@ -7804,9 +7786,7 @@ Examples:
 
 </p></details>
 
-</p></details>
-
-<details><summary><b>== Zmq ==</b></summary><p>
+## Zmq
 <details><summary>getzmqnotifications</summary><p>
 getzmqnotifications
 
@@ -7827,5 +7807,4 @@ Examples:
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getzmqnotifications", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8554/
 
 </p></details>
-
 
