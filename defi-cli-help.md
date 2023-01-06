@@ -1,4 +1,4 @@
-DeFi Blockchain RPC client version v3.1.1
+DeFi Blockchain RPC client version v3.2.1
 
 [Accounts](#Accounts)
 [Blockchain](#Blockchain)
@@ -3832,14 +3832,21 @@ Examples:
 
 </p></details>
 
-<details><summary>listgovproposals ( "type" "status" )</summary><p>
-listgovproposals ( "type" "status" )  
+<details><summary>listgovproposals ( "type" "status" cycle {"start":n,"including_start":bool,"limit":n} )</summary><p>
+listgovproposals ( "type" "status" cycle {"start":n,"including_start":bool,"limit":n} )  
   
 Returns information about proposals.  
   
 Arguments:  
-1. type      (string) cfp/voc/all (default = all)  
-2. status    (string) voting/rejected/completed/all (default = all)  
+1. type                            (string) cfp/voc/all (default = all)  
+2. status                          (string) voting/rejected/completed/all (default = all)  
+3. cycle                           (numeric) cycle: 0 (all), cycle: N (show cycle N), cycle: -1 (show previous cycle) (default = 0)  
+4. pagination                      (json object)  
+     {  
+       "start": n,                 (numeric) Vote index to iterate from.Typically it's set to last ID from previous request.  
+       "including_start": bool,    (boolean) If true, then iterate including starting position. False by default  
+       "limit": n,                 (numeric) Maximum number of proposals to return, 100 by default  
+     }  
   
 Result:  
 {id:{...},...}     (array) Json object with proposals information  
@@ -3850,15 +3857,21 @@ Examples:
 
 </p></details>
 
-<details><summary>listgovproposalvotes "proposalId" ( "masternode" cycle )</summary><p>
-listgovproposalvotes "proposalId" ( "masternode" cycle )  
+<details><summary>listgovproposalvotes "proposalId" ( "masternode" cycle {"start":n,"including_start":bool,"limit":n} )</summary><p>
+listgovproposalvotes "proposalId" ( "masternode" cycle {"start":n,"including_start":bool,"limit":n} )  
   
 Returns information about proposal votes.  
   
 Arguments:  
-1. proposalId    (string, required) The proposal id)  
-2. masternode    (string) mine/all/id (default = mine)  
-3. cycle         (numeric) cycle: 0 (show current), cycle: N (show cycle N), cycle: -1 (show all) (default = 0)  
+1. proposalId                      (string, required) The proposal id)  
+2. masternode                      (string) mine/all/id (default = mine)  
+3. cycle                           (numeric) cycle: 0 (show current), cycle: N (show cycle N), cycle: -1 (show all) (default = 0)  
+4. pagination                      (json object)  
+     {  
+       "start": n,                 (numeric) Vote index to iterate from.Typically it's set to last ID from previous request.  
+       "including_start": bool,    (boolean) If true, then iterate including starting position. False by default  
+       "limit": n,                 (numeric) Maximum number of votes to return, 100 by default  
+     }  
   
 Result:  
 {id:{...},...}     (array) Json object with proposal vote information  
@@ -5330,7 +5343,7 @@ Arguments:
 1. metadata                 (json object, required)  
      {  
        "amounts": "str",    (string, required) Amount as json string, or array. Example: '[ "amount@token" ]'  
-       "from": "str",       (string, required) Address containing tokens to be burned.  
+       "from": "str",       (string) Address containing tokens to be burned.  
        "context": "str",    (string) Additional data necessary for specific burn type  
      }  
 2. inputs                   (json array, optional) A json array of json objects. Provide it if you want to spent specific UTXOs  
@@ -5484,11 +5497,12 @@ Examples:
 
 </p></details>
 
-<details><summary>minttokens "amounts" ( [{"txid":"hex","vout":n},...] )</summary><p>
-minttokens "amounts" ( [{"txid":"hex","vout":n},...] )  
+<details><summary>minttokens "amounts" ( [{"txid":"hex","vout":n},...] "to" )</summary><p>
+minttokens "amounts" ( [{"txid":"hex","vout":n},...] "to" )  
   
 Creates (and submits to local node and network) a transaction minting your token (for accounts and/or UTXOs).   
-The second optional argument (may be empty array) is an array of specific UTXOs to spend. One of UTXO's must belong to the token's owner (collateral) address  
+The second optional argument (may be empty array) is an array of specific UTXOs to spend. One of UTXO's must belong to the token's owner (collateral) address.   
+All arguments may optionally be passed in a JSON object.  
 Requires wallet passphrase to be set with walletpassphrase call.  
   
 Arguments:  
@@ -5501,6 +5515,7 @@ Arguments:
        },  
        ...  
      ]  
+3. to                      (string) Address to mint tokens to  
   
 Result:  
 "hash"                  (string) The hex-encoded hash of broadcasted transaction  
@@ -5508,6 +5523,10 @@ Result:
 Examples:  
 > defi-cli minttokens 10@symbol  
 > defi-cli minttokens 10@symbol '[{"txid":"id","vout":0}]'  
+> defi-cli minttokens 10@symbol '[{"txid":"id","vout":0}]' address  
+> defi-cli minttokens 10@symbol '' address  
+> defi-cli minttokens '{"amounts": ["10@symbol"], "to": "address"}'  
+> defi-cli minttokens '{"amounts": ["10@symbol"], "to": "address", "inputs": "[{"txid": "id","vout": 0}]"}'  
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "minttokens", "params": [10@symbol '[{"txid":"id","vout":0}]'] }' -H 'content-type: text/plain;' http://127.0.0.1:8554/  
 
 </p></details>
