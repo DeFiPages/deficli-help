@@ -1,4 +1,4 @@
-DeFi Blockchain RPC client version v3.2.1
+DeFi Blockchain RPC client version v3.2.4
 
 [Accounts](#Accounts)
 [Blockchain](#Blockchain)
@@ -22,18 +22,22 @@ DeFi Blockchain RPC client version v3.2.1
 [Zmq](#Zmq)
 
 ## Accounts
-<details><summary>accounthistorycount ( "owner" {"no_rewards":bool,"token":"str","txtype":"str"} )</summary><p>
-accounthistorycount ( "owner" {"no_rewards":bool,"token":"str","txtype":"str"} )  
+<details><summary>accounthistorycount ( "owner" {"no_rewards":bool,"token":"str","txtype":"str","txtypes":["Transaction Type",...]} )</summary><p>
+accounthistorycount ( "owner" {"no_rewards":bool,"token":"str","txtype":"str","txtypes":["Transaction Type",...]} )  
   
 Returns count of account history.  
   
 Arguments:  
-1. owner                      (string) Single account ID (CScript or address) or reserved words: "mine" - to list history for all owned accounts or "all" to list whole DB (default = "mine").  
-2. options                    (json object)  
+1. owner                        (string) Single account ID (CScript or address) or reserved words: "mine" - to list history for all owned accounts or "all" to list whole DB (default = "mine").  
+2. options                      (json object)  
      {  
-       "no_rewards": bool,    (boolean) Filter out rewards  
-       "token": "str",        (string) Filter by token  
-       "txtype": "str",       (string) Filter by transaction type, supported letter from {CustomTxType}  
+       "no_rewards": bool,      (boolean) Filter out rewards  
+       "token": "str",          (string) Filter by token  
+       "txtype": "str",         (string) Filter by transaction type, supported letter from {CustomTxType}  
+       "txtypes": [             (json array) Filter multiple transaction types, supported letter from {CustomTxType}  
+         "Transaction Type",    (string) letter from {CustomTxType}  
+         ...  
+       ],  
      }  
   
 Result:  
@@ -293,23 +297,29 @@ Examples:
 
 </p></details>
 
-<details><summary>listaccounthistory ( "owner" {"maxBlockHeight":n,"depth":n,"no_rewards":bool,"token":"str","txtype":"str","limit":n,"txn":n,"format":"str"} )</summary><p>
-listaccounthistory ( "owner" {"maxBlockHeight":n,"depth":n,"no_rewards":bool,"token":"str","txtype":"str","limit":n,"txn":n,"format":"str"} )  
+<details><summary>listaccounthistory ( "owner" {"maxBlockHeight":n,"depth":n,"no_rewards":bool,"token":"str","txtype":"str","txtypes":["Transaction Type",...],"limit":n,"start":n,"including_start":bool,"txn":n,"format":"str"} )</summary><p>
+listaccounthistory ( "owner" {"maxBlockHeight":n,"depth":n,"no_rewards":bool,"token":"str","txtype":"str","txtypes":["Transaction Type",...],"limit":n,"start":n,"including_start":bool,"txn":n,"format":"str"} )  
   
 Returns information about account history.  
   
 Arguments:  
-1. owner                       (string) Single account ID (CScript or address) or reserved words: "mine" - to list history for all owned accounts or "all" to list whole DB (default = "mine").  
-2. options                     (json object)  
+1. owner                           (string) Single account ID (CScript or address) or reserved words: "mine" - to list history for all owned accounts or "all" to list whole DB (default = "mine").  
+2. options                         (json object)  
      {  
-       "maxBlockHeight": n,    (numeric) Optional height to iterate from (downto genesis block), (default = chaintip).  
-       "depth": n,             (numeric) Maximum depth, from the genesis block is the default  
-       "no_rewards": bool,     (boolean) Filter out rewards  
-       "token": "str",         (string) Filter by token  
-       "txtype": "str",        (string) Filter by transaction type, supported letter from {CustomTxType}  
-       "limit": n,             (numeric) Maximum number of records to return, 100 by default  
-       "txn": n,               (numeric) Order in block, unlimited by default  
-       "format": "str",        (string) Return amounts with the following: 'id' -> <amount>@id; (default)'symbol' -> <amount>@symbol  
+       "maxBlockHeight": n,        (numeric) Optional height to iterate from (downto genesis block), (default = chaintip).  
+       "depth": n,                 (numeric) Maximum depth, from the genesis block is the default  
+       "no_rewards": bool,         (boolean) Filter out rewards  
+       "token": "str",             (string) Filter by token  
+       "txtype": "str",            (string) Filter by transaction type, supported letter from {CustomTxType}. Ignored if txtypes is provided  
+       "txtypes": [                (json array) Filter multiple transaction types, supported letter from {CustomTxType}  
+         "Transaction Type",       (string) letter from {CustomTxType}  
+         ...  
+       ],  
+       "limit": n,                 (numeric) Maximum number of records to return, 100 by default  
+       "start": n,                 (numeric) Number of entries to skip  
+       "including_start": bool,    (boolean) If true, then iterate including starting position. False by default  
+       "txn": n,                   (numeric) Order in block, unlimited by default  
+       "format": "str",            (string) Return amounts with the following: 'id' -> <amount>@id; (default)'symbol' -> <amount>@symbol  
      }  
   
 Result:  
@@ -579,29 +589,33 @@ Result (for verbosity = 0):
   
 Result (for verbosity = 1):  
 {  
-  "hash" : "hash",     (string) the block hash (same as provided)  
-  "confirmations" : n,   (numeric) The number of confirmations, or -1 if the block is not on the main chain  
-  "size" : n,            (numeric) The block size  
-  "strippedsize" : n,    (numeric) The block size excluding witness data  
-  "weight" : n           (numeric) The block weight as defined in BIP 141  
-  "height" : n,          (numeric) The block height or index  
-  "version" : n,         (numeric) The block version  
-  "versionHex" : "00000000", (string) The block version formatted in hexadecimal  
-  "merkleroot" : "xxxx", (string) The merkle root  
-  "nonutxo" : [,         (array of string) Non-UTXO coinbase rewards  
-     "type" n.nnnnnnnn   (numeric) Reward type and amount  
+  "hash" : "hash",             (string) the block hash (same as provided)  
+  "confirmations" : n,         (numeric) The number of confirmations, or -1 if the block is not on the main chain  
+  "size" : n,                  (numeric) The block size  
+  "strippedsize" : n,          (numeric) The block size excluding witness data  
+  "weight" : n                 (numeric) The block weight as defined in BIP 141  
+  "height" : n,                (numeric) The block height or index  
+  "masternode" : "hex",        (string) Masternode ID of the block minter  
+  "minter" : "address",        (string) Operator address of block minter  
+  "mintedBlocks" : n,          (numeric) Total number of blocks minted by block minter  
+  "stakeModifier" : "hex",     (string) The block stake modifier  
+  "version" : n,               (numeric) The block version  
+  "versionHex" : "00000000",   (string) The block version formatted in hexadecimal  
+  "merkleroot" : "xxxx",       (string) The merkle root  
+  "nonutxo" : [,               (array of string) Non-UTXO coinbase rewards  
+     "type" n.nnnnnnnn         (numeric) Reward type and amount  
   ],  
-  "tx" : [               (array of string) The transaction ids  
-     "transactionid"     (string) The transaction id  
+  "tx" : [                     (array of string) The transaction ids  
+     "transactionid"           (string) The transaction id  
      ,...  
   ],  
-  "time" : ttt,          (numeric) The block time in seconds since epoch (Jan 1 1970 GMT)  
-  "mediantime" : ttt,    (numeric) The median block time in seconds since epoch (Jan 1 1970 GMT)  
-  "nonce" : n,           (numeric) The nonce  
-  "bits" : "1d00ffff", (string) The bits  
-  "difficulty" : x.xxx,  (numeric) The difficulty  
-  "chainwork" : "xxxx",  (string) Expected number of hashes required to produce the chain up to this block (in hex)  
-  "nTx" : n,             (numeric) The number of transactions in the block.  
+  "time" : ttt,                (numeric) The block time in seconds since epoch (Jan 1 1970 GMT)  
+  "mediantime" : ttt,          (numeric) The median block time in seconds since epoch (Jan 1 1970 GMT)  
+  "nonce" : n,                 (numeric) The nonce  
+  "bits" : "1d00ffff",         (string) The bits  
+  "difficulty" : x.xxx,        (numeric) The difficulty  
+  "chainwork" : "xxxx",        (string) Expected number of hashes required to produce the chain up to this block (in hex)  
+  "nTx" : n,                   (numeric) The number of transactions in the block.  
   "previousblockhash" : "hash",  (string) The hash of the previous block  
   "nextblockhash" : "hash"       (string) The hash of the next block  
 }  
@@ -3783,8 +3797,8 @@ Examples:
 
 </p></details>
 
-<details><summary>creategovvoc ( {"title":"str","context":"str","contextHash":"str","emergency":bool} [{"txid":"hex","vout":n},...] )</summary><p>
-creategovvoc ( {"title":"str","context":"str","contextHash":"str","emergency":bool} [{"txid":"hex","vout":n},...] )  
+<details><summary>creategovvoc ( {"title":"str","context":"str","contextHash":"str","emergency":bool,"special":bool} [{"txid":"hex","vout":n},...] )</summary><p>
+creategovvoc ( {"title":"str","context":"str","contextHash":"str","emergency":bool,"special":bool} [{"txid":"hex","vout":n},...] )  
   
 Creates a Vote of Confidence  
 Requires wallet passphrase to be set with walletpassphrase call.  
@@ -3796,6 +3810,7 @@ Arguments:
        "context": "str",        (string, required) The context field for vote of confidence  
        "contextHash": "str",    (string) The hash of the content which context field point to of vote of confidence request  
        "emergency": bool,       (boolean) Is this emergency VOC  
+       "special": bool,         (boolean) Preferred alias for emergency VOC  
      }  
 2. inputs                       (json array, optional) A json array of json objects  
      [  
@@ -3832,8 +3847,8 @@ Examples:
 
 </p></details>
 
-<details><summary>listgovproposals ( "type" "status" cycle {"start":n,"including_start":bool,"limit":n} )</summary><p>
-listgovproposals ( "type" "status" cycle {"start":n,"including_start":bool,"limit":n} )  
+<details><summary>listgovproposals ( "type" "status" cycle {"start":"hex","including_start":bool,"limit":n} )</summary><p>
+listgovproposals ( "type" "status" cycle {"start":"hex","including_start":bool,"limit":n} )  
   
 Returns information about proposals.  
   
@@ -3843,7 +3858,7 @@ Arguments:
 3. cycle                           (numeric) cycle: 0 (all), cycle: N (show cycle N), cycle: -1 (show previous cycle) (default = 0)  
 4. pagination                      (json object)  
      {  
-       "start": n,                 (numeric) Vote index to iterate from.Typically it's set to last ID from previous request.  
+       "start": "hex",             (string) Proposal id to iterate from.Typically it's set to last ID from previous request.  
        "including_start": bool,    (boolean) If true, then iterate including starting position. False by default  
        "limit": n,                 (numeric) Maximum number of proposals to return, 100 by default  
      }  
@@ -3857,13 +3872,13 @@ Examples:
 
 </p></details>
 
-<details><summary>listgovproposalvotes "proposalId" ( "masternode" cycle {"start":n,"including_start":bool,"limit":n} )</summary><p>
-listgovproposalvotes "proposalId" ( "masternode" cycle {"start":n,"including_start":bool,"limit":n} )  
+<details><summary>listgovproposalvotes ( "proposalId" "masternode" cycle {"start":n,"including_start":bool,"limit":n} aggregate valid )</summary><p>
+listgovproposalvotes ( "proposalId" "masternode" cycle {"start":n,"including_start":bool,"limit":n} aggregate valid )  
   
 Returns information about proposal votes.  
   
 Arguments:  
-1. proposalId                      (string, required) The proposal id)  
+1. proposalId                      (string) The proposal id)  
 2. masternode                      (string) mine/all/id (default = mine)  
 3. cycle                           (numeric) cycle: 0 (show current), cycle: N (show cycle N), cycle: -1 (show all) (default = 0)  
 4. pagination                      (json object)  
@@ -3872,6 +3887,8 @@ Arguments:
        "including_start": bool,    (boolean) If true, then iterate including starting position. False by default  
        "limit": n,                 (numeric) Maximum number of votes to return, 100 by default  
      }  
+5. aggregate                       (boolean) 0: return raw vote data, 1: return total votes by type  
+6. valid                           (boolean) 0: show only invalid votes at current height, 1: show only valid votes at current height (default: 1)  
   
 Result:  
 {id:{...},...}     (array) Json object with proposal vote information  
@@ -3890,7 +3907,7 @@ Requires wallet passphrase to be set with walletpassphrase call.
   
 Arguments:  
 1. proposalId              (string, required) The proposal txid  
-2. masternodeId            (string, required) The masternode id which made the vote  
+2. masternodeId            (string, required) The masternode id / owner address / operator address which made the vote  
 3. decision                (string, required) The vote decision (yes/no/neutral)  
 4. inputs                  (json array, optional) A json array of json objects  
      [  
