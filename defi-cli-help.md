@@ -1,4 +1,4 @@
-DeFi Blockchain RPC client version v3.2.4
+DeFi Blockchain RPC client version v3.2.6
 
 [Accounts](#Accounts)
 [Blockchain](#Blockchain)
