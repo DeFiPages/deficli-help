@@ -1,4 +1,4 @@
-DeFi Blockchain RPC client version v3.2.6
+DeFi Blockchain RPC client version v3.2.7
 
 [Accounts](#Accounts)
 [Blockchain](#Blockchain)
@@ -3927,6 +3927,30 @@ Examples:
 
 </p></details>
 
+<details><summary>votegovbatch ["proposalId","masternodeId","decision",...]</summary><p>
+votegovbatch ["proposalId","masternodeId","decision",...]  
+  
+Vote for community proposal with multiple masternodes  
+Requires wallet passphrase to be set with walletpassphrase call.  
+  
+Arguments:  
+1. votes                  (json array, required) A json array of proposal ID, masternode IDs, operator or owner addresses and vote decision (yes/no/neutral).  
+     [  
+       "proposalId",      (string) The proposal txid  
+       "masternodeId",    (string) The masternode ID, operator or owner address  
+       "decision",        (string) The vote decision (yes/no/neutral)  
+       ...  
+     ]  
+  
+Result:  
+"hash"                  (string) The hex-encoded hash of broadcasted transaction  
+  
+Examples:  
+> defi-cli votegovbatch {{proposalId, masternodeId, yes}...}  
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "votegovbatch", "params": [{{proposalId, masternodeId, yes}...}] }' -H 'content-type: text/plain;' http://127.0.0.1:8554/  
+
+</p></details>
+
 ## Rawtransactions
 <details><summary>analyzepsbt "psbt"</summary><p>
 analyzepsbt "psbt"  
@@ -7181,6 +7205,10 @@ Result:
     "time": xxx,              (numeric) The transaction time in seconds since epoch (midnight Jan 1 1970 GMT).  
     "timereceived": xxx,      (numeric) The time received in seconds since epoch (midnight Jan 1 1970 GMT).  
     "comment": "...",       (string) If a comment is associated with the transaction.  
+    "generated": "...",       (boolean) If transaction is a coinbase transaction.  
+    "walletconflicts": [  
+      "txid": "..." (string) Conflicting transaction ID  
+    ],  
     "bip125-replaceable": "yes|no|unknown",  (string) Whether this transaction could be replaced due to BIP125 (replace-by-fee);  
                                                      may be unknown for unconfirmed transactions not in the mempool  
     "abandoned": xxx          (bool) 'true' if the transaction has been abandoned (inputs are respendable). Only available for the   
