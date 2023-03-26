@@ -1,4 +1,4 @@
-DeFi Blockchain RPC client version v3.2.7
+DeFi Blockchain RPC client version v3.2.8
 
 [Accounts](#Accounts)
 [Blockchain](#Blockchain)
@@ -3024,6 +3024,8 @@ Result:
        n,                        (numeric) The heights of blocks we're currently asking from this peer  
        ...  
     ],  
+    "addr_processed": n,       (numeric) The total number of addresses processed, excluding those dropped due to rate limiting  
+    "addr_rate_limited": n,    (numeric) The total number of addresses dropped due to rate limiting  
     "whitelisted": true|false, (boolean) Whether the peer is whitelisted  
     "minfeefilter": n,         (numeric) The minimum fee rate for transactions this peer accepts  
     "bytessent_per_msg": {  
@@ -3927,8 +3929,8 @@ Examples:
 
 </p></details>
 
-<details><summary>votegovbatch ["proposalId","masternodeId","decision",...]</summary><p>
-votegovbatch ["proposalId","masternodeId","decision",...]  
+<details><summary>votegovbatch ["proposalId","masternodeId","decision",...] ( sleepTime )</summary><p>
+votegovbatch ["proposalId","masternodeId","decision",...] ( sleepTime )  
   
 Vote for community proposal with multiple masternodes  
 Requires wallet passphrase to be set with walletpassphrase call.  
@@ -3941,6 +3943,7 @@ Arguments:
        "decision",        (string) The vote decision (yes/no/neutral)  
        ...  
      ]  
+2. sleepTime              (numeric) Sets sleeping time for voteGovBatch, by default the value is set to 500ms  
   
 Result:  
 "hash"                  (string) The hex-encoded hash of broadcasted transaction  
