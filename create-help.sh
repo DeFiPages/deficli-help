@@ -5,14 +5,14 @@
 toc()
 {
 defi-cli help | while read line ; do
-	[ -z "$line" ] && continue  # ignore empty line
-	arr=($line)
-	firstword=${arr[0]}
-	if [[ "$firstword" == "==" ]]
-	then
-		topic=${arr[1]}
-		echo "[$topic](#$topic)"
-	fi		
+  [ -z "$line" ] && continue  # ignore empty line
+  arr=($line)
+  firstword=${arr[0]}
+  if [[ "$firstword" == "==" ]]
+  then
+    topic=${arr[1]}
+    echo "[$topic](#$topic)"
+  fi
 done
 }
 
@@ -24,23 +24,21 @@ toc
 echo
 
 defi-cli help| while read line ; do
-	[ -z "$line" ] && continue  # ignore empty line
-	arr=($line)
-	firstword=${arr[0]}
-	if [[ "$firstword" == "==" ]]
-	then
-		topic=${arr[1]}
-		echo "## $topic"
-	else
-		echo "<details><summary>$line</summary><p>"
-		#append two spaces for markdown linebreak at end of every line.
-		defi-cli help $firstword | sed ':a;N;$!ba;s/\n/  \n/g'
-		echo "</p></details>"
-		echo
-	fi		
+  [ -z "$line" ] && continue  # ignore empty line
+  arr=($line)
+  firstword=${arr[0]}
+  if [[ "$firstword" == "==" ]]
+  then
+    topic=${arr[1]}
+    echo "## $topic"
+  else
+    echo "<details><summary>$line</summary><p>"
+    #append two spaces for markdown linebreak at end of every line.
+    defi-cli help $firstword | sed ':a;N;$!ba;s/\n/  \n/g'
+    echo "</p></details>"
+    echo
+  fi
 done
 }
-
-#toc
 
 help > defi-cli-help.md
