@@ -1,8 +1,9 @@
-DeFi Blockchain RPC client version v3.2.8
+DeFi Blockchain RPC client version v4.0.0.0-HEAD-3900167ff-dirty
 
 [Accounts](#Accounts)
 [Blockchain](#Blockchain)
 [Control](#Control)
+[Evm](#Evm)
 [Generating](#Generating)
 [Icxorderbook](#Icxorderbook)
 [Loan](#Loan)
@@ -54,7 +55,6 @@ accounttoaccount "from" {"address":"str"} ( [{"txid":"hex","vout":n},...] )
   
 Creates (and submits to local node and network) a transfer transaction from the specified account to the specfied accounts.  
 The first optional argument (may be empty array) is an array of specific UTXOs to spend.  
-Requires wallet passphrase to be set with walletpassphrase call.  
   
 Arguments:  
 1. from                     (string, required) The defi address of sender  
@@ -84,7 +84,6 @@ accounttoutxos "from" {"address":"str"} ( [{"txid":"hex","vout":n},...] )
   
 Creates (and submits to local node and network) a transfer transaction from the specified account to UTXOs.  
 The third optional argument (may be empty array) is an array of specific UTXOs to spend.  
-Requires wallet passphrase to be set with walletpassphrase call.  
   
 Arguments:  
 1. from                     (string, required) The defi address of sender  
@@ -114,7 +113,6 @@ Examples:
 executesmartcontract "name" "amount" ( "address" [{"txid":"hex","vout":n},...] )  
   
 Creates and sends a transaction to either fund or execute a smart contract. Available contracts: dbtcdfiswap  
-Requires wallet passphrase to be set with walletpassphrase call.  
   
 Arguments:  
 1. name                    (string, required) Name of the smart contract to send funds to  
@@ -142,7 +140,6 @@ Examples:
 futureswap "address" "amount" ( "destination" [{"txid":"hex","vout":n},...] )  
   
 Creates and submits to the network a futures contract  
-Requires wallet passphrase to be set with walletpassphrase call.  
   
 Arguments:  
 1. address                 (string, required) Address to fund contract and receive resulting token  
@@ -274,8 +271,8 @@ Examples:
 
 </p></details>
 
-<details><summary>gettokenbalances ( {"start":"str","including_start":bool,"limit":n} indexed_amounts symbol_lookup )</summary><p>
-gettokenbalances ( {"start":"str","including_start":bool,"limit":n} indexed_amounts symbol_lookup )  
+<details><summary>gettokenbalances ( {"start":"str","including_start":bool,"limit":n} indexed_amounts symbol_lookup include_eth )</summary><p>
+gettokenbalances ( {"start":"str","including_start":bool,"limit":n} indexed_amounts symbol_lookup include_eth )  
   
 Returns the balances of all accounts that belong to the wallet.  
   
@@ -288,6 +285,7 @@ Arguments:
      }  
 2. indexed_amounts                 (boolean) Format of amounts output (default = false): (true: obj = {tokenid:amount,...}, false: array = ["amount@tokenid"...])  
 3. symbol_lookup                   (boolean) Use token symbols in output (default = false)  
+4. include_eth                     (boolean) Whether to include Eth balances in output (default = false)  
   
 Result:  
 {...}     (array) Json object with balances information  
@@ -434,7 +432,6 @@ sendtokenstoaddress {"address":"str"} {"address":"str"} ( "selectionMode" )
   
 Creates (and submits to local node and network) a transfer transaction from your accounts balances (may be picked manualy or autoselected) to the specfied accounts.  
   
-Requires wallet passphrase to be set with walletpassphrase call.  
   
 Arguments:  
 1. from                     (json object, required)  
@@ -466,7 +463,6 @@ sendutxosfrom "from" "to" amount ( "change" )
   
 Send a transaction using UTXOs from the specfied address.  
   
-Requires wallet passphrase to be set with walletpassphrase call.  
   
 Arguments:  
 1. from      (string, required) The address of sender  
@@ -483,12 +479,45 @@ Examples:
 
 </p></details>
 
+<details><summary>transferdomain [{"src":obj,"dst":obj},...]</summary><p>
+transferdomain [{"src":obj,"dst":obj},...]  
+Creates (and submits to local node and network) a tx to transfer balance from DFI/ETH address to DFI/ETH address.  
+  
+  
+Arguments:  
+1. array                        (json array, required) A json array of src and dst json objects  
+     [  
+       {                        (json object)  
+         "src": {               (json object) Source arguments  
+           "address": "str",    (string, required) Source address  
+           "amount": "str",     (string, required) Amount transfered, the value is amount in amount@token format  
+           "domain": n,         (numeric, required) Domain of source: 1 - DVM, 2 - EVM  
+           "data": "str",       (string) Optional data  
+         },  
+         "dst": {               (json object) Destination arguments  
+           "address": "str",    (string, required) Destination address  
+           "amount": "str",     (string, required) Amount transfered, the value is amount in amount@token format  
+           "domain": n,         (numeric, required) Domain of source: 1 - DVM, 2 - EVM  
+           "data": "str",       (string) Optional data  
+         },  
+       },  
+       ...  
+     ]  
+  
+Result:  
+"hash"                  (string) The hex-encoded hash of broadcasted transaction  
+  
+Examples:  
+> defi-cli transferdomain '[{"src":{"address":"<DFI_address>", "amount":"1.0@DFI", "domain": 1}, "dst":{"address":"<ETH_address>", "amount":"1.0@DFI", "domain": 2}}]'  
+> defi-cli transferdomain '[{"src":{"address":"<ETH_address>", "amount":"1.0@DFI", "domain": 2}, "dst":{"address":"<DFI_address>", "amount":"1.0@DFI", "domain": 1}}]'  
+
+</p></details>
+
 <details><summary>utxostoaccount {"address":"str"} ( [{"txid":"hex","vout":n},...] )</summary><p>
 utxostoaccount {"address":"str"} ( [{"txid":"hex","vout":n},...] )  
   
 Creates (and submits to local node and network) a transfer transaction from the wallet UTXOs to specfied account.  
 The second optional argument (may be empty array) is an array of specific UTXOs to spend.  
-Requires wallet passphrase to be set with walletpassphrase call.  
   
 Arguments:  
 1. amounts                  (json object, required)  
@@ -517,7 +546,6 @@ withdrawfutureswap "address" "amount" ( "destination" [{"txid":"hex","vout":n},.
   
 Creates and submits to the network a withdrawal from futures contract transaction.  
  Withdrawal will be back to the address specified in the futures contract.  
-Requires wallet passphrase to be set with walletpassphrase call.  
   
 Arguments:  
 1. address                 (string, required) Address used to fund contract with  
@@ -1646,6 +1674,29 @@ Examples:
 
 </p></details>
 
+## Evm
+<details><summary>evmtx "from" nonce gasPrice gasLimit "to" value ( "data" )</summary><p>
+evmtx "from" nonce gasPrice gasLimit "to" value ( "data" )  
+Creates (and submits to local node and network) a tx to send DFI token to EVM address.  
+  
+  
+Arguments:  
+1. from        (string, required) From Eth address  
+2. nonce       (numeric, required) Transaction nonce  
+3. gasPrice    (numeric, required) Gas Price in Gwei  
+4. gasLimit    (numeric, required) Gas limit  
+5. to          (string, required) To address. Can be empty  
+6. value       (numeric, required) Amount to send  
+7. data        (string) Hex encoded data. Can be blank.  
+  
+Result:  
+"hash"                  (string) The hex-encoded hash of broadcasted transaction  
+  
+Examples:  
+> defi-cli evmtx '"<hex>"'  
+
+</p></details>
+
 ## Generating
 <details><summary>generatetoaddress nblocks "address" ( maxtries )</summary><p>
 generatetoaddress nblocks "address" ( maxtries )  
@@ -1677,7 +1728,6 @@ EXPERIMENTAL warning: ICX and Atomic Swap are experimental features. You might e
   
 Creates (and submits to local node and network) a dfc htlc transaction.  
   
-Requires wallet passphrase to be set with walletpassphrase call.  
   
 Arguments:  
 1. htlc                       (json object)  
@@ -1711,7 +1761,6 @@ EXPERIMENTAL warning: ICX and Atomic Swap are experimental features. You might e
   
 Closes (and submits to local node and network) offer transaction.  
   
-Requires wallet passphrase to be set with walletpassphrase call.  
   
 Arguments:  
 1. offerTx                 (string, required) Txid of makeoffer  
@@ -1741,7 +1790,6 @@ EXPERIMENTAL warning: ICX and Atomic Swap are experimental features. You might e
   
 Closes (and submits to local node and network) order transaction.  
   
-Requires wallet passphrase to be set with walletpassphrase call.  
   
 Arguments:  
 1. orderTx                 (string, required) Txid of order  
@@ -1771,7 +1819,6 @@ EXPERIMENTAL warning: ICX and Atomic Swap are experimental features. You might e
   
 Creates (and submits to local node and network) a order creation transaction.  
   
-Requires wallet passphrase to be set with walletpassphrase call.  
   
 Arguments:  
 1. order                                (json object, required)  
@@ -1885,7 +1932,6 @@ EXPERIMENTAL warning: ICX and Atomic Swap are experimental features. You might e
   
 Creates (and submits to local node and network) a makeoffer transaction.  
   
-Requires wallet passphrase to be set with walletpassphrase call.  
   
 Arguments:  
 1. offer                          (json object)  
@@ -1923,7 +1969,6 @@ EXPERIMENTAL warning: ICX and Atomic Swap are experimental features. You might e
   
 Creates (and submits to local node and network) a dfc htlc transaction.  
   
-Requires wallet passphrase to be set with walletpassphrase call.  
   
 Arguments:  
 1. htlc                     (json object)  
@@ -1959,7 +2004,6 @@ EXPERIMENTAL warning: ICX and Atomic Swap are experimental features. You might e
   
 Creates (and submits to local node and network) ext htlc transaction.  
   
-Requires wallet passphrase to be set with walletpassphrase call.  
   
 Arguments:  
 1. htlc                               (json object)  
@@ -1995,7 +2039,6 @@ EXPERIMENTAL warning: ICX and Atomic Swap are experimental features. You might e
 createloanscheme mincolratio interestrate "id" ( [{"txid":"hex","vout":n},...] )  
 Creates a loan scheme transaction.  
   
-Requires wallet passphrase to be set with walletpassphrase call.  
   
 Arguments:  
 1. mincolratio             (numeric, required) Minimum collateralization ratio (integer).  
@@ -2023,7 +2066,6 @@ Examples:
 destroyloanscheme "id" ( ACTIVATE_AFTER_BLOCK [{"txid":"hex","vout":n},...] )  
 Destroys a loan scheme.  
   
-Requires wallet passphrase to be set with walletpassphrase call.  
   
 Arguments:  
 1. id                      (string, required) Unique identifier of the loan scheme (8 chars max).  
@@ -2178,7 +2220,6 @@ Examples:
 paybackloan {"vaultId":"hex","from":"str","amounts":"str","loans":[{"dToken":"str","amounts":"str"},...]} ( [{"txid":"hex","vout":n},...] )  
 Creates (and submits to local node and network) a tx to return the loan in desired amount.  
   
-Requires wallet passphrase to be set with walletpassphrase call.  
   
 Arguments:  
 1. metadata                     (json object, required)  
@@ -2215,7 +2256,6 @@ Examples:
 setcollateraltoken {"token":"str","factor":n,"fixedIntervalPriceId":"hex","activateAfterBlock":n} ( [{"txid":"hex","vout":n},...] )  
 Creates (and submits to local node and network) a set colleteral token transaction.  
   
-Requires wallet passphrase to be set with walletpassphrase call.  
   
 Arguments:  
 1. metadata                              (json object, required)  
@@ -2246,7 +2286,6 @@ Examples:
 setdefaultloanscheme "id" ( [{"txid":"hex","vout":n},...] )  
 Sets the default loan scheme.  
   
-Requires wallet passphrase to be set with walletpassphrase call.  
   
 Arguments:  
 1. id                      (string, required) Unique identifier of the loan scheme (8 chars max).  
@@ -2272,7 +2311,6 @@ Examples:
 setloantoken {"symbol":"str","name":"str","fixedIntervalPriceId":"hex","mintable":bool,"interest":n} ( [{"txid":"hex","vout":n},...] )  
 Creates (and submits to local node and network) a token for a price feed set in collateral token.  
   
-Requires wallet passphrase to be set with walletpassphrase call.  
   
 Arguments:  
 1. metadata                              (json object, required)  
@@ -2304,7 +2342,6 @@ Examples:
 takeloan {"vaultId":"hex","to":"str","amounts":"str"} ( [{"txid":"hex","vout":n},...] )  
 Creates (and submits to local node and network) a tx to mint loan token in desired amount based on defined loan.  
   
-Requires wallet passphrase to be set with walletpassphrase call.  
   
 Arguments:  
 1. metadata                 (json object, required)  
@@ -2334,7 +2371,6 @@ Examples:
 updateloanscheme mincolratio interestrate "id" ( ACTIVATE_AFTER_BLOCK [{"txid":"hex","vout":n},...] )  
 Updates an existing loan scheme.  
   
-Requires wallet passphrase to be set with walletpassphrase call.  
   
 Arguments:  
 1. mincolratio             (numeric, required) Minimum collateralization ratio (integer).  
@@ -2363,7 +2399,6 @@ Examples:
 updateloantoken "token" {"symbol":"str","name":"str","fixedIntervalPriceId":"hex","mintable":bool,"interest":n} ( [{"txid":"hex","vout":n},...] )  
 Creates (and submits to local node and network) a transaction to update loan token metadata.  
   
-Requires wallet passphrase to be set with walletpassphrase call.  
   
 Arguments:  
 1. token                                 (string, required) The tokens's symbol, id or creation tx  
@@ -2399,7 +2434,6 @@ createmasternode "ownerAddress" ( "operatorAddress" [{"txid":"hex","vout":n},...
   
 Creates (and submits to local node and network) a masternode creation transaction with given owner and operator addresses, spending the given inputs..  
 The last optional argument (may be empty array) is an array of specific UTXOs to spend.  
-Requires wallet passphrase to be set with walletpassphrase call.  
   
 Arguments:  
 1. ownerAddress            (string, required) Any valid address for keeping collateral amount (any P2PKH or P2WKH address) - used as owner key  
@@ -2540,9 +2574,8 @@ Examples:
 <details><summary>resignmasternode "mn_id" ( [{"txid":"hex","vout":n},...] )</summary><p>
 resignmasternode "mn_id" ( [{"txid":"hex","vout":n},...] )  
   
-Creates (and submits to local node and network) a transaction resigning your masternode. Collateral will be unlocked after 2016 blocks.  
+Creates (and submits to local node and network) a transaction resigning your masternode. Collateral will be unlocked after 60 blocks.  
 The last optional argument (may be empty array) is an array of specific UTXOs to spend. One of UTXO's must belong to the MN's owner (collateral) address  
-Requires wallet passphrase to be set with walletpassphrase call.  
   
 Arguments:  
 1. mn_id                   (string, required) The Masternode's ID  
@@ -2569,7 +2602,6 @@ updatemasternode "mn_id" {"ownerAddress":"str","operatorAddress":"str","rewardAd
   
 Creates (and submits to local node and network) a masternode update transaction which update the masternode operator addresses, spending the given inputs..  
 The last optional argument (may be empty array) is an array of specific UTXOs to spend.  
-Requires wallet passphrase to be set with walletpassphrase call.  
   
 Arguments:  
 1. mn_id                            (string, required) The Masternode's ID  
@@ -3140,7 +3172,6 @@ appointoracle "address" [{"currency":"str","token":"str"},...] weightage ( [{"tx
 Creates (and submits to local node and network) a `appoint oracle transaction`,   
 and saves oracle to database.  
 The last optional argument (may be empty array) is an array of specific UTXOs to spend.  
-Requires wallet passphrase to be set with walletpassphrase call.  
   
 Arguments:  
 1. address                     (string, required) oracle address  
@@ -3369,7 +3400,6 @@ removeoracle "oracleid" ( [{"txid":"hex","vout":n},...] )
   
 Removes oracle,   
 The only argument is oracleid hex value.  
-Requires wallet passphrase to be set with walletpassphrase call.  
   
 Arguments:  
 1. oracleid                (string, required) oracle id  
@@ -3396,7 +3426,6 @@ setoracledata "oracleid" timestamp [{"currency":"str","tokenAmount":"str"},...] 
   
 Creates (and submits to local node and network) a `set oracle data transaction`.  
 The last optional argument (may be empty array) is an array of specific UTXOs to spend.  
-Requires wallet passphrase to be set with walletpassphrase call.  
   
 Arguments:  
 1. oracleid                       (string, required) oracle hex id  
@@ -3435,7 +3464,6 @@ updateoracle "oracleid" "address" [{"currency":"str","token":"str"},...] weighta
 Creates (and submits to local node and network) a `update oracle transaction`,   
 and saves oracle updates to database.  
 The last optional argument (may be empty array) is an array of specific UTXOs to spend.  
-Requires wallet passphrase to be set with walletpassphrase call.  
   
 Arguments:  
 1. oracleid                    (string, required) oracle id  
@@ -3473,7 +3501,6 @@ addpoolliquidity {"address":"str"} "shareAddress" ( [{"txid":"hex","vout":n},...
   
 Creates (and submits to local node and network) a add pool liquidity transaction.  
 The last optional argument (may be empty array) is an array of specific UTXOs to spend.  
-Requires wallet passphrase to be set with walletpassphrase call.  
   
 Arguments:  
 1. from                     (json object, required)  
@@ -3505,7 +3532,6 @@ compositeswap {"from":"str","tokenFrom":"str","amountFrom":n,"to":"str","tokenTo
   
 Creates (and submits to local node and network) a composite swap (swap between multiple poolpairs) transaction with given metadata.  
 The second optional argument (may be empty array) is an array of specific UTXOs to spend.  
-Requires wallet passphrase to be set with walletpassphrase call.  
   
 Arguments:  
 1. metadata                   (json object, required)  
@@ -3540,7 +3566,6 @@ createpoolpair ( {"tokenA":"str","tokenB":"str","commission":n,"status":bool,"ow
   
 Creates (and submits to local node and network) a poolpair transaction with given metadata.  
 The second optional argument (may be empty array) is an array of specific UTXOs to spend.  
-Requires wallet passphrase to be set with walletpassphrase call.  
   
 Arguments:  
 1. metadata                       (json object)  
@@ -3641,7 +3666,6 @@ poolswap {"from":"str","tokenFrom":"str","amountFrom":n,"to":"str","tokenTo":"st
   
 Creates (and submits to local node and network) a poolswap transaction with given metadata.  
 The second optional argument (may be empty array) is an array of specific UTXOs to spend.  
-Requires wallet passphrase to be set with walletpassphrase call.  
   
 Arguments:  
 1. metadata                   (json object, required)  
@@ -3676,7 +3700,6 @@ removepoolliquidity "from" "amount" ( [{"txid":"hex","vout":n},...] )
   
 Creates (and submits to local node and network) a remove pool liquidity transaction.  
 The last optional argument (may be empty array) is an array of specific UTXOs to spend.  
-Requires wallet passphrase to be set with walletpassphrase call.  
   
 Arguments:  
 1. from                    (string, required) The defi address which has tokens  
@@ -3735,7 +3758,6 @@ updatepoolpair ( {"pool":"str","status":bool,"commission":n,"ownerAddress":"str"
   
 Creates (and submits to local node and network) a pool status update transaction.  
 The second optional argument (may be empty array) is an array of specific UTXOs to spend. One of UTXO's must belong to the pool's owner (collateral) address  
-Requires wallet passphrase to be set with walletpassphrase call.  
   
 Arguments:  
 1. metadata                       (json object)  
@@ -3769,7 +3791,6 @@ Examples:
 creategovcfp ( {"title":"str","context":"str","contextHash":"str","cycles":n,"amount":amount,"payoutAddress":"str"} [{"txid":"hex","vout":n},...] )  
   
 Creates a Community Fund Proposal  
-Requires wallet passphrase to be set with walletpassphrase call.  
   
 Arguments:  
 1. data                           (json object, optional) data in json-form, containing cfp data  
@@ -3803,7 +3824,6 @@ Examples:
 creategovvoc ( {"title":"str","context":"str","contextHash":"str","emergency":bool,"special":bool} [{"txid":"hex","vout":n},...] )  
   
 Creates a Vote of Confidence  
-Requires wallet passphrase to be set with walletpassphrase call.  
   
 Arguments:  
 1. data                         (json object, optional) data in json-form, containing voc data  
@@ -3905,7 +3925,6 @@ Examples:
 votegov "proposalId" "masternodeId" "decision" ( [{"txid":"hex","vout":n},...] )  
   
 Vote for community proposal  
-Requires wallet passphrase to be set with walletpassphrase call.  
   
 Arguments:  
 1. proposalId              (string, required) The proposal txid  
@@ -3933,7 +3952,6 @@ Examples:
 votegovbatch ["proposalId","masternodeId","decision",...] ( sleepTime )  
   
 Vote for community proposal with multiple masternodes  
-Requires wallet passphrase to be set with walletpassphrase call.  
   
 Arguments:  
 1. votes                  (json array, required) A json array of proposal ID, masternode IDs, operator or owner addresses and vote decision (yes/no/neutral).  
@@ -3943,7 +3961,7 @@ Arguments:
        "decision",        (string) The vote decision (yes/no/neutral)  
        ...  
      ]  
-2. sleepTime              (numeric) Sets sleeping time for voteGovBatch, by default the value is set to 500ms  
+2. sleepTime              (numeric) No. of milliseconds to wait between each vote. A small wait time is required for large number of votes to prevent the node from being too busy to broadcast TXs (default: 500)  
   
 Result:  
 "hash"                  (string) The hex-encoded hash of broadcasted transaction  
@@ -4327,7 +4345,7 @@ Arguments:
 Result:  
 {  
   "asm":"asm",          (string) Script public key  
-  "type":"type",        (string) The output type (e.g. nonstandard, pubkey, pubkeyhash, scripthash, multisig, nulldata, witness_v0_scripthash, witness_v0_keyhash, witness_unknown)  
+  "type":"type",        (string) The output type (e.g. nonstandard, pubkey, pubkeyhash, scripthash, multisig, nulldata, witness_v0_scripthash, witness_v0_keyhash, witness_v16_ethhash, witness_unknown)  
   "reqSigs": n,         (numeric) The required signatures  
   "addresses": [        (json array of string)  
      "address"          (string) defi address  
@@ -4740,7 +4758,6 @@ spv_createanchor ( [{"txid":"hex","vout":n,"amount":n,"privkey":"str"},...] ) "r
   
 Creates (and optional submits to bitcoin blockchain) an anchor tx with latest possible (every 15th) authorized blockhash.  
 The first argument is the specific UTXOs to spend.  
-Requires wallet passphrase to be set with walletpassphrase call.  
   
 Arguments:  
 1. inputs                     (json array, optional) A json array of json objects  
@@ -4772,7 +4789,6 @@ spv_createanchortemplate "rewardAddress"
   
 Creates an anchor tx template with latest possible (every 15th) authorized blockhash.  
   
-Requires wallet passphrase to be set with walletpassphrase call.  
   
 Arguments:  
 1. rewardAddress    (string, required) User's P2PKH address (in DeFi chain) for reward  
@@ -5258,7 +5274,6 @@ Examples:
 spv_sendtoaddress "address" amount ( feerate )  
   
 Send a Bitcoin amount to a given address.  
-Requires wallet passphrase to be set with walletpassphrase call.  
   
 Arguments:  
 1. address    (string, required) The Bitcoin address to send to.  
@@ -5381,7 +5396,6 @@ burntokens {"amounts":"str","from":"str","context":"str"} ( [{"txid":"hex","vout
   
 Creates (and submits to local node and network) a transaction burning your token (for accounts and/or UTXOs).   
 The second optional argument (may be empty array) is an array of specific UTXOs to spend. One of UTXO's must belong to the token's owner (collateral) address  
-Requires wallet passphrase to be set with walletpassphrase call.  
   
 Arguments:  
 1. metadata                 (json object, required)  
@@ -5415,7 +5429,6 @@ createtoken ( {"symbol":"str","name":"str","isDAT":bool,"decimal":n,"limit":n,"m
   
 Creates (and submits to local node and network) a token creation transaction with given metadata.  
 The second optional argument (may be empty array) is an array of specific UTXOs to spend.  
-Requires wallet passphrase to be set with walletpassphrase call.  
   
 Arguments:  
 1. metadata                           (json object)  
@@ -5547,7 +5560,6 @@ minttokens "amounts" ( [{"txid":"hex","vout":n},...] "to" )
 Creates (and submits to local node and network) a transaction minting your token (for accounts and/or UTXOs).   
 The second optional argument (may be empty array) is an array of specific UTXOs to spend. One of UTXO's must belong to the token's owner (collateral) address.   
 All arguments may optionally be passed in a JSON object.  
-Requires wallet passphrase to be set with walletpassphrase call.  
   
 Arguments:  
 1. amounts                 (string, required) Amount as json string, or array. Example: '[ "amount@token" ]'  
@@ -5580,7 +5592,6 @@ updatetoken "token" ( {"symbol":"str","name":"str","isDAT":bool,"mintable":bool,
   
 Creates (and submits to local node and network) a transaction of token promotion to isDAT or demotion from isDAT. Collateral will be unlocked.  
 The second optional argument (may be empty array) is an array of specific UTXOs to spend. One of UTXO's must belong to the token's owner (collateral) address  
-Requires wallet passphrase to be set with walletpassphrase call.  
   
 Arguments:  
 1. token                     (string, required) The tokens's symbol, id or creation tx  
@@ -5814,7 +5825,6 @@ As a JSON-RPC call
 closevault "vaultId" "to" ( [{"txid":"hex","vout":n},...] )  
 Close vault transaction.  
   
-Requires wallet passphrase to be set with walletpassphrase call.  
   
 Arguments:  
 1. vaultId                 (string, required) Vault to be closed  
@@ -5841,7 +5851,6 @@ Examples:
 createvault "ownerAddress" ( "loanSchemeId" [{"txid":"hex","vout":n},...] )  
 Creates a vault transaction.  
   
-Requires wallet passphrase to be set with walletpassphrase call.  
   
 Arguments:  
 1. ownerAddress            (string, required) Any valid address  
@@ -5872,7 +5881,6 @@ Examples:
 deposittovault "vaultId" "from" "amount" ( [{"txid":"hex","vout":n},...] )  
 Deposit collateral token amount to vault.  
   
-Requires wallet passphrase to be set with walletpassphrase call.  
   
 Arguments:  
 1. vaultId                 (string, required) Vault id  
@@ -6110,7 +6118,6 @@ Examples:
 placeauctionbid "vaultId" index "from" "amount" ( [{"txid":"hex","vout":n},...] )  
 Bid to vault in auction.  
   
-Requires wallet passphrase to be set with walletpassphrase call.  
   
 Arguments:  
 1. vaultId                 (string, required) Vault id  
@@ -6141,7 +6148,6 @@ updatevault "vaultId" {"ownerAddress":"hex","loanSchemeId":"str"} ( [{"txid":"he
 Creates (and submits to local node and network) an `update vault transaction`,   
 and saves vault updates to database.  
 The last optional argument (may be empty array) is an array of specific UTXOs to spend.  
-Requires wallet passphrase to be set with walletpassphrase call.  
   
 Arguments:  
 1. vaultId                       (string, required) Vault id  
@@ -6172,7 +6178,6 @@ Examples:
 withdrawfromvault "vaultId" "to" "amount" ( [{"txid":"hex","vout":n},...] )  
 Withdraw collateral token amount from vault.  
   
-Requires wallet passphrase to be set with walletpassphrase call.  
   
 Arguments:  
 1. vaultId                 (string, required) Vault id  
@@ -6574,7 +6579,7 @@ so payments received with the address will be associated with 'label'.
   
 Arguments:  
 1. label           (string, optional, default="") The label name for the address to be linked to. It can also be set to the empty string "" to represent the default label. The label does not need to exist, it will be created if there is no label by the given name.  
-2. address_type    (string, optional, default=set by -addresstype) The address type to use. Options are "legacy", "p2sh-segwit", and "bech32".  
+2. address_type    (string, optional, default=set by -addresstype) The address type to use. Options are "legacy", "p2sh-segwit", "bech32" and "eth".  
   
 Result:  
 "address"    (string) The new defi address  
@@ -6946,7 +6951,6 @@ Import using the json rpc call
 keypoolrefill ( newsize )  
   
 Fills the keypool.  
-Requires wallet passphrase to be set with walletpassphrase call.  
   
 Arguments:  
 1. newsize    (numeric, optional, default=100) The new keypool size  
@@ -7436,7 +7440,6 @@ Examples:
 sendmany "" {"address":amount} ( minconf "comment" ["address",...] replaceable conf_target "estimate_mode" )  
   
 Send multiple times. Amounts are double-precision floating point numbers.  
-Requires wallet passphrase to be set with walletpassphrase call.  
   
 Arguments:  
 1. dummy                     (string, required) Must be set to "" for backwards compatibility.  
@@ -7485,7 +7488,6 @@ As a JSON-RPC call
 sendtoaddress "address" amount ( "comment" "comment_to" subtractfeefromamount replaceable conf_target "estimate_mode" avoid_reuse )  
   
 Send an amount to a given address.  
-Requires wallet passphrase to be set with walletpassphrase call.  
   
 Arguments:  
 1. address                  (string, required) The defi address to send to.  
@@ -7524,7 +7526,6 @@ Set or generate a new HD wallet seed. Non-HD wallets will not be upgraded to bei
 HD will have a new HD seed set so that new keys added to the keypool will be derived from this new seed.  
   
 Note that you will need to MAKE A NEW BACKUP of your wallet after setting the HD wallet seed.  
-Requires wallet passphrase to be set with walletpassphrase call.  
   
 Arguments:  
 1. newkeypool    (boolean, optional, default=true) Whether to flush old unused addresses, including change addresses, from the keypool and regenerate it.  
@@ -7600,7 +7601,6 @@ Examples:
 signmessage "address" "message"  
   
 Sign a message with the private key of an address  
-Requires wallet passphrase to be set with walletpassphrase call.  
   
 Arguments:  
 1. address    (string, required) The defi address to use for the private key.  
@@ -7631,7 +7631,6 @@ signrawtransactionwithwallet "hexstring" ( [{"txid":"hex","vout":n,"scriptPubKey
 Sign inputs for raw transaction (serialized, hex-encoded).  
 The second optional argument (may be null) is an array of previous transaction outputs that  
 this transaction depends on but may not yet be in the block chain.  
-Requires wallet passphrase to be set with walletpassphrase call.  
   
 Arguments:  
 1. hexstring                        (string, required) The transaction hex string  
@@ -7829,7 +7828,6 @@ walletprocesspsbt "psbt" ( sign "sighashtype" bip32derivs )
   
 Update a PSBT with input information from our wallet and then sign inputs  
 that we can sign for.  
-Requires wallet passphrase to be set with walletpassphrase call.  
   
 Arguments:  
 1. psbt           (string, required) The transaction base64 string  
