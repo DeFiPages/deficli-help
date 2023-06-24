@@ -1,4 +1,4 @@
-DeFi Blockchain RPC client version v4.0.0.0-HEAD-3900167ff-dirty
+DeFi Blockchain RPC client version v4.0.0.0-HEAD-ca6140d07-dirty
 
 [Accounts](#Accounts)
 [Blockchain](#Blockchain)
@@ -491,13 +491,13 @@ Arguments:
          "src": {               (json object) Source arguments  
            "address": "str",    (string, required) Source address  
            "amount": "str",     (string, required) Amount transfered, the value is amount in amount@token format  
-           "domain": n,         (numeric, required) Domain of source: 1 - DVM, 2 - EVM  
+           "domain": n,         (numeric, required) Domain of source: 2 - DVM, 3 - EVM  
            "data": "str",       (string) Optional data  
          },  
          "dst": {               (json object) Destination arguments  
            "address": "str",    (string, required) Destination address  
            "amount": "str",     (string, required) Amount transfered, the value is amount in amount@token format  
-           "domain": n,         (numeric, required) Domain of source: 1 - DVM, 2 - EVM  
+           "domain": n,         (numeric, required) Domain of source: 2 - DVM, 3 - EVM  
            "data": "str",       (string) Optional data  
          },  
        },  
@@ -508,8 +508,8 @@ Result:
 "hash"                  (string) The hex-encoded hash of broadcasted transaction  
   
 Examples:  
-> defi-cli transferdomain '[{"src":{"address":"<DFI_address>", "amount":"1.0@DFI", "domain": 1}, "dst":{"address":"<ETH_address>", "amount":"1.0@DFI", "domain": 2}}]'  
-> defi-cli transferdomain '[{"src":{"address":"<ETH_address>", "amount":"1.0@DFI", "domain": 2}, "dst":{"address":"<DFI_address>", "amount":"1.0@DFI", "domain": 1}}]'  
+> defi-cli transferdomain '[{"src":{"address":"<DFI_address>", "amount":"1.0@DFI", "domain": 2}, "dst":{"address":"<ETH_address>", "amount":"1.0@DFI", "domain": 3}}]'  
+> defi-cli transferdomain '[{"src":{"address":"<ETH_address>", "amount":"1.0@DFI", "domain": 3}, "dst":{"address":"<DFI_address>", "amount":"1.0@DFI", "domain": 2}}]'  
 
 </p></details>
 
@@ -1694,6 +1694,38 @@ Result:
   
 Examples:  
 > defi-cli evmtx '"<hex>"'  
+
+</p></details>
+
+<details><summary>logvmmaps type</summary><p>
+logvmmaps type  
+  
+Logs all block or tx indexes for debugging.  
+  
+Arguments:  
+1. type    (numeric, required) Type of log: 0 - Blocks, 1 - Txs  
+  
+Result:  
+{...} (array) Json object with account balances if rpcresult is enabled.This is for debugging purposes only.  
+  
+Examples:  
+> defi-cli logvmmaps '"<hex>"' 1  
+
+</p></details>
+
+<details><summary>vmmap "hash" type</summary><p>
+vmmap "hash" type  
+Give the equivalent of an address, blockhash or transaction from EVM to DVM  
+  
+Arguments:  
+1. hash    (string, required) DVM address, EVM blockhash, EVM transaction  
+2. type    (numeric, required) Type of mapping: 1 - DFI Address to EVM, 2 - EVM to DFI Address, 3 - DFI Tx to EVM, 4 - EVM Tx to DFI, 5 - DFI Block to EVM, 6 - EVM Block to DFI  
+  
+Result:  
+"hash"                  (string) The hex-encoded string for address, block or transaction  
+  
+Examples:  
+> defi-cli vmmap '"<hex>"' 1  
 
 </p></details>
 
