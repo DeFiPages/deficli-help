@@ -1,4 +1,4 @@
-DeFi Blockchain RPC client version v4.0.0.0-HEAD-bb5172606-dirty
+DeFi Blockchain RPC client version v4.0.0.0-HEAD-47b08e225-dirty
 
 [Accounts](#Accounts)
 [Blockchain](#Blockchain)
@@ -1719,7 +1719,13 @@ Give the equivalent of an address, blockhash or transaction from EVM to DVM
   
 Arguments:  
 1. hash    (string, required) DVM address, EVM blockhash, EVM transaction  
-2. type    (numeric, required) Type of mapping: 1 - DFI Address to EVM, 2 - EVM to DFI Address, 3 - DFI Tx to EVM, 4 - EVM Tx to DFI, 5 - DFI Block to EVM, 6 - EVM Block to DFI  
+2. type    (numeric, required) Map types:   
+           1 - Address format: DFI -> ETH   
+           2 - Address format: ETH -> DFI   
+           3 - Tx Hash: DFI -> EVM   
+           4 - Tx Hash: EVM -> DFI   
+           5 - Block Hash: DFI -> EVM   
+           6 - Block Hash: EVM -> DFI  
   
 Result:  
 "hash"                  (string) The hex-encoded string for address, block or transaction  
@@ -1748,7 +1754,6 @@ Examples:
 Generate 11 blocks to myaddress  
 > defi-cli generatetoaddress 11 "myaddress"  
 If you are running the DeFi Blockchain wallet, you can get a new address to send the newly generated DFI to with:  
-> defi-cli getnewaddress   
 
 </p></details>
 
@@ -6611,7 +6616,7 @@ so payments received with the address will be associated with 'label'.
   
 Arguments:  
 1. label           (string, optional, default="") The label name for the address to be linked to. It can also be set to the empty string "" to represent the default label. The label does not need to exist, it will be created if there is no label by the given name.  
-2. address_type    (string, optional, default=set by -addresstype) The address type to use. Options are "legacy", "p2sh-segwit", "bech32" and "eth".  
+2. address_type    (string, optional, default=set by -addresstype) The address type to use. Options are "legacy", "p2sh-segwit", "bech32" and "erc55".  
   
 Result:  
 "address"    (string) The new defi address  
