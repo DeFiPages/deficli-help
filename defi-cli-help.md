@@ -1,4 +1,4 @@
-DeFi Blockchain RPC client version v4.0.0.0-HEAD-47b08e225-dirty
+DeFi Blockchain RPC client version v4.0.0.0-HEAD-95d975a3c-dirty
 
 [Accounts](#Accounts)
 [Blockchain](#Blockchain)
@@ -1713,25 +1713,25 @@ Examples:
 
 </p></details>
 
-<details><summary>vmmap "hash" type</summary><p>
-vmmap "hash" type  
+<details><summary>vmmap "input" type</summary><p>
+vmmap "input" type  
 Give the equivalent of an address, blockhash or transaction from EVM to DVM  
   
 Arguments:  
-1. hash    (string, required) DVM address, EVM blockhash, EVM transaction  
-2. type    (numeric, required) Map types:   
-           1 - Address format: DFI -> ETH   
-           2 - Address format: ETH -> DFI   
-           3 - Tx Hash: DFI -> EVM   
-           4 - Tx Hash: EVM -> DFI   
-           5 - Block Hash: DFI -> EVM   
-           6 - Block Hash: EVM -> DFI  
+1. input    (string, required) DVM address, EVM blockhash, EVM transaction  
+2. type     (numeric, required) Map types:   
+            1 - Tx Hash: DFI -> EVM   
+            2 - Tx Hash: EVM -> DFI   
+            3 - Block Hash: DFI -> EVM   
+            4 - Block Hash: EVM -> DFI   
+            5 - Block Number: DFI -> EVM   
+            6 - Block Number: EVM -> DFI  
   
 Result:  
-"hash"                  (string) The hex-encoded string for address, block or transaction  
+"input"                  (string) The hex-encoded string for address, block or transaction  
   
 Examples:  
-> defi-cli vmmap '"<hex>"' 1  
+> defi-cli vmmap '"<hash>"' 1  
 
 </p></details>
 
@@ -6308,6 +6308,25 @@ Add a multisig address from 2 addresses
   
 As a JSON-RPC call  
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "addmultisigaddress", "params": [2, "[\"16sSauSf5pF2UkUwvKGq4qjNRzBZYqgEL5\",\"171sgjn4YtPu27adkKGrdDwzRTxnRkBfKV\"]"] }' -H 'content-type: text/plain;' http://127.0.0.1:8554/  
+
+</p></details>
+
+<details><summary>addressmap "input" type</summary><p>
+addressmap "input" type  
+Give the equivalent of an address from EVM to DVM and versa  
+  
+Arguments:  
+1. input    (string, required) DVM address or EVM address  
+2. type     (numeric, required) Map types:   
+            1 - Address format: DFI -> ETH   
+            2 - Address format: ETH -> DFI   
+              
+  
+Result:  
+"input"                  (string) The hex-encoded string for address, block or transaction  
+  
+Examples:  
+> defi-cli addressmap '"<address>"' 1  
 
 </p></details>
 
