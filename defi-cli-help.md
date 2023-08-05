@@ -1,4 +1,4 @@
-DeFi Blockchain RPC client version v4.0.0.0-HEAD-a4bc1e5ac-dirty
+DeFi Blockchain RPC client version v4.0.0.0-HEAD-192d866e3-dirty
 
 [Accounts](#Accounts)
 [Blockchain](#Blockchain)
@@ -1703,7 +1703,11 @@ logvmmaps type
 Logs all block or tx indexes for debugging.  
   
 Arguments:  
-1. type    (numeric, required) Type of log: 0 - Blocks, 1 - Txs  
+1. type    (numeric, required) Type of log:  
+           0 - DVMToEVM Blocks  
+           1 - EVMToDVM Blocks  
+           2 - DVMToEVM TXs  
+           3 - EVMToDVM TXs  
   
 Result:  
 {...} (array) Json object with account balances if rpcresult is enabled.This is for debugging purposes only.  
@@ -1720,15 +1724,18 @@ Give the equivalent of an address, blockhash or transaction from EVM to DVM
 Arguments:  
 1. input    (string, required) DVM address, EVM blockhash, EVM transaction  
 2. type     (numeric, required) Map types:   
-            1 - Tx Hash: DFI -> EVM   
-            2 - Tx Hash: EVM -> DFI   
+            0 - Auto   
+            1 - Block Number: DFI -> EVM (Unsupported yet)   
+            2 - Block Number: EVM -> DFI (Unsupported yet)   
             3 - Block Hash: DFI -> EVM   
             4 - Block Hash: EVM -> DFI   
-            5 - Block Number: DFI -> EVM   
-            6 - Block Number: EVM -> DFI  
+            5 - Tx Hash: DFI -> EVM   
+            6 - Tx Hash: EVM -> DFI   
+              
   
 Result:  
 "input"                  (string) The hex-encoded string for address, block or transaction  
+                                            or (number) block number  
   
 Examples:  
 > defi-cli vmmap '"<hash>"' 1  
@@ -6323,7 +6330,15 @@ Arguments:
               
   
 Result:  
-"input"                  (string) The hex-encoded string for address, block or transaction  
+{  
+    input :    "address",         (string) The input address to be converted  
+    type :     "map type"  
+       (numeric) address map type indicator    format : {   
+       bech32: "address"  
+        (string, optional) output converted address       p2pkh:  "address"  
+        (string, optional) output converted address       erc55 : "address"  
+        ...    }]  
+}  
   
 Examples:  
 > defi-cli addressmap '"<address>"' 1  
