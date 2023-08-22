@@ -1,4 +1,4 @@
-DeFi Blockchain RPC client version v4.0.0.0-HEAD-192d866e3-dirty
+DeFi Blockchain RPC client version v4.0.0.0-HEAD-49525fdada-dirty
 
 [Accounts](#Accounts)
 [Blockchain](#Blockchain)
@@ -271,8 +271,8 @@ Examples:
 
 </p></details>
 
-<details><summary>gettokenbalances ( {"start":"str","including_start":bool,"limit":n} indexed_amounts symbol_lookup include_eth )</summary><p>
-gettokenbalances ( {"start":"str","including_start":bool,"limit":n} indexed_amounts symbol_lookup include_eth )  
+<details><summary>gettokenbalances ( {"start":"str","including_start":bool,"limit":n} indexed_amounts symbol_lookup evm )</summary><p>
+gettokenbalances ( {"start":"str","including_start":bool,"limit":n} indexed_amounts symbol_lookup evm )  
   
 Returns the balances of all accounts that belong to the wallet.  
   
@@ -285,7 +285,7 @@ Arguments:
      }  
 2. indexed_amounts                 (boolean) Format of amounts output (default = false): (true: obj = {tokenid:amount,...}, false: array = ["amount@tokenid"...])  
 3. symbol_lookup                   (boolean) Use token symbols in output (default = false)  
-4. include_eth                     (boolean) Whether to include Eth balances in output (default = false)  
+4. evm                             (boolean) Include DFI balances in the EVM layer (default = false): Note: This does not include DST20 tokens  
   
 Result:  
 {...}     (array) Json object with balances information  
@@ -481,7 +481,7 @@ Examples:
 
 <details><summary>transferdomain [{"src":obj,"dst":obj},...]</summary><p>
 transferdomain [{"src":obj,"dst":obj},...]  
-Creates (and submits to local node and network) a tx to transfer balance from DFI/ETH address to DFI/ETH address.  
+Creates (and submits to local node and network) a tx to transfer assets across domains. DVM to EVM/EVM to DVM, etc.  
   
   
 Arguments:  
@@ -607,6 +607,8 @@ getblock "blockhash" ( verbosity )
 If verbosity is 0, returns a string that is serialized, hex-encoded data for block 'hash'.  
 If verbosity is 1, returns an Object with information about block <hash>.  
 If verbosity is 2, returns an Object with information about block <hash> and information about each transaction.   
+If verbosity is 3, returns an Object with version 2 API (DVM, EVM, etc).   
+If verbosity is 4, returns an Object with version 2 API (DVM, EVM, etc with Hex)   
   
 Arguments:  
 1. blockhash    (string, required) The block hash  
@@ -1681,12 +1683,12 @@ Creates (and submits to local node and network) a tx to send DFI token to EVM ad
   
   
 Arguments:  
-1. from        (string, required) From Eth address  
+1. from        (string, required) From ERC55 address  
 2. nonce       (numeric, required) Transaction nonce  
 3. gasPrice    (numeric, required) Gas Price in Gwei  
 4. gasLimit    (numeric, required) Gas limit  
 5. to          (string, required) To address. Can be empty  
-6. value       (numeric, required) Amount to send  
+6. value       (numeric, required) Amount to send in DFI  
 7. data        (string) Hex encoded data. Can be blank.  
   
 Result:  
@@ -6325,8 +6327,8 @@ Give the equivalent of an address from EVM to DVM and versa
 Arguments:  
 1. input    (string, required) DVM address or EVM address  
 2. type     (numeric, required) Map types:   
-            1 - Address format: DFI -> ETH   
-            2 - Address format: ETH -> DFI   
+            1 - Address format: DFI -> ERC55   
+            2 - Address format: ERC55 -> DFI   
               
   
 Result:  
