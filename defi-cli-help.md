@@ -1,4 +1,4 @@
-DeFi Blockchain RPC client version v4.0.0.0-HEAD-49525fdada-dirty
+DeFi Blockchain RPC client version v4.0.0.0-HEAD-7299d54bb6-dirty
 
 [Accounts](#Accounts)
 [Blockchain](#Blockchain)
@@ -1727,8 +1727,8 @@ Arguments:
 1. input    (string, required) DVM address, EVM blockhash, EVM transaction  
 2. type     (numeric, required) Map types:   
             0 - Auto   
-            1 - Block Number: DFI -> EVM (Unsupported yet)   
-            2 - Block Number: EVM -> DFI (Unsupported yet)   
+            1 - Block Number: DFI -> EVM   
+            2 - Block Number: EVM -> DFI   
             3 - Block Hash: DFI -> EVM   
             4 - Block Hash: EVM -> DFI   
             5 - Tx Hash: DFI -> EVM   
