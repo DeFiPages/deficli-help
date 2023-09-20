@@ -1,4 +1,4 @@
-DeFi Blockchain RPC client version v4.0.0.0-HEAD-359f9c593a-dirty
+DeFi Blockchain RPC client version v4.0.0.0-HEAD-95b593b3cd-dirty
 
 [Accounts](#Accounts)
 [Blockchain](#Blockchain)
@@ -492,13 +492,11 @@ Arguments:
            "address": "str",    (string, required) Source address  
            "amount": "str",     (string, required) Amount transfered, the value is amount in amount@token format  
            "domain": n,         (numeric, required) Domain of source: 2 - DVM, 3 - EVM  
-           "data": "str",       (string) Optional data  
          },  
          "dst": {               (json object) Destination arguments  
            "address": "str",    (string, required) Destination address  
            "amount": "str",     (string, required) Amount transfered, the value is amount in amount@token format  
            "domain": n,         (numeric, required) Domain of source: 2 - DVM, 3 - EVM  
-           "data": "str",       (string) Optional data  
          },  
        },  
        ...  
