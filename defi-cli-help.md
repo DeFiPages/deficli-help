@@ -1,4 +1,4 @@
-DeFi Blockchain RPC client version v4.0.0.0-HEAD-95b593b3cd-dirty
+DeFi Blockchain RPC client version v4.0.0.0-HEAD-fdac6e5240-dirty
 
 [Accounts](#Accounts)
 [Blockchain](#Blockchain)
@@ -479,8 +479,8 @@ Examples:
 
 </p></details>
 
-<details><summary>transferdomain [{"src":obj,"dst":obj},...]</summary><p>
-transferdomain [{"src":obj,"dst":obj},...]  
+<details><summary>transferdomain [{"src":obj,"dst":obj,"nonce":n},...]</summary><p>
+transferdomain [{"src":obj,"dst":obj,"nonce":n},...]  
 Creates (and submits to local node and network) a tx to transfer assets across domains. DVM to EVM/EVM to DVM, etc.  
   
   
@@ -498,6 +498,7 @@ Arguments:
            "amount": "str",     (string, required) Amount transfered, the value is amount in amount@token format  
            "domain": n,         (numeric, required) Domain of source: 2 - DVM, 3 - EVM  
          },  
+         "nonce": n,            (numeric) Optional parameter to specify the transaction nonce  
        },  
        ...  
      ]  
@@ -1717,20 +1718,20 @@ Examples:
 
 </p></details>
 
-<details><summary>vmmap "input" type</summary><p>
-vmmap "input" type  
+<details><summary>vmmap "input" ( type )</summary><p>
+vmmap "input" ( type )  
 Give the equivalent of an address, blockhash or transaction from EVM to DVM  
   
 Arguments:  
 1. input    (string, required) DVM address, EVM blockhash, EVM transaction  
-2. type     (numeric, required) Map types:   
-            0 - Auto   
-            1 - Block Number: DFI -> EVM   
-            2 - Block Number: EVM -> DFI   
-            3 - Block Hash: DFI -> EVM   
-            4 - Block Hash: EVM -> DFI   
-            5 - Tx Hash: DFI -> EVM   
-            6 - Tx Hash: EVM -> DFI   
+2. type     (numeric) Map types:   
+            0 - Auto (Default)   
+            1 - Block Number: DVM -> EVM   
+            2 - Block Number: EVM -> DVM   
+            3 - Block Hash: DVM -> EVM   
+            4 - Block Hash: EVM -> DVM   
+            5 - Tx Hash: DVM -> EVM   
+            6 - Tx Hash: EVM -> DVM   
               
   
 Result:  
