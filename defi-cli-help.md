@@ -1,4 +1,4 @@
-DeFi Blockchain RPC client version v4.0.0.0-HEAD-dd2ece4287-dirty
+DeFi Blockchain RPC client version v4.0.0.0-HEAD-6a4cab5560-dirty
 
 [Accounts](#Accounts)
 [Blockchain](#Blockchain)
