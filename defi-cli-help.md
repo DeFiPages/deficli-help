@@ -1,4 +1,4 @@
-DeFi Blockchain RPC client version v4.0.0.0-HEAD-6a4cab5560-dirty
+DeFi Blockchain RPC client version v4.0.0.0-HEAD-2fca0681b2-dirty
 
 [Accounts](#Accounts)
 [Blockchain](#Blockchain)
@@ -2545,7 +2545,7 @@ getmasternode "mn_id"
 Returns information about specified masternode.  
   
 Arguments:  
-1. mn_id    (string, required) Masternode's id  
+1. mn_id    (string, required) Masternode's ID, operator or owner address  
   
 Result:  
 {id:{...}}     (object) Json object with masternode information  
