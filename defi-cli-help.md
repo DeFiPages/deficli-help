@@ -1,4 +1,4 @@
-DeFi Blockchain RPC client version v4.0.2.0-master-5651495b12
+DeFi Blockchain RPC client version v4.0.3.0-master-24b2facc90
 
 [Accounts](#Accounts)
 [Blockchain](#Blockchain)
@@ -479,26 +479,27 @@ Examples:
 
 </p></details>
 
-<details><summary>transferdomain [{"src":obj,"dst":obj,"nonce":n},...]</summary><p>
-transferdomain [{"src":obj,"dst":obj,"nonce":n},...]  
+<details><summary>transferdomain [{"src":obj,"dst":obj,"nonce":n,"singlekeycheck":bool},...]</summary><p>
+transferdomain [{"src":obj,"dst":obj,"nonce":n,"singlekeycheck":bool},...]  
 Creates (and submits to local node and network) a tx to transfer assets across domains. DVM to EVM/EVM to DVM, etc.  
   
   
 Arguments:  
-1. array                        (json array, required) A json array of src and dst json objects  
+1. array                            (json array, required) A json array of src and dst json objects  
      [  
-       {                        (json object)  
-         "src": {               (json object) Source arguments  
-           "address": "str",    (string, required) Source address  
-           "amount": "str",     (string, required) Amount transfered, the value is amount in amount@token format  
-           "domain": n,         (numeric, required) Domain of source: 2 - DVM, 3 - EVM  
+       {                            (json object)  
+         "src": {                   (json object) Source arguments  
+           "address": "str",        (string, required) Source address  
+           "amount": "str",         (string, required) Amount transfered, the value is amount in amount@token format  
+           "domain": n,             (numeric, required) Domain of source: 2 - DVM, 3 - EVM  
          },  
-         "dst": {               (json object) Destination arguments  
-           "address": "str",    (string, required) Destination address  
-           "amount": "str",     (string, required) Amount transfered, the value is amount in amount@token format  
-           "domain": n,         (numeric, required) Domain of source: 2 - DVM, 3 - EVM  
+         "dst": {                   (json object) Destination arguments  
+           "address": "str",        (string, required) Destination address  
+           "amount": "str",         (string, required) Amount transfered, the value is amount in amount@token format  
+           "domain": n,             (numeric, required) Domain of source: 2 - DVM, 3 - EVM  
          },  
-         "nonce": n,            (numeric) Optional parameter to specify the transaction nonce  
+         "nonce": n,                (numeric) Optional parameter to specify the transaction nonce  
+         "singlekeycheck": bool,    (boolean) Optional flag to ensure single key check between the corresponding address types (default = true)  
        },  
        ...  
      ]  
