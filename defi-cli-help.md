@@ -1,4 +1,4 @@
-DeFi Blockchain RPC client version v4.0.3.0-master-24b2facc90
+DeFi Blockchain RPC client version v4.0.4
 
 [Accounts](#Accounts)
 [Blockchain](#Blockchain)
@@ -5480,7 +5480,7 @@ Arguments:
 1. metadata                           (json object)  
      {  
        "symbol": "str",               (string, required) Token's symbol (unique), no longer than 8  
-       "name": "str",                 (string) Token's name (optional), no longer than 128  
+       "name": "str",                 (string) Token's name (optional), no longer than 30  
        "isDAT": bool,                 (boolean) Token's 'isDAT' property (bool, optional), default is 'False'  
        "decimal": n,                  (numeric) Token's decimal places (optional, fixed to 8 for now, unchecked)  
        "limit": n,                    (numeric) Token's total supply limit (optional, zero for now, unchecked)  
