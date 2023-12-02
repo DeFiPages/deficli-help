@@ -1,4 +1,4 @@
-DeFi Blockchain RPC client version v4.0.4
+DeFi Blockchain RPC client version v4.0.5
 
 [Accounts](#Accounts)
 [Blockchain](#Blockchain)
@@ -1677,6 +1677,26 @@ Examples:
 </p></details>
 
 ## Evm
+<details><summary>dumpevmdb ( {"dumparg":"str","from":"str","limit":n} )</summary><p>
+dumpevmdb ( {"dumparg":"str","from":"str","limit":n} )  
+Dump the full evm backend db for debugging.  
+  
+Arguments:  
+1. options                  (json object)  
+     {  
+       "dumparg": "str",    (string) Option to specify dump index  
+       "from": "str",       (string) Specify starting key  
+       "limit": n,          (numeric) Specify dump limit  
+     }  
+  
+Result:  
+"dbdump"                  (string) The full evm backend db dump.This is for debugging purposes only.  
+  
+Examples:  
+> defi-cli dumpevmdb '{"dumparg":"all", "from":<hex>, "limit":100}'  
+
+</p></details>
+
 <details><summary>evmtx "from" nonce gasPrice gasLimit "to" value ( "data" )</summary><p>
 evmtx "from" nonce gasPrice gasLimit "to" value ( "data" )  
 Creates (and submits to local node and network) a tx to send DFI token to EVM address.  
@@ -1699,9 +1719,20 @@ Examples:
 
 </p></details>
 
+<details><summary>logevmaccountstates</summary><p>
+logevmaccountstates  
+Log the full evm account states for debugging.  
+  
+Result:  
+"accountstates"                  (string) The full evm account states.This is for debugging purposes only.  
+  
+Examples:  
+> defi-cli logevmaccountstates   
+
+</p></details>
+
 <details><summary>logvmmaps type</summary><p>
 logvmmaps type  
-  
 Logs all block or tx indexes for debugging.  
   
 Arguments:  
