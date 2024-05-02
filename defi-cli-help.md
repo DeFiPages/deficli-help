@@ -1,4 +1,4 @@
-DeFi Blockchain RPC client version v4.0.6
+DeFi Blockchain RPC client version v4.1.0-beta3
 
 [Accounts](#Accounts)
 [Blockchain](#Blockchain)
@@ -1627,7 +1627,7 @@ When called without an argument, returns the list of categories with status that
 When called with arguments, adds or removes categories from debug logging and return the lists above.  
 The arguments are evaluated in order "include", "exclude".  
 If an item is both included and excluded, it will thus end up being excluded.  
-The valid logging categories are: accountchange, addrman, anchoring, bench, cmpctblock, coindb, customtxbench, db, estimatefee, futureswap, http, leveldb, libevent, loan, mempool, mempoolrej, net, oracle, proxy, prune, rand, reindex, rpc, rpccache, selectcoins, spv, staking, tokensplit, tor, zmq  
+The valid logging categories are: accountchange, addrman, anchoring, bench, cmpctblock, coindb, customtxbench, db, estimatefee, futureswap, http, leveldb, libevent, loan, mempool, mempoolrej, net, oracle, proxy, prune, rand, reindex, rpc, rpccache, selectcoins, spv, staking, swapresult, tokensplit, tor, zmq  
 In addition, the following are available as category names with special meanings:  
   - "all",  "1" : represent all logging categories.  
   - "none", "0" : even if other logging categories are specified, ignore all of them.  
@@ -3098,6 +3098,24 @@ Examples:
 
 </p></details>
 
+<details><summary>getnodestatusinfo</summary><p>
+getnodestatusinfo  
+  
+Returns data about the node status information as a json array of objects.  
+  
+Result:  
+{  
+  "health_status": true|false,     (boolean) Health status flag (sync_to_tip && connected_nodes)   
+  "sync_to_tip": true|false,       (boolean) Whether node is sync-ed to tip  
+  "active_peer_nodes": true|false, (boolean) Whether node is connected to minimum number of active peer nodes. Minimum of 5peer nodes with a lastrecv of less than 300 seconds  
+}  
+  
+Examples:  
+> defi-cli getnodestatusinfo   
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getnodestatusinfo", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8554/  
+
+</p></details>
+
 <details><summary>getpeerinfo</summary><p>
 getpeerinfo  
   
@@ -3691,6 +3709,20 @@ Examples:
 
 </p></details>
 
+<details><summary>listloantokenliquidity</summary><p>
+listloantokenliquidity  
+  
+Returns information about the average liquidity for loan tokens if a sufficient sample is available.  
+  
+Result:  
+{token symbol : value }     (array) JSON object with token ID and average liquidity  
+  
+Examples:  
+> defi-cli listloantokenliquidity   
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "listloantokenliquidity", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8554/  
+
+</p></details>
+
 <details><summary>listpoolpairs ( {"start":n,"including_start":bool,"limit":n} verbose )</summary><p>
 listpoolpairs ( {"start":n,"including_start":bool,"limit":n} verbose )  
   
@@ -3830,8 +3862,8 @@ Examples:
 
 </p></details>
 
-<details><summary>updatepoolpair ( {"pool":"str","status":bool,"commission":n,"ownerAddress":"str","customRewards":"str"} [{"txid":"hex","vout":n},...] )</summary><p>
-updatepoolpair ( {"pool":"str","status":bool,"commission":n,"ownerAddress":"str","customRewards":"str"} [{"txid":"hex","vout":n},...] )  
+<details><summary>updatepoolpair ( {"pool":"str","status":bool,"commission":n,"ownerAddress":"str","customRewards":"str","name":"str","symbol":"str"} [{"txid":"hex","vout":n},...] )</summary><p>
+updatepoolpair ( {"pool":"str","status":bool,"commission":n,"ownerAddress":"str","customRewards":"str","name":"str","symbol":"str"} [{"txid":"hex","vout":n},...] )  
   
 Creates (and submits to local node and network) a pool status update transaction.  
 The second optional argument (may be empty array) is an array of specific UTXOs to spend. One of UTXO's must belong to the pool's owner (collateral) address  
@@ -3844,6 +3876,8 @@ Arguments:
        "commission": n,           (numeric) Pool commission, up to 10^-8  
        "ownerAddress": "str",     (string) Address of the pool owner.  
        "customRewards": "str",    (string) Token reward to be paid on each block, multiple can be specified.  
+       "name": "str",             (string, required) Pool name  
+       "symbol": "str",           (string, required) Pool symbol  
      }  
 2. inputs                         (json array, optional) A json array of json objects  
      [  
