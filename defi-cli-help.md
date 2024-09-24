@@ -1,4 +1,4 @@
-DeFi Blockchain RPC client version v4.1.0-beta3
+DeFi Blockchain RPC client version v4.1.9
 
 [Accounts](#Accounts)
 [Blockchain](#Blockchain)
@@ -231,6 +231,22 @@ Examples:
 
 </p></details>
 
+<details><summary>getlockedtokens "address"</summary><p>
+getlockedtokens "address"  
+  
+Get specific locked tokens.  
+  
+Arguments:  
+1. address    (string, required) Address to get all locked tokens  
+  
+Result:  
+["amount1@token1","amount1@token1"...]  
+  
+Examples:  
+> defi-cli getlockedtokens address  
+
+</p></details>
+
 <details><summary>getpendingdusdswaps "address"</summary><p>
 getpendingdusdswaps "address"  
 Get specific pending DFI-to-DUSD swap.  
@@ -393,6 +409,20 @@ Examples:
 
 </p></details>
 
+<details><summary>listlockedtokens</summary><p>
+listlockedtokens  
+Get all locked loan tokens.  
+  
+Result:  
+"json"      (string) array containing json-objects having following fields:  
+    owner  :  "address"  
+    values : ["amount1@token1","amount1@token1"...]  
+  
+Examples:  
+> defi-cli listlockedtokens   
+
+</p></details>
+
 <details><summary>listpendingdusdswaps</summary><p>
 listpendingdusdswaps  
 Get all pending DFI-to_DUSD swaps.  
@@ -424,6 +454,31 @@ Result:
   
 Examples:  
 > defi-cli listpendingfutureswaps   
+
+</p></details>
+
+<details><summary>releaselockedtokens releasePart ( [{"txid":"hex","vout":n},...] )</summary><p>
+releaselockedtokens releasePart ( [{"txid":"hex","vout":n},...] )  
+  
+releases a tranche of locked loan tokens  
+  
+Arguments:  
+1. releasePart             (numeric, required) Percentagepoints to be released  
+2. inputs                  (json array, optional) A json array of json objects  
+     [  
+       {                   (json object)  
+         "txid": "hex",    (string, required) The transaction id  
+         "vout": n,        (numeric, required) The output number  
+       },  
+       ...  
+     ]  
+  
+Result:  
+"hash"                  (string) The hex-encoded hash of broadcasted transaction  
+  
+Examples:  
+> defi-cli releaselockedtokens 3  
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "releaselockedtokens", "params": [1.23] }' -H 'content-type: text/plain;' http://127.0.0.1:8554/  
 
 </p></details>
 
@@ -570,6 +625,29 @@ Examples:
 </p></details>
 
 ## Blockchain
+<details><summary>cleargovheights ( [{"txid":"hex","vout":n},...] )</summary><p>
+cleargovheights ( [{"txid":"hex","vout":n},...] )  
+  
+Clear all pending setgovheight and unsetgovheight changes  
+  
+Arguments:  
+1. inputs                  (json array, optional) A json array of json objects  
+     [  
+       {                   (json object)  
+         "txid": "hex",    (string, required) The transaction id  
+         "vout": n,        (numeric, required) The output number  
+       },  
+       ...  
+     ]  
+  
+Result:  
+"hash"                  (string) The hex-encoded hash of broadcasted transaction  
+  
+Examples:  
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "cleargovheights", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8554/  
+
+</p></details>
+
 <details><summary>clearmempool</summary><p>
 clearmempool  
   
@@ -1521,6 +1599,35 @@ Examples:
 
 </p></details>
 
+<details><summary>unsetgovheight {"name":"str"} height ( [{"txid":"hex","vout":n},...] )</summary><p>
+unsetgovheight {"name":"str"} height ( [{"txid":"hex","vout":n},...] )  
+  
+Unset governance variables at height: ATTRIBUTES, ICX_TAKERFEE_PER_BTC, LP_LOAN_TOKEN_SPLITS, LP_SPLITS, ORACLE_BLOCK_INTERVAL, ORACLE_DEVIATION  
+  
+Arguments:  
+1. variables               (json object, required) Object with variables  
+     {  
+       "name": "str",      (string, required) Variable's name is the key.  
+     }  
+2. height                  (numeric, required) Start height for the changes to take effect.  
+3. inputs                  (json array, optional) A json array of json objects  
+     [  
+       {                   (json object)  
+         "txid": "hex",    (string, required) The transaction id  
+         "vout": n,        (numeric, required) The output number  
+       },  
+       ...  
+     ]  
+  
+Result:  
+"hash"                  (string) The hex-encoded hash of broadcasted transaction  
+  
+Examples:  
+> defi-cli unsetgovheight '{"LP_SPLITS": ["2","3"]}'  
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "unsetgovheight", "params": ['{"ATTRIBUTES": ["v0/params/feature/pizza-party"]}'] }' -H 'content-type: text/plain;' http://127.0.0.1:8554/  
+
+</p></details>
+
 <details><summary>verifychain ( checklevel nblocks )</summary><p>
 verifychain ( checklevel nblocks )  
   
@@ -1627,7 +1734,7 @@ When called without an argument, returns the list of categories with status that
 When called with arguments, adds or removes categories from debug logging and return the lists above.  
 The arguments are evaluated in order "include", "exclude".  
 If an item is both included and excluded, it will thus end up being excluded.  
-The valid logging categories are: accountchange, addrman, anchoring, bench, cmpctblock, coindb, customtxbench, db, estimatefee, futureswap, http, leveldb, libevent, loan, mempool, mempoolrej, net, oracle, proxy, prune, rand, reindex, rpc, rpccache, selectcoins, spv, staking, swapresult, tokensplit, tor, zmq  
+The valid logging categories are: accountchange, addrman, anchoring, bench, cmpctblock, coindb, connect, customtxbench, db, estimatefee, futureswap, http, leveldb, libevent, loan, mempool, mempoolrej, net, oracle, proxy, prune, rand, reindex, rpc, rpccache, selectcoins, spv, staking, swapresult, tokensplit, tor, zmq  
 In addition, the following are available as category names with special meanings:  
   - "all",  "1" : represent all logging categories.  
   - "none", "0" : even if other logging categories are specified, ignore all of them.  
@@ -5698,28 +5805,30 @@ Examples:
 
 </p></details>
 
-<details><summary>updatetoken "token" ( {"symbol":"str","name":"str","isDAT":bool,"mintable":bool,"tradeable":bool,"finalize":bool} [{"txid":"hex","vout":n},...] )</summary><p>
-updatetoken "token" ( {"symbol":"str","name":"str","isDAT":bool,"mintable":bool,"tradeable":bool,"finalize":bool} [{"txid":"hex","vout":n},...] )  
+<details><summary>updatetoken "token" ( {"symbol":"str","name":"str","isDAT":bool,"mintable":bool,"tradeable":bool,"finalize":bool,"deprecate":bool,"collateralAddress":"str"} [{"txid":"hex","vout":n},...] )</summary><p>
+updatetoken "token" ( {"symbol":"str","name":"str","isDAT":bool,"mintable":bool,"tradeable":bool,"finalize":bool,"deprecate":bool,"collateralAddress":"str"} [{"txid":"hex","vout":n},...] )  
   
 Creates (and submits to local node and network) a transaction of token promotion to isDAT or demotion from isDAT. Collateral will be unlocked.  
 The second optional argument (may be empty array) is an array of specific UTXOs to spend. One of UTXO's must belong to the token's owner (collateral) address  
   
 Arguments:  
-1. token                     (string, required) The tokens's symbol, id or creation tx  
-2. metadata                  (json object)  
+1. token                              (string, required) The tokens's symbol, id or creation tx  
+2. metadata                           (json object)  
      {  
-       "symbol": "str",      (string) New token's symbol, no longer than 8  
-       "name": "str",        (string) New token's name (optional), no longer than 128  
-       "isDAT": bool,        (boolean) Token's 'isDAT' property (bool, optional), default is 'False'  
-       "mintable": bool,     (boolean) Token's 'Mintable' property (bool, optional)  
-       "tradeable": bool,    (boolean) Token's 'Tradeable' property (bool, optional)  
-       "finalize": bool,     (boolean) Lock token properties forever (bool, optional)  
+       "symbol": "str",               (string) New token's symbol, no longer than 8  
+       "name": "str",                 (string) New token's name (optional), no longer than 128  
+       "isDAT": bool,                 (boolean) Token's 'isDAT' property (bool, optional), default is 'False'  
+       "mintable": bool,              (boolean) Token's 'Mintable' property (bool, optional)  
+       "tradeable": bool,             (boolean) Token's 'Tradeable' property (bool, optional)  
+       "finalize": bool,              (boolean) Lock token properties forever (bool, optional)  
+       "deprecate": bool,             (boolean) Marks a token as deprecated and attaches end of life prefix to symbol (bool, optional)  
+       "collateralAddress": "str",    (string) New collateral address to transfer token ownership to (string, optional)  
      }  
-3. inputs                    (json array, optional) A json array of json objects. Provide it if you want to spent specific UTXOs  
+3. inputs                             (json array, optional) A json array of json objects. Provide it if you want to spent specific UTXOs  
      [  
-       {                     (json object)  
-         "txid": "hex",      (string, required) The transaction id  
-         "vout": n,          (numeric, required) The output number  
+       {                              (json object)  
+         "txid": "hex",               (string, required) The transaction id  
+         "vout": n,                   (numeric, required) The output number  
        },  
        ...  
      ]  
