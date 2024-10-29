@@ -1,4 +1,4 @@
-DeFi Blockchain RPC client version v4.1.9
+DeFi Blockchain RPC client version v4.2.1
 
 [Accounts](#Accounts)
 [Blockchain](#Blockchain)
@@ -1734,7 +1734,7 @@ When called without an argument, returns the list of categories with status that
 When called with arguments, adds or removes categories from debug logging and return the lists above.  
 The arguments are evaluated in order "include", "exclude".  
 If an item is both included and excluded, it will thus end up being excluded.  
-The valid logging categories are: accountchange, addrman, anchoring, bench, cmpctblock, coindb, connect, customtxbench, db, estimatefee, futureswap, http, leveldb, libevent, loan, mempool, mempoolrej, net, oracle, proxy, prune, rand, reindex, rpc, rpccache, selectcoins, spv, staking, swapresult, tokensplit, tor, zmq  
+The valid logging categories are: accountchange, addrman, anchoring, bench, cmpctblock, coindb, connect, customtxbench, db, estimatefee, futureswap, http, icxbug, leveldb, libevent, loan, mempool, mempoolrej, net, ocean, oracle, proxy, prune, rand, reindex, rpc, rpccache, selectcoins, spv, staking, swapresult, tokensplit, tor, zmq  
 In addition, the following are available as category names with special meanings:  
   - "all",  "1" : represent all logging categories.  
   - "none", "0" : even if other logging categories are specified, ignore all of them.  
